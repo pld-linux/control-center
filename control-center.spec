@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.10.0
-Release:	4
+Version:	2.10.1
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	23ee64b8e559cce4aa6beb70ad675130
+# Source0-md5:	d95a5746aa349536dc0f59c61cdaf19f
 Patch0:		%{name}-randr.patch
 #Patch1:		%{name}-def-apps-capplet.patch
 Patch2:		%{name}-wm_properties-dir.patch
@@ -36,14 +36,14 @@ BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.10.0-2
-BuildRequires:	gnome-menus-devel >= 2.10.0-2
+BuildRequires:	gnome-menus-devel >= 2.10.1
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 BuildRequires:	gstreamer-plugins-devel >= 0.8.8
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
-BuildRequires:	libxml2-devel >= 1:2.6.17
+BuildRequires:	libxml2-devel >= 1:2.6.19
 BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.10.0
@@ -178,17 +178,21 @@ rm -rf $RPM_BUILD_ROOT
 /usr/bin/update-desktop-database
 
 %preun
-%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_font_rendering.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/fontilus.schemas
-%gconf_schema_uninstall /etc/gconf/schemas/themus.schemas
+if [ $1 = 0 ]; then
+	%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_font_rendering.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/fontilus.schemas
+	%gconf_schema_uninstall /etc/gconf/schemas/themus.schemas
+fi
 
 %postun
-/sbin/ldconfig
-/usr/bin/update-desktop-database
+if [ $1 = 0 ]; then
+	/sbin/ldconfig
+	/usr/bin/update-desktop-database
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
