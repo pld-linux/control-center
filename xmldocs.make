@@ -40,7 +40,7 @@
 docdir = $(datadir)/gnome/help/$(docname)/$(lang)
 
 # **************  You should not have to edit below this line  *******************
-xml_files = $(entities) $(docname).xml
+xml_files = $(entities)
 
 EXTRA_DIST = $(xml_files) $(omffile)
 CLEANFILES = omf_timestamp
