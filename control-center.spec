@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/control-center
 %{_applnkdir}/Settings/GNOME
 %dir %{_datadir}/gnome/wm-properties
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)
