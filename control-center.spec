@@ -24,7 +24,7 @@ URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	ORBit2-devel >= 2.9.8
-BuildRequires:	audiofile >= 0.2.5-2
+BuildRequires:	audiofile >= 1:0.2.5-2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
