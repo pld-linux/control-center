@@ -35,6 +35,7 @@ BuildRequires:	findutils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.6.0
 BuildRequires:	gnome-vfs2-devel >= 2.6.0
+BuildRequires:	gstreamer-plugins-devel >= 0.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libbonobo-devel >= 2.6.0
@@ -145,6 +146,7 @@ intltoolize --copy --force
 %{__automake}
 %configure \
 	--disable-schemas-install \
+	--enable-gstreamer \
 	X_EXTRA_LIBS="-lXext"
 
 %{__make}
