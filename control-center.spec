@@ -22,6 +22,7 @@ Patch6:		%{name}-wm_properties-dir.patch
 Patch7:		%{name}-additional-metacity-keybinding.patch
 Patch8:		%{name}-pixmaps-dirs.patch
 Patch9:		%{name}-capplets-dir.patch
+Patch10:	%{name}-themus-glade.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.3.3
@@ -132,6 +133,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 glib-gettextize --copy --force
@@ -183,7 +185,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %{_datadir}/application-registry/*
 %{_datadir}/control-center-2.0
-%{_datadir}/control-center
 %{_datadir}/gnome/cursor-fonts
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
