@@ -10,12 +10,14 @@ License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(es):	X11/Aplicaciones
+Group(fr):	X11/Applications
 Group(pl):	X11/Aplikacje
 Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
+Group(ru):	X11/ðÒÉÌÏÖÅÎÉÑ
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
-Patch1:		%{name}-gettext.patch
+Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-wm-properties_path.patch
 Patch3:		%{name}-esdrelease.patch
 Patch4:		%{name}-pldrelease.patch
@@ -79,7 +81,7 @@ Summary(es):	Archivos para desarrollo con el control-center del GNOME
 Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
 Summary(pt_BR):	Arquivos para desenvolvimento com o control-center do GNOME
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
+Group(de):	X11/Entwicklung/Bibliotheken
 Group(es):	X11/Desarrollo/Bibliotecas
 Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
@@ -110,7 +112,7 @@ Summary(es):	Archivos estáticos para desarrollo con el control-center del GNOME
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
 Summary(pt_BR):	Arquivos estáticos para desenvolvimento com o control-center
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
+Group(de):	X11/Entwicklung/Bibliotheken
 Group(es):	X11/Desarrollo/Bibliotecas
 Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
@@ -146,13 +148,15 @@ contém somente os arquivos estáticos.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p0
+%patch4 -p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
 
 %build
+sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
+mv -f configure.in.tmp configure.in
 rm -f missing
 xml-i18n-toolize --copy --force
 libtoolize --copy --force
@@ -168,8 +172,6 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/UIOptions
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
@@ -179,7 +181,6 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.d
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
 	
 find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
-find $RPM_BUILD_ROOT%{_datadir}/gnome/apps -name .directory | xargs rm -f
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -206,7 +207,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Settings/GNOME
 %{_omf_dest_dir}/omf/%{name}
 %dir %{_datadir}/gnome/wm-properties
-%{_datadir}/gnome/apps
 %{_pixmapsdir}/*
 %{_datadir}/idl/*
 
