@@ -5,29 +5,27 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.8.2
+Version:	2.10.0
 Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	898ef25391c0330a31f36812fdc8a02f
-Patch0:		%{name}-fontconfig.patch
-Patch1:		%{name}-randr.patch
-#Patch2:		%{name}-def-apps-capplet.patch
-Patch3:		%{name}-wm_properties-dir.patch
-Patch4:		%{name}-additional-metacity-keybinding.patch
-Patch5:		%{name}-capplets-dir.patch
-Patch6:		%{name}-dpi.patch
-Patch7:		%{name}-reduced_resources.patch
-Patch8:		%{name}-def-apps-capplet-browsers.patch
-Patch9:		%{name}-evolution.patch
-Patch10:	%{name}-capplet.patch
-Patch11:	%{name}-desktop.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	23ee64b8e559cce4aa6beb70ad675130
+Patch0:		%{name}-randr.patch
+#Patch1:		%{name}-def-apps-capplet.patch
+Patch2:		%{name}-wm_properties-dir.patch
+Patch3:		%{name}-additional-metacity-keybinding.patch
+Patch4:		%{name}-dpi.patch
+Patch5:		%{name}-reduced_resources.patch
+Patch6:		%{name}-def-apps-capplet-browsers.patch
+Patch7:		%{name}-capplet.patch
+Patch8:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.8.0
-BuildRequires:	ORBit2-devel >= 1:2.12.0
+BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	ORBit2-devel >= 1:2.12.1
+BuildRequires:	alsa-lib-devel >= 0.9.0
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,25 +34,25 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.8.0
-BuildRequires:	gnome-vfs2-devel >= 2.8.0
-BuildRequires:	gstreamer-plugins-devel >= 0.8.4
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	intltool >= 0.30
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnomeui-devel >= 2.8.0
-BuildRequires:	libxml2-devel >= 2.6.13
-BuildRequires:	libxklavier-devel >= 1.03
+BuildRequires:	gnome-desktop-devel >= 2.10.0-2
+BuildRequires:	gnome-menus-devel >= 2.10.0-2
+BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
+BuildRequires:	gstreamer-plugins-devel >= 0.8.8
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libxml2-devel >= 1:2.6.17
+BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.8.5
-BuildRequires:	nautilus-devel >= 2.8.0
+BuildRequires:	metacity-devel >= 2:2.10.0
+BuildRequires:	nautilus-devel >= 2.10.0-3
 BuildRequires:	scrollkeeper >= 0.3.12
-BuildRequires:	startup-notification-devel >= 0.7
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.8.0
+Requires:	gnome-vfs2 >= 2.10.0-2
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -124,18 +122,15 @@ Statyczne biblioteki GNOME Control-Center.
 
 %prep
 %setup -q
-%patch0 -p1 -b .wiget
-%patch1 -p1
-##%patch2 -p1
+%patch0 -p1
+##%patch1 -p1
+%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1
+%patch6 -p1 
 %patch7 -p1
 %patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
 
 %build
 glib-gettextize --copy --force
@@ -157,12 +152,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_iconsdir}/gnome/48x48/apps/accessibility-directory.png \
-	$RPM_BUILD_ROOT%{_pixmapsdir}
-
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
-rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions*/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-2.0/modules/*.{a,la}
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
@@ -184,23 +176,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/*
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/fontilus-context-menu
 %attr(755,root,root) %{_libdir}/gnome-settings-daemon
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/bonobo/*.so
+%attr(755,root,root) %{_libdir}/nautilus/extensions*/*.so
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
 %dir %{_libdir}/window-manager-settings
 %{_libdir}/bonobo/servers/*
-%{_datadir}/application-registry/*
 %{_datadir}/control-center-2.0
 %{_datadir}/gnome/cursor-fonts
 %{_datadir}/gnome/vfolders/*
-%{_datadir}/gnome-2.0/ui/*
-%{_datadir}/gnome/capplets
 %{_datadir}/idl/*
-%{_datadir}/mime-info/*
-%{_pixmapsdir}/gnomecc-2
+%{_iconsdir}/*/*/*/gnome-control-center.png
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*
 
