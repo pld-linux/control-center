@@ -1,0 +1,45 @@
+diff -Nuard control-center-2.4.0.orig/capplets/theme-switcher/gnome-theme-installer.c control-center-2.4.0/capplets/theme-switcher/gnome-theme-installer.c
+--- control-center-2.4.0.orig/capplets/theme-switcher/gnome-theme-installer.c	2003-01-16 08:40:29.000000000 +0100
++++ control-center-2.4.0/capplets/theme-switcher/gnome-theme-installer.c	2003-11-19 23:45:37.518048240 +0100
+@@ -105,6 +105,7 @@
+ 	GnomeVFSURI *src_uri;
+ 	const gchar *raw;
+ 	gboolean icon_theme;
++	gchar *temppath;
+ 	
+ 	if (response_id == GTK_RESPONSE_HELP) {
+ 		capplet_help (GTK_WINDOW (widget),
+@@ -133,6 +134,33 @@
+ 			path = g_build_filename (g_get_home_dir (), ".icons", base, NULL);
+ 		else
+ 			path = g_build_filename (g_get_home_dir (), ".themes", base, NULL);
++
++		/* To avoid the copy of /root/.themes to /root/.themes/.themes 
++		 * which causes an infinite loop. The user asks to transfer the all 
++         * contents of a folder, to a folder under itseld. So ignore the 		
++		 * situation.		
++		 */
++		temppath = g_build_filename (filename, ".themes", NULL);
++		if (!strcmp(temppath, path))	{
++	      GtkWidget *dialog;
++
++	      dialog = gtk_message_dialog_new (NULL,
++				       GTK_DIALOG_MODAL,
++				       GTK_MESSAGE_ERROR,
++				       GTK_BUTTONS_OK,
++				       _("%s is the path where the theme files will be installed. This can not be selected as the source location"), filename);
++    	  gtk_dialog_run (GTK_DIALOG (dialog));
++      	  gtk_widget_destroy (dialog);
++			
++			g_free (base);
++			g_free (filename);
++			g_free(temppath);			
++			return;
++		}
++		g_free(temppath);
++			
++
++
+ 		target = g_list_append (NULL, gnome_vfs_uri_new (path));
+ 		
+ 		dlg = file_transfer_dialog_new ();
