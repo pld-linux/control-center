@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	1.4.0.5
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -41,8 +41,8 @@ BuildRequires:	libtool
 BuildRequires:	oaf-devel
 BuildRequires:	zlib-devel
 BuildRequires:  libxml-devel
-PreReq:		/sbin/ldconfig
-PreReq:		scrollkeeper
+Requires(post,postun):	/sbin/ldconfig
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -207,8 +207,6 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.d
 
 find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 %find_lang %{name} --with-gnome
 
 %clean
@@ -224,6 +222,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog NEWS README
 %{_sysconfdir}/CORBA/servers/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
@@ -237,7 +236,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
