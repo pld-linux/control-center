@@ -166,7 +166,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/control-center-2.0
 %dir %{_datadir}/control-center-2.0/capplets
 %{_libdir}/bonobo/servers/*
-%{_datadir}/applications/*
 %{_datadir}/application-registry/*
 %{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/control-center-2.0/icons
@@ -180,12 +179,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime-info/*
 %{_pixmapsdir}/gnomecc-2
 %{_pixmapsdir}/*.png
+%{_desktopdir}/*
 
 %files devel
 %defattr(644,root,root,755)                                                     
-%{_includedir}/gnome-window-settings-2.0
-%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_includedir}/gnome-window-settings-2.0
 %{_pkgconfigdir}/*.pc
 
 %files static                                                                   
