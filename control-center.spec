@@ -1,30 +1,20 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.0.5
-Release:	22
+Version:	1.0.40
+Release:	1
 Copyright:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
 Source:		ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
-Source1:	control-center.png
-Source2:	gnomecc.desktop
 Patch0:		control-center-nosound.patch
 Patch1:		control-center-esdrelease.patch
 Patch2:		control-center-bgcolor1.patch
 Patch3:		control-center-fsbgpath.patch
 Patch4:		control-center-dontstartesd.patch
-Patch5:		control-center-newsession.patch
-Patch6:		control-center-fixclosedlg.patch 
-Patch7:		control-center-limitedbgs.patch
-Patch8:		control-center-smfixtry.patch
-Patch9:		control-center-quietdebug.patch
-Patch10:	control-center-geditfixtry.patch
-Patch11:	control-center-addmime.patch
-Patch12:	control-center-noscreensaver.patch
-Patch13:	control-center-numwallpapers.patch
-Patch14:	control-center-warning.patch
-URL:		http://www.gnome.org/
+Patch5:		control-center-limitedbgs.patch
+Patch6:		control-center-smfixtry.patch
+Patch7:	control-center-numwallpapers.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	gtk+-devel >= 1.1.16
@@ -36,6 +26,9 @@ BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	gnome
+
+%define		_prefix		/usr/X11R6
+%define		_sysconfdir	/etc/X11/GNOME
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -80,30 +73,19 @@ Statyczne biblioteki dla centrum kontroli GNOME
 
 %prep
 %setup -q
-%patch0  -p1
-%patch1  -p1
-%patch2  -p1
-%patch3  -p1
-%patch4  -p1
-%patch5  -p1
-%patch6  -p1
-%patch7  -p1
-%patch8  -p1
-%patch9  -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
-
-cp %{SOURCE1} %{SOURCE2} control-center
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 %build
 gettextize --force --copy
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
-	--sysconfdir=/etc/X11/GNOME
+LDFLAGS="-s"; export LDFLAGS 
+%configure 
 
 make
 
@@ -112,12 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
-strip --strip-unneeded $RPM_BUILD_ROOT/usr/X11R6/lib/lib*.so.*.*
-
-rm -f $RPM_BUILD_ROOT/usr/X11R6/bin/ui-properties
-rm -rf $RPM_BUILD_ROOT/usr/X11R6/share/control-center/UIOptions
-rm -rf $RPM_BUILD_ROOT/usr/X11R6/share/gnome/apps/Settings/UIOptions
-                                                                                                              
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -132,21 +109,23 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 
 %defattr(644,root,root,755)
-/etc/X11/GNOME/CORBA/servers/*
-%attr(755,root,root) /usr/X11R6/bin/*
-%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
+%{_sysconfdir}/CORBA/servers/*
+%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
-/usr/X11R6/share/control-center
-/usr/X11R6/share/gnome/
-/usr/X11R6/share/pixmaps/*
+%{_datadir}/control-center
+%{_datadir}/gnome/apps/Settings
+%{_datadir}/gnome/wm-properties
+%{_datadir}/pixmaps/*
 
 %files devel
 %defattr(644,root,root,755)
 %doc *gz
-%attr(755,root,root) /usr/X11R6/lib/lib*.so
-/usr/X11R6/share/idl/*
-/usr/X11R6/include/*
-%attr(755,root,root) /usr/X11R6/lib/*.sh
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/*.sh
+%{_datadir}/idl/*
+%{_includedir}/*
 
 %files static
-%attr(644,root,root) /usr/X11R6/lib/lib*.a
+%attr(644,root,root) %{_libdir}/lib*.a
