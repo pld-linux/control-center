@@ -229,7 +229,7 @@ diff -Nuard control-center-2.4.0.orig/po/pl.po control-center-2.4.0/po/pl.po
  
 +#: capplets/windows/gnome-window-properties.glade.h:7
 +msgid "<b>Reduced Resources</b>"
-+msgstr ""
++msgstr "Zredukowane zasoby"
 +
 +#: capplets/windows/gnome-window-properties.glade.h:7
 +msgid "_Use wireframe move/resize"
