@@ -5,25 +5,25 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.9.91
-Release:	0.2
+Version:	2.10.0
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	99a8c387fa207f07c2e393f6c772dcd4
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	23ee64b8e559cce4aa6beb70ad675130
 Patch0:		%{name}-randr.patch
 #Patch1:		%{name}-def-apps-capplet.patch
 Patch2:		%{name}-wm_properties-dir.patch
 Patch3:		%{name}-additional-metacity-keybinding.patch
 Patch4:		%{name}-dpi.patch
-Patch5:		%{name}-reduced_resources.patch
+#Patch5:		%{name}-reduced_resources.patch
 Patch6:		%{name}-def-apps-capplet-browsers.patch
 Patch7:		%{name}-capplet.patch
 Patch8:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.9.90
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	alsa-lib-devel >= 0.9.0
 BuildRequires:	audiofile >= 1:0.2.6
@@ -34,25 +34,25 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.9.91
-BuildRequires:	gnome-menus-devel >= 2.9.90
-BuildRequires:	gnome-vfs2-devel >= 2.9.90
-BuildRequires:	gstreamer-plugins-devel >= 0.8.7
-BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	intltool >= 0.30
-BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnomeui-devel >= 2.9.1
-BuildRequires:	libxml2-devel >= 2.6.13
-BuildRequires:	libxklavier-devel >= 1.14
+BuildRequires:	gnome-desktop-devel >= 2.10.0
+BuildRequires:	gnome-menus-devel >= 2.10.0
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
+BuildRequires:	gstreamer-plugins-devel >= 0.8.8
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libxml2-devel >= 2.6.17
+BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.9.8
-BuildRequires:	nautilus-devel >= 2.9.90
+BuildRequires:	metacity-devel >= 2:2.10.0
+BuildRequires:	nautilus-devel >= 2.10.0
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.9.90
+Requires:	gnome-vfs2 >= 2.10.0
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -127,7 +127,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
+#%patch5 -p1
 %patch6 -p1 
 %patch7 -p1
 %patch8 -p1
