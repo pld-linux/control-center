@@ -6,11 +6,12 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	1.4.0.5
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/control-center/1.4/%{name}-%{version}.tar.gz
+# Source0-md5:	b4b2bd3362d9b047dbbccd1e9ba45738
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-wm-properties_path.patch
