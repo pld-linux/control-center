@@ -3,8 +3,8 @@ Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
 Name:		control-center
-Version:	1.4.0.1
-Release:	20
+Version:	1.4.0.3
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -24,10 +24,11 @@ Patch6:		%{name}-am_conditional.patch
 Patch7:		%{name}-pixbuf_cflags.patch
 Patch8:		%{name}-uipropertiesmenu.patch
 Patch9:		%{name}-setroothint.patch
+Patch10:	%{name}-no_mans.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
-BuildRequires:	ORBit-devel
+BuildRequires:	ORBit-devel >= 0.5.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -44,8 +45,8 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	oaf-devel
 BuildRequires:	zlib-devel
-Prereq:		/sbin/ldconfig
-Prereq:		scrollkeeper
+PreReq:		/sbin/ldconfig
+PreReq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -144,15 +145,16 @@ contém somente os arquivos estáticos.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1 obsolette
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p0
 %patch6 -p1
-%patch7 -p1
+#%patch7 -p1 obsolette
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 rm -f missing
@@ -170,6 +172,8 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/UIOptions
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
@@ -178,12 +182,8 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.d
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
 	
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Settings/*.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
-cp    $RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/*.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop
-
-find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs | rm -f
+find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
+find $RPM_BUILD_ROOT%{_datadir}/gnome/apps -name .directory | xargs rm -f
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -210,15 +210,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Settings/GNOME
 %{_omf_dest_dir}/omf/%{name}
 %dir %{_datadir}/gnome/wm-properties
+%{_datadir}/gnome/apps
 %{_pixmapsdir}/*
+%{_datadir}/idl/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc *gz
+%doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
-%{_datadir}/idl/*
 %{_includedir}/*
 
 %files static
