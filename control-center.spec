@@ -10,8 +10,8 @@ Release:	5
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/control-center/1.4/%{name}-%{version}.tar.gz
-# Source0-md5:	b4b2bd3362d9b047dbbccd1e9ba45738
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/control-center/1.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	63e731f7c9f5fca354de5de4f881e952
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-wm-properties_path.patch
@@ -22,6 +22,7 @@ Patch6:		%{name}-uipropertiesmenu.patch
 Patch7:		%{name}-setroothint.patch
 Patch8:		%{name}-no_mans.patch
 Patch9:		%{name}-omf.patch
+Patch10:	%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
@@ -181,6 +182,7 @@ GNOME.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
