@@ -2,7 +2,7 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.0.53
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
@@ -30,8 +30,8 @@ Obsoletes:	gnome
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
-A Configuration tool for easily setting up your GNOME environment. GNOME
-is the GNU Network Object Model Environment. That's a fancy name but really
+A Configuration tool for easily setting up your GNOME environment. GNOME is
+the GNU Network Object Model Environment. That's a fancy name but really
 GNOME is a nice GUI desktop environment. It makes using your computer easy,
 powerful, and easy to configure.
 
@@ -91,6 +91,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 
 make DESTDIR=$RPM_BUILD_ROOT install
+
+rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
