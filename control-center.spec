@@ -3,7 +3,7 @@ Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
 Name:		control-center
-Version:	1.4.0.3
+Version:	1.4.0.4
 Release:	1
 Epoch:		1
 License:	GPL
