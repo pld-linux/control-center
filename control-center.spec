@@ -5,7 +5,7 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.3.1
+Version:	2.3.2
 Release:	1
 Epoch:		1
 License:	GPL
@@ -25,12 +25,12 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.3.1
-BuildRequires:	gnome-vfs2-devel >= 2.3.1
+BuildRequires:	gnome-desktop-devel >= 2.3.2
+BuildRequires:	gnome-vfs2-devel >= 2.3.2
 BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonobo-devel >= 2.2.1
-BuildRequires:	libbonoboui-devel >= 2.2.0.1
+BuildRequires:	libbonoboui-devel >= 2.2.2
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.3.0
 BuildRequires:	libgnomeui-devel >= 2.3.0
@@ -40,9 +40,11 @@ BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	xft-devel >= 2.1.1
-Requires:	gnome-vfs2 >= 2.3.1
+Requires:	gnome-vfs2 >= 2.3.2
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
+Obsoletes:	themus
+Obsoletes:	fontilus
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -132,6 +134,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-2.0/modules/*.{a,la}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -149,13 +153,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gnome-vfs-2.0/modules/*
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/fontilus-context-menu
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_libdir}/bonobo/servers/*
+%attr(755,root,root) %{_libdir}/bonobo/*.so
+%attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
-%{_datadir}/applications/*
 %dir %{_datadir}/control-center-2.0
 %dir %{_datadir}/control-center-2.0/capplets
+%{_libdir}/bonobo/servers/*
+%{_datadir}/applications/*
+%{_datadir}/application-registry/*
 %{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/control-center-2.0/icons
 %{_datadir}/control-center-2.0/interfaces
@@ -165,6 +174,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/idl/*
+%{_datadir}/mime-info/*
 %{_pixmapsdir}/gnomecc-2
 %{_pixmapsdir}/*.png
 
