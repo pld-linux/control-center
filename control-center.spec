@@ -53,6 +53,7 @@ PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
 Requires:	gnome-vfs2 >= 2.5.0
+Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
 Obsoletes:	themus
@@ -99,7 +100,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control-Center header files
 Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}%{release}
 
 %description devel
 GNOME Control-Center header files.
@@ -111,7 +112,7 @@ Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Summary:	GNOME Control-Center static libraries
 Summary(pl):	Statyczne biblioteki GNOME Control-Center
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 GNOME Control-Center static libraries.
