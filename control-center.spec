@@ -66,7 +66,7 @@ Requires:	%{name}-devel = %{version}
 GNOME control-center static libraries.
 
 %description -l pl
-Statyczne biblioteki dla centrum kontroli GNOME
+Statyczne biblioteki dla centrum kontroli GNOME.
 
 %prep
 %setup -q
@@ -92,7 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop
+rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
