@@ -5,41 +5,34 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.4.0.5
-Release:	1
+Version:	1.99.7
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
-Patch0:		%{name}-macros.patch
-Patch1:		%{name}-applnk.patch
-Patch2:		%{name}-wm-properties_path.patch
-Patch3:		%{name}-esdrelease.patch
-Patch4:		%{name}-pldrelease.patch
-Patch5:		%{name}-am_conditional.patch
-Patch6:		%{name}-uipropertiesmenu.patch
-Patch7:		%{name}-setroothint.patch
-Patch8:		%{name}-no_mans.patch
+Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf-devel
-BuildRequires:	ORBit-devel >= 0.5.6
+BuildRequires:	GConf2-devel
+BuildRequires:	ORBit2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	esound-devel
 BuildRequires:	findutils
-BuildRequires:	gdk-pixbuf-devel >= 0.7.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-libs-devel >= 1.2.12-3
-BuildRequires:	gnome-vfs-devel >= 0.9
-BuildRequires:	gtk+-devel >= 1.1.16
-BuildRequires:	imlib-devel >= 1.8.2
-BuildRequires:	intltool
+BuildRequires:	gnome-desktop-devel
+BuildRequires:	gnome-vfs2-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	intltool >= 0.18
+BuildRequires:	libbonobo-devel
+BuildRequires:	libbonoboui-devel
+BuildRequires:	libglade2-devel
+BuildRequires:	libgnome-devel
+BuildRequires:	libgnomeui-devel
+BuildRequires:	libxml2-devel
 BuildRequires:	libtool
-BuildRequires:	oaf-devel
-BuildRequires:	zlib-devel
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -168,27 +161,8 @@ GNOME.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
 
 %build
-sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
-mv -f configure.in.tmp configure.in
-rm -f missing
-xml-i18n-toolize --copy --force
-libtoolize --copy --force
-gettextize --copy --force
-rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
-aclocal -I macros
-autoconf
-automake -a -c -f
 %configure
 
 %{__make}
@@ -200,15 +174,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
-
-find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
-
 gzip -9nf AUTHORS ChangeLog NEWS README
 
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
