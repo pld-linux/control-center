@@ -1,0 +1,9 @@
+diff -Nru control-center-2.2.1.orig/gnome-settings-daemon/Makefile.am control-center-2.2.1/gnome-settings-daemon/Makefile.am
+--- control-center-2.2.1.orig/gnome-settings-daemon/Makefile.am	Tue Oct 29 07:19:51 2002
++++ control-center-2.2.1/gnome-settings-daemon/Makefile.am	Fri Apr 25 11:09:27 2003
+@@ -83,4 +83,4 @@
+ EXTRA_DIST =						\
+ 	$(BUILT_SOURCES)				\
+ 	$(server_DATA) 					\
+-	$(server_in_files)				\
++	$(server_in_files)
