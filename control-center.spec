@@ -27,6 +27,7 @@ BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
+Obsoletes:	xcsreensaver-gnome
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME
