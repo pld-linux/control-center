@@ -104,14 +104,14 @@ Pliki nag³ówkowe bibliotek GNOME Control-Center
 %package static
 Summary:	GNOME Control-Center static libraries
 Summary(pl):	Statyczne biblioteki GNOME Control-Center
-Group:		X11/Development/Libraries                                       
-Requires:	%{name}-devel = %{epoch}:%{version}  
+Group:		X11/Development/Libraries
+Requires:	%{name}-devel = %{epoch}:%{version}
 
-%description static                                                             
-GNOME Control-Centerp static libraries.                                                
-                                                                                
-%description static -l pl                                                       
-Statyczne biblioteki GNOME Control-Center.   
+%description static
+GNOME Control-Centerp static libraries.
+
+%description static -l pl
+Statyczne biblioteki GNOME Control-Center.
 
 %prep
 %setup -q
@@ -135,7 +135,7 @@ intltoolize --copy --force
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
@@ -180,12 +180,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*
 
 %files devel
-%defattr(644,root,root,755)                                                     
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/gnome-window-settings-2.0
 %{_pkgconfigdir}/*.pc
 
-%files static                                                                   
-%defattr(644,root,root,755)                                                     
+%files static
+%defattr(644,root,root,755)
 %{_libdir}/*.a
