@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.1.3
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -47,7 +47,6 @@ Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME2
-%define   _bonobo_server_dir  /usr/lib/bonobo/servers
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -132,8 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} \
-	serverdir=%{_bonobo_server_dir}
+	pkgconfigdir=%{_pkgconfigdir} 
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -153,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_bonobo_server_dir}/*
+%{_libdir}/bonobo/servers/*
 %{_libdir}/window-manager-settings/*.so
 %{_datadir}/applications/*
 %{_datadir}/control-center-2.0/capplets/*
