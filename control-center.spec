@@ -1,13 +1,14 @@
 Summary:     GNOME control center
+Summary(pl): Centrum kontroli GNOME
 Name:        control-center
 Version:     0.99
-Release:     1
+Release:     2
 Copyright:   LGPL
 Group:       X11/Libraries
+Group(pl):   X11/Biblioteki
 Source:      ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
 Patch0:      control-center-DESTDIR.patch
-Requires:    xscreensaver >= 2.34
-Requires:    gnome-core = 0.99.2, ORBit = 0.3.91
+Requires:    xscreensaver >= 2.34, gnome-core = 0.99.2, ORBit = 0.3.91
 URL:         http://www.gnome.org/
 BuildRoot:   /tmp/%{name}-%{version}-root
 Obsoletes:   gnome
@@ -19,21 +20,39 @@ GNOME is the GNU Network Object Model Environment. That's a fancy name but
 really GNOME is a nice GUI desktop environment. It makes using your computer
 easy, powerful, and easy to configure.
 
+%description -l pl
+Narzêdzie do ³atwej konfiguracji twojego ¶rodowiska GNOME.
+
+GNOME to Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object
+Model Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci jest to
+mi³e ¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest proste, wydajne
+i ³atwe w konfiguracji.
+
 %package devel
 Summary:     GNOME control-center includes
+Summary(pl): Pliki nag³ówkowe centrum kontroli GNOME
 Group:       X11/Libraries
+Group(pl):   X11/Biblioteki
 Requires:    %{name} = %{version}
 
 %description devel
 Capplet development stuff.
 
+%description -l pl
+Rzeczy potrzebne do kompilacji.
+
 %package static
 Summary:     GNOME control-center static libraries
+Summary(pl): Statyczne biblioteki dla centrum kontroli GNOME
 Group:       X11/Libraries
+Group(pl):   X11/Biblioteki
 Requires:    %{name}-devel = %{version}
 
 %description static
 GNOME control-center static libraries.
+
+%description -l pl
+Statyczne biblioteki dla centrum kontroli GNOME
 
 %prep
 %setup -q
@@ -102,6 +121,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [0.99-2]
+- added pl translations
+
 * Wed Jan 06 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.99-1]
 - added -q %setup parameter,
