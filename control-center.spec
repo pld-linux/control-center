@@ -162,6 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/bonobo/*.so
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
+%dir %{_libdir}/window-manager-settings
 %dir %{_datadir}/control-center-2.0
 %dir %{_datadir}/control-center-2.0/capplets
 %{_libdir}/bonobo/servers/*
