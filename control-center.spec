@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.3.5
-Release:	2
+Version:	2.3.6
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	d2bdaedcb5c9b4e94cb6f3dc07bec834
+# Source0-md5:	c9fce7ede99b4396c771ace7b1af132b
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 Patch2:		%{name}-link.patch
@@ -154,8 +154,7 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/ldconfig
 %gconf_schema_install
 
-%postun
-/sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
