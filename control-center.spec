@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.8.0
-Release:	3
+Version:	2.8.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	300fb361af4645dd9b0154ecd18b2256
+# Source0-md5:	7bd9c12b9abb05b6fcf7b4906b6918ea
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
 #Patch2:		%{name}-def-apps-capplet.patch
@@ -131,7 +131,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p0
+%patch8 -p1
 %patch9 -p1
 %patch10 -p1
 
