@@ -5,19 +5,17 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.0.0
+Version:	2.0.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
-#Source1:	xmldocs.make
-#Source2:	omf.make
 Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 1.2.0
-BuildRequires:	ORBit2-devel >= 2.4.0
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	ORBit2-devel >= 2.4.1
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,16 +24,16 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.0.1
-BuildRequires:	gnome-vfs2-devel >= 2.0.0
-BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	gnome-desktop-devel >= 2.0.6
+BuildRequires:	gnome-vfs2-devel >= 2.0.2
+BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libbonobo-devel >= 2.0.0
-BuildRequires:	libbonoboui-devel >= 2.0.0
+BuildRequires:	libbonoboui-devel >= 2.0.1
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.1
-BuildRequires:	libgnomeui-devel >= 2.0.1
-BuildRequires:	libxml2-devel >= 2.4.22
+BuildRequires:	libgnome-devel >= 2.0.2
+BuildRequires:	libgnomeui-devel >= 2.0.3
+BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
 PreReq:		scrollkeeper
