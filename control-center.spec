@@ -2,7 +2,7 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.2.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -95,7 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
 	
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/Settings/{[!G]*,GNOME}
