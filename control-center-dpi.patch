@@ -1,0 +1,124 @@
+diff -Nuard control-center-2.4.0.orig/capplets/font/font-properties.glade control-center-2.4.0/capplets/font/font-properties.glade
+--- control-center-2.4.0.orig/capplets/font/font-properties.glade	2003-08-04 17:33:22.000000000 +0200
++++ control-center-2.4.0/capplets/font/font-properties.glade	2003-11-14 00:12:09.000000000 +0100
+@@ -723,6 +723,24 @@
+ 		      <property name="fill">False</property>
+ 		    </packing>
+ 		  </child>
++
++		  <child>
++		    <widget class="GtkCheckButton" id="dpi_calculate">
++		      <property name="visible">True</property>
++		      <property name="can_focus">True</property>
++		      <property name="label" translatable="yes">Calculate DPI</property>
++		      <property name="use_underline">True</property>
++		      <property name="relief">GTK_RELIEF_NORMAL</property>
++		      <property name="active">False</property>
++		      <property name="inconsistent">False</property>
++		      <property name="draw_indicator">True</property>
++		    </widget>
++		    <packing>
++		      <property name="padding">0</property>
++		      <property name="expand">False</property>
++		      <property name="fill">False</property>
++		    </packing>
++		  </child>
+ 		</widget>
+ 	      </child>
+ 	    </widget>
+diff -Nuard control-center-2.4.0.orig/capplets/font/main.c control-center-2.4.0/capplets/font/main.c
+--- control-center-2.4.0.orig/capplets/font/main.c	2003-08-02 18:02:47.000000000 +0200
++++ control-center-2.4.0/capplets/font/main.c	2003-11-14 00:17:10.000000000 +0100
+@@ -38,6 +38,7 @@
+ #define FONT_HINTING_KEY      FONT_RENDER_DIR "/hinting"
+ #define FONT_RGBA_ORDER_KEY   FONT_RENDER_DIR "/rgba_order"
+ #define FONT_DPI_KEY          FONT_RENDER_DIR "/dpi"
++#define FONT_CALCULATE_DPI_KEY          FONT_RENDER_DIR "/calculate_dpi"
+ 
+ #endif /* HAVE_XFT2 */
+ static gboolean in_change = FALSE;
+@@ -749,6 +750,33 @@
+ }
+ 
+ static void
++dpi_toggle_changed (GtkToggleButton *toggle,
++		   GtkWidget   *spinner)
++{
++	GConfClient *client = gconf_client_get_default ();
++	GdkScreen *screen = gdk_screen_get_default ();
++	gboolean active = gtk_toggle_button_get_active (toggle);
++        int width_mm, width_px, dpi;
++        double xres;
++	
++	gconf_client_set_bool (client, FONT_CALCULATE_DPI_KEY, active, NULL);
++	
++	if (active)
++	  gtk_widget_set_sensitive( GTK_WIDGET(spinner) , FALSE);
++        else
++	  gtk_widget_set_sensitive( GTK_WIDGET(spinner) , TRUE);
++	
++        width_mm = gdk_screen_get_width_mm(screen);
++        width_px  = gdk_screen_get_width(screen);
++
++        xres = ((((double)width_px) * 25.4) / ((double)width_mm));
++        dpi = (int)(xres + 0.5);
++
++	gtk_spin_button_set_value ( GTK_SPIN_BUTTON (spinner), dpi);
++
++}
++
++static void
+ dpi_value_changed (GtkSpinButton *spinner,
+ 		   GConfClient   *client)
+ {
+@@ -790,7 +818,7 @@
+ 	if (!details_dialog) {
+ 		GConfClient *client = gconf_client_get_default ();
+ 		GladeXML *dialog = glade_xml_new (GLADEDIR "/font-properties.glade", "render_details", NULL);
+-		GtkWidget *dpi_spinner;
++		GtkWidget *dpi_spinner, *dpi_toggle;
+ 		GnomeVFSURI *uri;
+ 
+ 		details_dialog = WID ("render_details");
+@@ -809,9 +837,16 @@
+ 		g_signal_connect (dpi_spinner, "value_changed",
+ 				  G_CALLBACK (dpi_value_changed), client);
+ 
++		dpi_toggle = WID ("dpi_calculate");
++		g_signal_connect (GTK_TOGGLE_BUTTON (dpi_toggle), "toggled",
++				  G_CALLBACK (dpi_toggle_changed), dpi_spinner);
++
++		gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON (dpi_toggle), gconf_client_get_bool (client, FONT_CALCULATE_DPI_KEY, NULL));
++
+ 		gconf_client_notify_add (client, FONT_DPI_KEY,
+ 					 dpi_changed,
+ 					 dpi_spinner, NULL, NULL);
++					 
+ 
+ 		setup_font_sample (WID ("antialias_none_sample"),      ANTIALIAS_NONE,      HINT_FULL);
+ 		setup_font_sample (WID ("antialias_grayscale_sample"), ANTIALIAS_GRAYSCALE, HINT_FULL);
+diff -Nuard control-center-2.4.0.orig/schemas/desktop_gnome_font_rendering.schemas control-center-2.4.0/schemas/desktop_gnome_font_rendering.schemas
+--- control-center-2.4.0.orig/schemas/desktop_gnome_font_rendering.schemas	2003-09-08 16:58:39.000000000 +0200
++++ control-center-2.4.0/schemas/desktop_gnome_font_rendering.schemas	2003-11-13 22:29:49.000000000 +0100
+@@ -1,6 +1,21 @@
+ <?xml version="1.0"?>
+ <gconfschemafile>
+     <schemalist>
++    	<schema>
++	    <key>/schemas/desktop/gnome/font_rendering/calculate_dpi</key>
++	    <applyto>/desktop/gnome/font_rendering/calculate_dpi</applyto>
++            <owner>gnome</owner>
++	    <type>bool</type>
++            <default>false</default>
++            <locale name="C">
++	        <short>Automatic DPI calculation</short>
++                <long>Automaticac DPI calculation</long>
++            </locale>
++            <locale name="pl">
++	        <short>Automatyczne obliczanie DPI</short>
++                <long>Automatyczne obliczanie DPI</long>
++            </locale>
++	</schema>
+ 	<schema>
+ 	    <key>/schemas/desktop/gnome/font_rendering/dpi</key>
+ 	    <applyto>/desktop/gnome/font_rendering/dpi</applyto>
