@@ -2,7 +2,7 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.0.5
-Release:	21
+Release:	22
 Copyright:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
@@ -103,7 +103,7 @@ gettextize --force --copy
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
-	--sysconfdir=/etc
+	--sysconfdir=/etc/X11/GNOME
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -119,38 +119,24 @@ rm -rf $RPM_BUILD_ROOT/usr/X11R6/share/gnome/apps/Settings/UIOptions
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f control-center.lang
+
 %defattr(644,root,root,755)
-/etc/CORBA/servers/*
+/etc/X11/GNOME/CORBA/servers/*
 %attr(755,root,root) /usr/X11R6/bin/*
 %attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
 
 /usr/X11R6/share/control-center
 /usr/X11R6/share/gnome/
 /usr/X11R6/share/pixmaps/*
-
-%lang(cs) /usr/X11R6/share/locale/cs/LC_MESSAGES/control-center.mo
-%lang(da) /usr/X11R6/share/locale/da/LC_MESSAGES/control-center.mo
-%lang(de) /usr/X11R6/share/locale/de/LC_MESSAGES/control-center.mo
-%lang(es) /usr/X11R6/share/locale/es/LC_MESSAGES/control-center.mo
-%lang(fi) /usr/X11R6/share/locale/fi/LC_MESSAGES/control-center.mo
-%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/control-center.mo
-%lang(ga) /usr/X11R6/share/locale/ga/LC_MESSAGES/control-center.mo
-%lang(hu) /usr/X11R6/share/locale/hu/LC_MESSAGES/control-center.mo
-%lang(it) /usr/X11R6/share/locale/it/LC_MESSAGES/control-center.mo
-%lang(ja) /usr/X11R6/share/locale/ja/LC_MESSAGES/control-center.mo
-%lang(ko) /usr/X11R6/share/locale/ko/LC_MESSAGES/control-center.mo
-%lang(no) /usr/X11R6/share/locale/no/LC_MESSAGES/control-center.mo
-%lang(pl) /usr/X11R6/share/locale/pl/LC_MESSAGES/control-center.mo
-%lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/control-center.mo
-%lang(ru) /usr/X11R6/share/locale/ru/LC_MESSAGES/control-center.mo
-%lang(sv) /usr/X11R6/share/locale/sv/LC_MESSAGES/control-center.mo
 
 %files devel
 %defattr(644,root,root,755)
@@ -164,6 +150,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Sun Jun 06 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [1.0.5-22]
+- /etc/X11/GNOME instead of /etc
+- added find_lang macro
+
 * Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.0.5-21]
 - added patches from RH lab,
