@@ -6,7 +6,7 @@ Release:	1
 Copyright:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
-Source:		ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
+Source:		ftp://ftp.gnome.org/pub/GNOME/source/control-center/%{name}-%{version}.tar.gz
 Patch0:		control-center-nosound.patch
 Patch1:		control-center-esdrelease.patch
 Patch2:		control-center-bgcolor1.patch
@@ -14,7 +14,7 @@ Patch3:		control-center-fsbgpath.patch
 Patch4:		control-center-dontstartesd.patch
 Patch5:		control-center-limitedbgs.patch
 Patch6:		control-center-smfixtry.patch
-Patch7:	control-center-numwallpapers.patch
+Patch7:		control-center-numwallpapers.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	gtk+-devel >= 1.1.16
