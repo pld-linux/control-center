@@ -8,22 +8,6 @@ Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Group(cs):	X11/Aplikace
-Group(da):	X11/Programmer
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(fr):	X11/Applications
-Group(id):	X11/Aplikasi
-Group(is):	X11/Forrit
-Group(it):	X11/Applicazioni
-Group(ja):	X11/¥¢¥×¥ê¥±¡¼¥·¥ç¥ó
-Group(no):	X11/Applikasjoner
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
-Group(ru):	X11/ğÒÉÌÏÖÅÎÉÑ
-Group(sl):	X11/Programi
-Group(sv):	X11/Tillämpningar
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
@@ -90,22 +74,6 @@ Summary(es):	Archivos para desarrollo con el control-center del GNOME
 Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
 Summary(pt_BR):	Arquivos para desenvolvimento com o control-center do GNOME
 Group:		X11/Development/Libraries
-Group(cs):	X11/Vıvojové prostøedky/Knihovny
-Group(da):	X11/Udvikling/Biblioteker
-Group(de):	X11/Entwicklung/Bibliotheken
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(is):	X11/Şróunartól/Ağgerğasöfn
-Group(it):	X11/Sviluppo/Librerie
-Group(ja):	X11/³«È¯/¥é¥¤¥Ö¥é¥ê
-Group(no):	X11/Applikasjoner/Biblioteker
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(pt):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(sl):	X11/Razvoj/Knji¾nice
-Group(sv):	X11/Utveckling/Bibliotek
-Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description devel
@@ -130,22 +98,6 @@ Summary(es):	Archivos estáticos para desarrollo con el control-center del GNOME
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
 Summary(pt_BR):	Arquivos estáticos para desenvolvimento com o control-center
 Group:		X11/Development/Libraries
-Group(cs):	X11/Vıvojové prostøedky/Knihovny
-Group(da):	X11/Udvikling/Biblioteker
-Group(de):	X11/Entwicklung/Bibliotheken
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(is):	X11/Şróunartól/Ağgerğasöfn
-Group(it):	X11/Sviluppo/Librerie
-Group(ja):	X11/³«È¯/¥é¥¤¥Ö¥é¥ê
-Group(no):	X11/Applikasjoner/Biblioteker
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(pt):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(sl):	X11/Razvoj/Knji¾nice
-Group(sv):	X11/Utveckling/Bibliotek
-Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name}-devel = %{version}
 
 %description static
