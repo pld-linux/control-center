@@ -35,6 +35,7 @@ BuildRequires:	libgnome-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libtool
+PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
