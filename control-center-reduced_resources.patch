@@ -217,8 +217,8 @@ diff -Nuard control-center-2.4.0.orig/po/control-center-2.0.pot control-center-2
 +msgid "_Use wireframe move/resize"
 +msgstr ""
 +
- #: capplets/windows/window-properties.desktop.in.h:1
- msgid "Window Properties"
+ #: capplets/windows/window-properties.desktop.in.in.h:1
+ msgid "Set your window properties"
  msgstr ""
 diff -Nuard control-center-2.4.0.orig/po/pl.po control-center-2.4.0/po/pl.po
 --- control-center-2.4.0.orig/po/pl.po	2003-09-02 21:34:47.000000000 +0200
@@ -235,6 +235,6 @@ diff -Nuard control-center-2.4.0.orig/po/pl.po control-center-2.4.0/po/pl.po
 +msgid "_Use wireframe move/resize"
 +msgstr "_Ramka podczas przenoszenia/skalowania okna"
 +
- #: capplets/windows/window-properties.desktop.in.h:1
- msgid "Window Properties"
+ #: capplets/windows/window-properties.desktop.in.in.h:1
+ msgid "Set your window properties"
  msgstr "Ustawienia okien"
