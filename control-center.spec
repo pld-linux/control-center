@@ -5,13 +5,14 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.0.1.1
+Version:	2.1.0
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
+Patch1:		%{name}-configure.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 1.2.1
@@ -24,15 +25,15 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.0.6
+BuildRequires:	gnome-desktop-devel >= 2.1.0
 BuildRequires:	gnome-vfs2-devel >= 2.0.2
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	gtk+2-devel >= 2.1.0
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libbonobo-devel >= 2.0.0
 BuildRequires:	libbonoboui-devel >= 2.0.1
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libgnome-devel >= 2.0.2
-BuildRequires:	libgnomeui-devel >= 2.0.3
+BuildRequires:	libgnomeui-devel >= 2.1.0
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
@@ -108,6 +109,7 @@ Statyczne biblioteki GNOME Control-Center.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 #install %{SOURCE1} help/xmldocs.make
 #install %{SOURCE2} omf.make
 
