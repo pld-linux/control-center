@@ -1,17 +1,20 @@
-Summary:     GNOME control center
-Summary(pl): Centrum kontroli GNOME
-Name:        control-center
-Version:     0.99
-Release:     2
-Copyright:   LGPL
-Group:       X11/Libraries
-Group(pl):   X11/Biblioteki
-Source:      ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
-Patch0:      control-center-DESTDIR.patch
-Requires:    xscreensaver >= 2.34, gnome-core = 0.99.2, ORBit = 0.3.91
-URL:         http://www.gnome.org/
-BuildRoot:   /tmp/%{name}-%{version}-root
-Obsoletes:   gnome
+Summary:	GNOME control center
+Summary(pl):	Centrum kontroli GNOME
+Name:		control-center
+Version:	1.0.4
+Release:	1
+Copyright:	LGPL
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Source:		ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
+Patch0:		control-center-DESTDIR.patch
+URL:		http://www.gnome.org/
+Requires:	gtk+ = 1.2.1
+Requires:	xscreensaver >= 2.34
+Requires:	gnome-core = 0.99.2
+Requires:	ORBit = 0.4.0
+BuildRoot:	/tmp/%{name}-%{version}-root
+Obsoletes:	gnome
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -29,11 +32,11 @@ mi³e ¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest proste, wydajne
 i ³atwe w konfiguracji.
 
 %package devel
-Summary:     GNOME control-center includes
-Summary(pl): Pliki nag³ówkowe centrum kontroli GNOME
-Group:       X11/Libraries
-Group(pl):   X11/Biblioteki
-Requires:    %{name} = %{version}
+Summary:	GNOME control-center includes
+Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
 Capplet development stuff.
@@ -42,11 +45,11 @@ Capplet development stuff.
 Rzeczy potrzebne do kompilacji.
 
 %package static
-Summary:     GNOME control-center static libraries
-Summary(pl): Statyczne biblioteki dla centrum kontroli GNOME
-Group:       X11/Libraries
-Group(pl):   X11/Biblioteki
-Requires:    %{name}-devel = %{version}
+Summary:	GNOME control-center static libraries
+Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name}-devel = %{version}
 
 %description static
 GNOME control-center static libraries.
@@ -61,7 +64,8 @@ Statyczne biblioteki dla centrum kontroli GNOME
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure \
-	--prefix=/usr/X11R6
+	--prefix=/usr/X11R6 \
+	--sysconfdir=/etc
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,6 +74,8 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*.so.*.*
 
+gzip -9nf AUTHORS ChangeLog NEWS README
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -77,50 +83,48 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(644, root, root, 755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755, root, root) /usr/X11R6/bin/*
-%attr(755, root, root) /usr/X11R6/lib/lib*.so.*.*
+%defattr(644,root,root,755)
+/etc/CORBA/servers/*
+%attr(755,root,root) /usr/X11R6/bin/*
+%attr(755,root,root) /usr/X11R6/lib/lib*.so.*.*
+
 /usr/X11R6/share/control-center
-/usr/X11R6/share/apps/System/*
+/usr/X11R6/share/gnome/
 /usr/X11R6/share/pixmaps/*
 
-%lang(ca)    /usr/X11R6/share/locale/ca/LC_MESSAGES/control-center.mo
-%lang(cs)    /usr/X11R6/share/locale/cs/LC_MESSAGES/control-center.mo
-%lang(da)    /usr/X11R6/share/locale/da/LC_MESSAGES/control-center.mo
-%lang(de)    /usr/X11R6/share/locale/de/LC_MESSAGES/control-center.mo
-%lang(es)    /usr/X11R6/share/locale/es/LC_MESSAGES/control-center.mo
-#%lang(es_DO) /usr/X11R6/share/locale/es_DO/LC_MESSAGES/control-center.mo
-#%lang(es_GT) /usr/X11R6/share/locale/es_GT/LC_MESSAGES/control-center.mo
-#%lang(es_HN) /usr/X11R6/share/locale/es_HN/LC_MESSAGES/control-center.mo
-#%lang(es_MX) /usr/X11R6/share/locale/es_MX/LC_MESSAGES/control-center.mo
-#%lang(es_PA) /usr/X11R6/share/locale/es_PA/LC_MESSAGES/control-center.mo
-#%lang(es_PE) /usr/X11R6/share/locale/es_PE/LC_MESSAGES/control-center.mo
-#%lang(es_SV) /usr/X11R6/share/locale/es_SV/LC_MESSAGES/control-center.mo
-%lang(fi)    /usr/X11R6/share/locale/fi/LC_MESSAGES/control-center.mo
-%lang(fr)    /usr/X11R6/share/locale/fr/LC_MESSAGES/control-center.mo
-%lang(ga)    /usr/X11R6/share/locale/ga/LC_MESSAGES/control-center.mo
-%lang(hu)    /usr/X11R6/share/locale/hu/LC_MESSAGES/control-center.mo
-%lang(it)    /usr/X11R6/share/locale/it/LC_MESSAGES/control-center.mo
-%lang(ja)    /usr/X11R6/share/locale/ja/LC_MESSAGES/control-center.mo
-%lang(ko)    /usr/X11R6/share/locale/ko/LC_MESSAGES/control-center.mo
-%lang(no)    /usr/X11R6/share/locale/no/LC_MESSAGES/control-center.mo
-%lang(pl)    /usr/X11R6/share/locale/pl/LC_MESSAGES/control-center.mo
-%lang(pt)    /usr/X11R6/share/locale/pt/LC_MESSAGES/control-center.mo
-%lang(ru)    /usr/X11R6/share/locale/ru/LC_MESSAGES/control-center.mo
-%lang(sv)    /usr/X11R6/share/locale/sv/LC_MESSAGES/control-center.mo
+%lang(cs) /usr/X11R6/share/locale/cs/LC_MESSAGES/control-center.mo
+%lang(da) /usr/X11R6/share/locale/da/LC_MESSAGES/control-center.mo
+%lang(de) /usr/X11R6/share/locale/de/LC_MESSAGES/control-center.mo
+%lang(es) /usr/X11R6/share/locale/es/LC_MESSAGES/control-center.mo
+%lang(fi) /usr/X11R6/share/locale/fi/LC_MESSAGES/control-center.mo
+%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/control-center.mo
+%lang(ga) /usr/X11R6/share/locale/ga/LC_MESSAGES/control-center.mo
+%lang(hu) /usr/X11R6/share/locale/hu/LC_MESSAGES/control-center.mo
+%lang(it) /usr/X11R6/share/locale/it/LC_MESSAGES/control-center.mo
+%lang(ja) /usr/X11R6/share/locale/ja/LC_MESSAGES/control-center.mo
+%lang(ko) /usr/X11R6/share/locale/ko/LC_MESSAGES/control-center.mo
+%lang(no) /usr/X11R6/share/locale/no/LC_MESSAGES/control-center.mo
+%lang(pl) /usr/X11R6/share/locale/pl/LC_MESSAGES/control-center.mo
+%lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/control-center.mo
+%lang(ru) /usr/X11R6/share/locale/ru/LC_MESSAGES/control-center.mo
+%lang(sv) /usr/X11R6/share/locale/sv/LC_MESSAGES/control-center.mo
 
 %files devel
-%defattr(644,  root, root, 755)
-%attr(755, root, root) /usr/X11R6/lib/lib*.so
+%defattr(644,root,root,755)
+%doc *gz
+%attr(755,root,root) /usr/X11R6/lib/lib*.so
 /usr/X11R6/share/idl/*
 /usr/X11R6/include/*
-%attr(755, root, root) /usr/X11R6/lib/*.sh
+%attr(755,root,root) /usr/X11R6/lib/*.sh
 
 %files static
-%attr(644, root, root) /usr/X11R6/lib/lib*.a
+%attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Thu Mar 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.0.4-1]
+- updated spec for latest version.
+
 * Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
   [0.99-2]
 - added pl translations
