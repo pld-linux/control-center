@@ -5,7 +5,7 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.0.2.91
+Version:	2.0.3
 Release:	1
 Epoch:		1
 License:	GPL
