@@ -15,16 +15,14 @@ Group(pt_BR):	X11/Aplicações
 Group(pt):	X11/Aplicações
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
-Patch1:		%{name}-applnk.patch
-Patch2:		%{name}-gettext.patch
-Patch3:		%{name}-wm-properties_path.patch
-Patch4:		%{name}-esdrelease.patch
-Patch5:		%{name}-pldrelease.patch
-Patch6:		%{name}-am_conditional.patch
-Patch7:		%{name}-pixbuf_cflags.patch
-Patch8:		%{name}-uipropertiesmenu.patch
-Patch9:		%{name}-setroothint.patch
-Patch10:	%{name}-no_mans.patch
+Patch1:		%{name}-gettext.patch
+Patch2:		%{name}-wm-properties_path.patch
+Patch3:		%{name}-esdrelease.patch
+Patch4:		%{name}-pldrelease.patch
+Patch5:		%{name}-am_conditional.patch
+Patch6:		%{name}-uipropertiesmenu.patch
+Patch7:		%{name}-setroothint.patch
+Patch8:		{name}-no_mans.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
@@ -145,16 +143,14 @@ contém somente os arquivos estáticos.
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1 obsolette
+%patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p0
+%patch4 -p0
+%patch5 -p1
 %patch6 -p1
-#%patch7 -p1 obsolette
+%patch7 -p1
 %patch8 -p1
-%patch9 -p1
-%patch10 -p1
 
 %build
 rm -f missing
