@@ -10,7 +10,7 @@ Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/control-center/1.4/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-wm-properties_path.patch
