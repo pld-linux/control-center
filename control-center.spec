@@ -1,3 +1,6 @@
+# TODO:
+# - smash desktop-file-utils dep (do not run it at bulid time!)
+#
 Summary:	GNOME control center
 Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
@@ -6,7 +9,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.10.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -190,7 +193,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/idl/*
 %{_iconsdir}/*/*/*/gnome-control-center.png
 %{_pixmapsdir}/*.png
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 
 %files devel
 %defattr(644,root,root,755)
