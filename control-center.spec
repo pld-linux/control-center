@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.1.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -26,17 +26,18 @@ BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.1.0
-BuildRequires:	gnome-vfs2-devel >= 2.0.2
+BuildRequires:	gnome-vfs2-devel >= 2.0.4-3
 BuildRequires:	gtk+2-devel >= 2.1.0
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libbonobo-devel >= 2.0.0
-BuildRequires:	libbonoboui-devel >= 2.0.1
+BuildRequires:	libbonobo-devel >= 2.0.1-3
+BuildRequires:	libbonoboui-devel >= 2.0.3.2-3
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.2
-BuildRequires:	libgnomeui-devel >= 2.1.0
+BuildRequires:	libgnome-devel >= 2.1.0-3
+BuildRequires:	libgnomeui-devel >= 2.1.1-3
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
+Requires:	gnome-vfs2 >= 2.0.4-3
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
