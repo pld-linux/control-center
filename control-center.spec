@@ -5,20 +5,20 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.5.1.1
+Version:	2.5.2
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	db42d61fd2c9b21f55266803843bd0ab
+# Source0-md5:	47207d073ffa607eeba89eaa5ed3adbe
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
 Patch2:		%{name}-def-apps-capplet.patch
 Patch3:		%{name}-wm_properties-dir.patch
 Patch4:		%{name}-additional-metacity-keybinding.patch
 Patch5:		%{name}-capplets-dir.patch
-Patch6:		%{name}-themus-glade.patch
+Patch6:		%{name}-DESTDIR.patch
 Patch7:		%{name}-dpi.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
