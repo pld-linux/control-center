@@ -22,7 +22,7 @@ Patch6:		%{name}-additional-metacity-keybinding.patch
 Patch7:		%{name}-pixmaps-dirs.patch
 Patch8:		%{name}-capplets-dir.patch
 Patch9:		%{name}-themus-glade.patch
-Patch10:	%{name}-font-capplet-disable-dpi.patch
+Patch10:	%{name}-dpi.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.3.3
