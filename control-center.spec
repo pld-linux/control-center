@@ -150,7 +150,6 @@ GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %{_libdir}/bonobo/servers/*
 %{_datadir}/applications/*
 %{_datadir}/control-center-2.0/capplets/*
-%{_datadir}/control-center-2.0/icons
 %{_datadir}/control-center-2.0/interfaces
 %{_datadir}/control-center-2.0/pixmaps
 %{_datadir}/gnome/cursor-fonts
