@@ -1,0 +1,12 @@
+diff -urN aa/control-center-2.5.3/configure.in control-center-2.5.3/configure.in
+--- aa/control-center-2.5.3/configure.in	2004-02-03 17:49:28.000000000 +0100
++++ control-center-2.5.3/configure.in	2004-02-13 22:58:58.572788200 +0100
+@@ -32,7 +32,7 @@
+ changequote([,])dnl
+ 
+ # Internationalization support
+-ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et fa fi fr ga gl he hi hr hu id is it ja ko lt lv mk ml mn ms nl nn no pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
++ALL_LINGUAS="am ar az be bg bn ca cs cy da de el en_GB es et fa fi fr ga gl he hi hr hu id is it ja ko lt lv mk ml mn ms nb nl nn pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
+ 
+ GETTEXT_PACKAGE=control-center-2.0
+ AC_SUBST(GETTEXT_PACKAGE)
