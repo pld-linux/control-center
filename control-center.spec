@@ -79,13 +79,13 @@ Requires:	%{name} = %{version}
 %description devel
 Capplet development stuff.
 
-%description -l es devel
+%description devel -l es
 Archivos para desarrollo con el control-center del GNOME
 
 %description -l pl
 Rzeczy potrzebne do kompilacji.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Se você estiver interessado em desenvolver painéis para o centro de
 controle do GNOME este pacote será necessário.
 
@@ -103,7 +103,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 GNOME control-center static libraries.
 
-%description -l es static
+%description static -l es
 El control-center es una herramienta para una configuración facilitada
 el entorno GNOME.
 
@@ -113,7 +113,7 @@ estáticos del control-center del gnome.
 %description -l pl
 Statyczne biblioteki dla centrum kontroli GNOME.
 
-%description -l pt_BR static
+%description static -l pt_BR
 O control-center-devel lhe a ajuda na criação de 'capplets', que são
 usados no centro de controle.
 
@@ -144,7 +144,7 @@ rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
 aclocal -I macros
 autoconf
 automake -a -c
-%configure 
+%configure
 
 %{__make}
 
@@ -158,7 +158,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
-	
+
 find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
 
 gzip -9nf AUTHORS ChangeLog NEWS README
