@@ -191,9 +191,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/gnome/capplets
-%{_datadir}/icons/*
 %{_datadir}/idl/*
 %{_datadir}/mime-info/*
+%{_iconsdir}/*
 %{_pixmapsdir}/gnomecc-2
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*
