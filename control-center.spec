@@ -5,7 +5,7 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.1.0
+Version:	2.1.0.1
 Release:	1
 Epoch:		1
 License:	GPL
@@ -110,8 +110,8 @@ Statyczne biblioteki GNOME Control-Center.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+#%patch1 -p1
+#%patch2 -p1
 #install %{SOURCE1} help/xmldocs.make
 #install %{SOURCE2} omf.make
 
