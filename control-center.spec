@@ -100,7 +100,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control-Center header files
 Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description devel
 GNOME Control-Center header files.
