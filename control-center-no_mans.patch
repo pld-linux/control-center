@@ -1,0 +1,10 @@
+diff -urN control-center-1.4.0.3/Makefile.am control-center.new/Makefile.am
+--- control-center-1.4.0.3/Makefile.am	Thu Feb  7 17:48:54 2002
++++ control-center.new/Makefile.am	Thu Feb  7 18:42:34 2002
+@@ -1,5 +1,5 @@
+ 
+-always_built_SUBDIRS = control-center capplets idl doc omf-install man
++always_built_SUBDIRS = control-center capplets idl doc omf-install
+ 
+ SUBDIRS = intl po macros \
+ 	 $(always_built_SUBDIRS)
