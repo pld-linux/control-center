@@ -2,7 +2,7 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.4.0.1
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -13,7 +13,8 @@ Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-gettext.patch
 Patch3:		%{name}-wm-properties_path.patch
-PAtch4:		%{name}-esdrelease.patch
+Patch4:		%{name}-esdrelease.patch
+Patch5:		%{name}-pldrelease.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	ORBit-devel
@@ -31,10 +32,17 @@ BuildRequires:	xml-i18n-tools
 BuildRequires:	findutils
 BuildRequires:	flex
 BuildRequires:	bison
+BuildRequires:	libwrap-devel
+BuildRequires:	oaf-devel
+BuildRequires:	GConf-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
+%define		_bindir		%{_prefix}/bin
+%define		_datadir	%{_prefix}/share
+%define		_includedir	%{_prefix}/include
+%define		_libdir		%{_prefix}/lib
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
@@ -85,12 +93,14 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p0
 
 %build
 rm -f missing
 xml-i18n-toolize --copy --force
 libtoolize --copy --force
 gettextize --copy --force
+rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
 aclocal -I macros
 autoconf
 automake -a -c
