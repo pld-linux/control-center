@@ -2,8 +2,10 @@ Summary:	GNOME control center
 Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
+Summary(uk):	Центр керування GNOME
+Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.4.0.4
+Version:	1.4.0.5
 Release:	1
 Epoch:		1
 License:	GPL
@@ -68,11 +70,29 @@ proste, wydajne i Ёatwe w konfiguracji.
 O control-center И uma ferramenta para facilmente configurar seu
 ambiente GNOME.
 
+%description -l ru
+Пакет control-center содержит утилиты, позволяющие настраивать среду
+GNOME вашей системы (такие вещи как фон рабочего стола и темы,
+программа сохранения экрана, оконный менеджер, системные звуки,
+поведение мыши и др.)
+
+Этот пакет нужен, если вы устанавливаете среду GNOME.
+
+%description -l uk
+Пакет control-center м╕стить утил╕ти, як╕ дозволяють настроювати
+середовище GNOME вашо╖ системи (так╕ реч╕ як фон робочого столу та
+теми, програма збереження екрану, в╕конний менеджер, системн╕ звуки,
+повед╕нка миш╕ та ╕н.)
+
+Цей пакет потр╕бний, якщо ви встановлю╓те середовище GNOME.
+
 %package devel
 Summary:	GNOME control-center includes
 Summary(es):	Archivos para desarrollo con el control-center del GNOME
 Summary(pl):	Pliki nagЁСwkowe centrum kontroli GNOME
 Summary(pt_BR):	Arquivos para desenvolvimento com o control-center do GNOME
+Summary(ru):	Среда разработки программ для Центра Управления GNOME
+Summary(uk):	Середовище розробки програм для Центру Керування GNOME
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -92,11 +112,27 @@ controle do GNOME este pacote serА necessАrio.
 O control-center-devel lhe a ajuda na criaГЦo de 'capplets', que sЦo
 usados no centro de controle.
 
+%description devel -l ru
+Пакет control-center-devel содержит среду, необходимую для разработки
+модулей (`capplets'), используемых в Центре Управления GNOME.
+
+Если вы только используете рабочий стол GNOME, но не разрабатываете
+программ, то вам не нужно устанавливать этот пакет.
+
+%description devel -l uk
+Пакет control-center-devel м╕стить середовище, необх╕дне для розробки
+модул╕в (`capplets'), як╕ використовуються в Центр╕ Керування GNOME.
+
+Якщо ви лише використову╓те робочий ст╕л GNOME, але не розробля╓те
+програм, то вам не потр╕бно встановлювати цей пакет.
+
 %package static
 Summary:	GNOME control-center static libraries
 Summary(es):	Archivos estАticos para desarrollo con el control-center del GNOME
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
 Summary(pt_BR):	Arquivos estАticos para desenvolvimento com o control-center
+Summary(ru):	Статические библиотеки для разработки программ Центра Управления GNOME
+Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм Центру Керування GNOME
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -120,6 +156,15 @@ usados no centro de controle.
 Se vocЙ estiver interessado em desenvolver painИis para o centro de
 controle do GNOME este pacote serА necessАrio. Nota: este pacote
 contИm somente os arquivos estАticos.
+
+%description static -l ru
+Пакет control-center-static содержит статические библиотеки для
+разработки модулей (`capplets'), используемых в Центре Управления
+GNOME.
+
+%description static -l uk
+Пакет control-center-static м╕стить статичн╕ б╕бл╕отеки для розробки
+модул╕в (`capplets'), як╕ використовуються в Центр╕ Керування GNOME.
 
 %prep
 %setup -q
