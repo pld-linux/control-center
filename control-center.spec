@@ -1,7 +1,7 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.0.40
+Version:	1.0.51
 Release:	1
 Copyright:	LGPL
 Group:		X11/Libraries
@@ -15,6 +15,8 @@ Patch4:		control-center-dontstartesd.patch
 Patch5:		control-center-limitedbgs.patch
 Patch6:		control-center-smfixtry.patch
 Patch7:		control-center-numwallpapers.patch
+Patch8:		control-center-automake.patch
+Patch9:		control-center-applnk.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	gtk+-devel >= 1.1.16
@@ -29,6 +31,7 @@ Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -81,9 +84,12 @@ Statyczne biblioteki dla centrum kontroli GNOME
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
+%patch9 -p1
 
 %build
 gettextize --force --copy
+automake
 LDFLAGS="-s"; export LDFLAGS 
 %configure 
 
@@ -114,8 +120,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %{_datadir}/control-center
-%{_datadir}/gnome/apps/Settings
-%{_datadir}/gnome/wm-properties
+%{_applnkdir}/Settings
+%dir %{_datadir}/gnome/wm-properties
 %{_datadir}/pixmaps/*
 
 %files devel
