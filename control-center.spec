@@ -12,8 +12,6 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
-Patch1:		%{name}-configure.patch
-Patch2:		%{name}-theme-switcher-linking.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 1.2.1
@@ -110,10 +108,6 @@ Statyczne biblioteki GNOME Control-Center.
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
-#install %{SOURCE1} help/xmldocs.make
-#install %{SOURCE2} omf.make
 
 %build
 glib-gettextize --copy --force
