@@ -27,13 +27,13 @@ Patch14:	control-center-warning.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
-BuildPrereq:	gtk+-devel >= 1.1.16
-BuildPrereq:	esound-devel >= 0.2.5
-BuildPrereq:	imlib-devel >= 1.8.2
-BuildPrereq:	gnome-libs-devel
-BuildPrereq:	ORBit-devel
-BuildPrereq:	XFree86-devel
-BuildPrereq:	zlib-devel
+BuildRequires:	gtk+-devel >= 1.1.16
+BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	imlib-devel >= 1.8.2
+BuildRequires:	gnome-libs-devel
+BuildRequires:	ORBit-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	zlib-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	gnome
 
