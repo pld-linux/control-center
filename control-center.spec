@@ -167,6 +167,7 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 /sbin/ldconfig
 %gconf_schema_install /etc/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
 %gconf_schema_install /etc/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
@@ -190,6 +191,7 @@ fi
 
 %postun
 if [ $1 = 0 ]; then
+	umask 022
 	/sbin/ldconfig
 	/usr/bin/update-desktop-database
 fi
