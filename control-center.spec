@@ -129,7 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f control-center.lang
+%files -f %{name}.lang
 
 %defattr(644,root,root,755)
 /etc/X11/GNOME/CORBA/servers/*
