@@ -189,7 +189,7 @@ xml-i18n-toolize --copy --force
 %{__libtoolize}
 %{__gettextize}
 rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 %configure
