@@ -17,24 +17,23 @@ Patch4:		%{name}-esdrelease.patch
 Patch5:		%{name}-pldrelease.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
+BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
+BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	findutils
 BuildRequires:	gdk-pixbuf-devel >= 0.7.0
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-libs-devel >= 1.2.12-3
 BuildRequires:	gnome-vfs-devel >= 0.9
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
-BuildRequires:	zlib-devel
-BuildRequires:	gettext-devel
 BuildRequires:	xml-i18n-tools
-BuildRequires:	findutils
-BuildRequires:	flex
-BuildRequires:	bison
-BuildRequires:	libwrap-devel
 BuildRequires:	oaf-devel
-BuildRequires:	GConf-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
