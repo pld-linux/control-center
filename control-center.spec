@@ -5,15 +5,15 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.99.10
-Release:	1
+Version:	2.0.0
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
-Source1:	xmldocs.make
-Source2:	omf.make
-Patch0:		%{name}-ac_am.patch
+#Source1:	xmldocs.make
+#Source2:	omf.make
+Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 1.2.0
@@ -26,7 +26,7 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.0.0
+BuildRequires:	gnome-desktop-devel >= 2.0.1
 BuildRequires:	gnome-vfs2-devel >= 2.0.0
 BuildRequires:	gtk+2-devel >= 2.0.3
 BuildRequires:	intltool >= 0.22
@@ -85,9 +85,9 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 
 %prep
 %setup -q
-#%patch0 -p1
-install %{SOURCE1} help/xmldocs.make
-install %{SOURCE2} omf.make
+%patch0 -p1
+#install %{SOURCE1} help/xmldocs.make
+#install %{SOURCE2} omf.make
 
 %build
 glib-gettextize --copy --force
@@ -106,7 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -123,6 +122,7 @@ GCONF_CONFIG_SOURCE="" \
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog NEWS README
 %{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/bonobo/servers/*
