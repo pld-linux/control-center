@@ -147,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/bonobo/servers/*
-%{_libdir}/window-manager-settings/*.so
+%attr(755,root,root) %{_libdir}/window-manager-settings/*.so
 %{_datadir}/applications/*
 %{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/control-center-2.0/icons
@@ -163,7 +163,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)                                                     
 %{_includedir}/gnome-window-settings-2.0
-%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_pkgconfigdir}/*.pc
 %{_libdir}/window-manager-settings/*.la
 
