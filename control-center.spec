@@ -43,6 +43,7 @@ BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	xft-devel >= 2.1.1
 Requires:	gnome-vfs2 >= 2.3.2
+Requires(post):	GConf2
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 Obsoletes:	themus
