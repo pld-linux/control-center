@@ -5,20 +5,20 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.3.4
-Release:	2
+Version:	2.3.5
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	b334c9a657d947754e6020bd0ccdb5c6
+# Source0-md5:	d2bdaedcb5c9b4e94cb6f3dc07bec834
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 Patch2:		%{name}-link.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.3.2
-BuildRequires:	ORBit2-devel >= 2.7.5-1
+BuildRequires:	GConf2-devel >= 2.3.3
+BuildRequires:	ORBit2-devel >= 2.7.6
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -27,18 +27,18 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.3.4-2
-BuildRequires:	gnome-vfs2-devel >= 2.3.2
+BuildRequires:	gnome-desktop-devel >= 2.3.6
+BuildRequires:	gnome-vfs2-devel >= 2.3.7
 BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonobo-devel >= 2.2.1
-BuildRequires:	libbonoboui-devel >= 2.3.3-2
+BuildRequires:	libbonoboui-devel >= 2.3.6
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.3.0
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libxml2-devel >= 2.5.7
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.3.7-3
+BuildRequires:	nautilus-devel >= 2.3.8
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel >= 2.5.1
@@ -46,7 +46,7 @@ BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.3.2
+Requires:	gnome-vfs2 >= 2.3.7
 Obsoletes:	fontilus
 Obsoletes:	gnome
 Obsoletes:	themus
@@ -166,15 +166,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
 %dir %{_libdir}/window-manager-settings
-%dir %{_datadir}/control-center-2.0
-%dir %{_datadir}/control-center-2.0/capplets
 %{_libdir}/bonobo/servers/*
 %{_datadir}/application-registry/*
-%{_datadir}/control-center-2.0/capplets/*
-%{_datadir}/control-center-2.0/icons
-%{_datadir}/control-center-2.0/interfaces
-%{_datadir}/control-center-2.0/pixmaps
-%{_datadir}/control-center-2.0/xrdb
+%{_datadir}/control-center-2.0
+%{_datadir}/control-center
 %{_datadir}/gnome/cursor-fonts
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
