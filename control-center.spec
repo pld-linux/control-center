@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.0.0
-Release:	0.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -83,6 +83,30 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 
 Цей пакет потр╕бний, якщо ви встановлю╓те середовище GNOME.
 
+%package devel
+Summary:	GNOME Control-Center includes
+Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
+Group:		X11/Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+GNOME Control-Center header files.
+
+%description devel -l pl
+Pliki nagЁСwkowe bibliotek GNOME Control-Center
+
+%package static
+Summary:	GNOME Control-Center static libraries
+Summary(pl):	Statyczne biblioteki GNOME Control-Center
+Group:          X11/Development/Libraries                                       
+Requires:       %{name} = %{version}  
+
+%description static                                                             
+GNOME Control-Centerp static libraries.                                                
+                                                                                
+%description static -l pl                                                       
+Statyczne biblioteki GNOME Control-Center.   
+
 %prep
 %setup -q
 %patch0 -p1
@@ -125,6 +149,7 @@ GCONF_CONFIG_SOURCE="" \
 %doc AUTHORS ChangeLog NEWS README
 %{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/bonobo/servers/*
 %{_datadir}/applications/*
 %{_datadir}/control-center-2.0/capplets/*
@@ -137,3 +162,13 @@ GCONF_CONFIG_SOURCE="" \
 %{_datadir}/idl/*
 %{_pixmapsdir}/gnomecc-2
 %{_pixmapsdir}/*.png
+
+%files devel
+%defattr(644,root,root,755)                                                     
+%{_includedir}/gnome-window-settings-2.0
+%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/pkgconfig/*.pc
+
+%files static                                                                   
+%defattr(644,root,root,755)                                                     
+%{_libdir}/*.a    
