@@ -109,7 +109,7 @@ diff -Nuard control-center-2.4.0.orig/schemas/desktop_gnome_font_rendering.schem
 +	    <applyto>/desktop/gnome/font_rendering/calculate_dpi</applyto>
 +            <owner>gnome</owner>
 +	    <type>bool</type>
-+            <default>false</default>
++            <default>true</default>
 +            <locale name="C">
 +	        <short>Automatic DPI calculation</short>
 +                <long>Automaticac DPI calculation</long>
