@@ -150,37 +150,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
-
-%changelog
-* Sun Jun 06 1999 Jan Rêkorajski <baggins@pld.org.pl>
-  [1.0.5-22]
-- /etc/X11/GNOME instead of /etc
-- added find_lang macro
-
-* Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.0.5-21]
-- added patches from RH lab,
-- recompiled on new rpm.
-
-* Thu Mar 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.0.4-1]
-- updated spec for latest version.
-
-* Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
-  [0.99-2]
-- added pl translations
-
-* Wed Jan 06 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.99-1]
-- added -q %setup parameter,
-- added LDFLAGS="-s" to ./configure enviroment,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- added static subpackage,
-- added full %attr description in %files,
-- added %lang macros for
-  /usr/X11R6/share/locale/*/LC_MESSAGES/control-center.mo files,
-- added stripping shared libraries.
-
-* Wed Dec 16 1998 Jonathan Blandford <jrb@redhat.com>
-- Created for the new control-center branch
