@@ -11,6 +11,7 @@ Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
+Patch2:		%{name}-gettext.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	ORBit-devel
@@ -78,11 +79,12 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm missing
 xml-i18n-toolize --copy --force
-# gettextize --copy --force
+gettextize --copy --force
 automake -a -c
 aclocal -I macros
 autoconf
