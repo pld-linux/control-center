@@ -1,22 +1,20 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.0.51
-Release:	2
+Version:	1.0.53
+Release:	1
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
-Source:		ftp://ftp.gnome.org/pub/GNOME/source/control-center/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		control-center-nosound.patch
 Patch1:		control-center-esdrelease.patch
 Patch2:		control-center-bgcolor1.patch
 Patch3:		control-center-fsbgpath.patch
 Patch4:		control-center-dontstartesd.patch
 Patch5:		control-center-limitedbgs.patch
-Patch6:		control-center-smfixtry.patch
-Patch7:		control-center-numwallpapers.patch
-Patch8:		control-center-automake.patch
-Patch9:		control-center-applnk.patch
+Patch6:		control-center-numwallpapers.patch
+Patch7:		control-center-applnk.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	gtk+-devel >= 1.1.16
@@ -26,27 +24,24 @@ BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
-A Configuration tool for easily setting up your GNOME environment.
-
-GNOME is the GNU Network Object Model Environment. That's a fancy name but
-really GNOME is a nice GUI desktop environment. It makes using your computer
-easy, powerful, and easy to configure.
+A Configuration tool for easily setting up your GNOME environment. GNOME
+is the GNU Network Object Model Environment. That's a fancy name but really
+GNOME is a nice GUI desktop environment. It makes using your computer easy,
+powerful, and easy to configure.
 
 %description -l pl
-Narzêdzie do ³atwej konfiguracji twojego ¶rodowiska GNOME.
-
-GNOME to Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object
-Model Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci jest to
-mi³e ¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest proste, wydajne
-i ³atwe w konfiguracji.
+Narzêdzie do ³atwej konfiguracji twojego ¶rodowiska GNOME. GNOME to
+Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object Model
+Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci jest to mi³e
+¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest proste, wydajne i
+³atwe w konfiguracji.
 
 %package devel
 Summary:	GNOME control-center includes
@@ -84,8 +79,6 @@ Statyczne biblioteki dla centrum kontroli GNOME
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
-%patch9 -p1
 
 %build
 gettextize --force --copy
