@@ -1,7 +1,7 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.0.4
+Version:	1.0.5
 Release:	1
 Copyright:	LGPL
 Group:		X11/Libraries
