@@ -5,16 +5,16 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.1.7
+Version:	2.2.0
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-fontconfig.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.1.90
+BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	ORBit2-devel >= 2.6.0
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
@@ -24,8 +24,8 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.1.90
-BuildRequires:	gnome-vfs2-devel >= 2.1.91
+BuildRequires:	gnome-desktop-devel >= 2.2.0
+BuildRequires:	gnome-vfs2-devel >= 2.2.0
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonobo-devel >= 2.1.1
@@ -39,7 +39,7 @@ BuildRequires:	scrollkeeper >= 0.3.11
 BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel
 BuildRequires:	Xft-devel >= 2.1
-Requires:	gnome-vfs2 >= 2.1.91
+Requires:	gnome-vfs2 >= 2.2.0
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
