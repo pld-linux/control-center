@@ -105,6 +105,8 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 	--prefix=/usr/X11R6 \
 	--sysconfdir=/etc/X11/GNOME
 
+make
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
