@@ -30,17 +30,17 @@ Obsoletes:	gnome
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
-A Configuration tool for easily setting up your GNOME environment. GNOME is
-the GNU Network Object Model Environment. That's a fancy name but really
-GNOME is a nice GUI desktop environment. It makes using your computer easy,
-powerful, and easy to configure.
+A Configuration tool for easily setting up your GNOME environment.
+GNOME is the GNU Network Object Model Environment. That's a fancy name
+but really GNOME is a nice GUI desktop environment. It makes using
+your computer easy, powerful, and easy to configure.
 
 %description -l pl
 Narzêdzie do ³atwej konfiguracji twojego ¶rodowiska GNOME. GNOME to
-Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object Model
-Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci jest to mi³e
-¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest proste, wydajne i
-³atwe w konfiguracji.
+Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object
+Model Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci
+jest to mi³e ¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest
+proste, wydajne i ³atwe w konfiguracji.
 
 %package devel
 Summary:	GNOME control-center includes
@@ -128,4 +128,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
