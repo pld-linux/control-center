@@ -5,7 +5,7 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.0.3
+Version:	2.0.3.2
 Release:	1
 Epoch:		1
 License:	GPL
@@ -14,29 +14,13 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/2.0/%{name}-%{version}.ta
 Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 1.2.1
-BuildRequires:	ORBit2-devel >= 2.4.1
-BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bison
-BuildRequires:	flex
-BuildRequires:	esound-devel
-BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.0.6
-BuildRequires:	gnome-vfs2-devel >= 2.0.2
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	gnome-desktop-devel
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libbonobo-devel >= 2.0.0
-BuildRequires:	libbonoboui-devel >= 2.0.1
-BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.2
-BuildRequires:	libgnomeui-devel >= 2.0.3
-BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	libglade2-devel
 BuildRequires:	libtool
-BuildRequires:	scrollkeeper >= 0.3.6
-PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
@@ -86,6 +70,8 @@ Summary:	GNOME Control-Center includes
 Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gnome-desktop-devel
+Requires:	libglade2-devel
 
 %description devel
 GNOME Control-Center header files.
@@ -108,8 +94,6 @@ Statyczne biblioteki GNOME Control-Center.
 %prep
 %setup -q
 %patch0 -p1
-#install %{SOURCE1} help/xmldocs.make
-#install %{SOURCE2} omf.make
 
 %build
 glib-gettextize --copy --force
@@ -126,7 +110,8 @@ intltoolize --copy --force
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	pkgconfigdir=%{_pkgconfigdir}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -162,8 +147,9 @@ GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %files devel
 %defattr(644,root,root,755)                                                     
 %{_includedir}/gnome-window-settings-2.0
-%attr(755,root,root) %{_libdir}/lib*.??
-%{_libdir}/pkgconfig/*.pc
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_pkgconfigdir}/*.pc
 
 %files static                                                                   
 %defattr(644,root,root,755)                                                     
