@@ -5,51 +5,45 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.4.0.5
-Release:	4
+Version:	2.1.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
-Patch0:		%{name}-macros.patch
-Patch1:		%{name}-applnk.patch
-Patch2:		%{name}-wm-properties_path.patch
-Patch3:		%{name}-esdrelease.patch
-Patch4:		%{name}-pldrelease.patch
-Patch5:		%{name}-am_conditional.patch
-Patch6:		%{name}-uipropertiesmenu.patch
-Patch7:		%{name}-setroothint.patch
-Patch8:		%{name}-no_mans.patch
-Patch9:		%{name}-omf.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-am.patch
+Patch1:		%{name}-fontconfig.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf-devel
-BuildRequires:	ORBit-devel >= 0.5.6
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	ORBit2-devel >= 2.4.1
+BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	esound-devel
 BuildRequires:	findutils
-BuildRequires:	gdk-pixbuf-devel >= 0.7.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-libs-devel >= 1.2.12-3
-BuildRequires:	gnome-vfs-devel >= 0.9
-BuildRequires:	gtk+-devel >= 1.1.16
-BuildRequires:	imlib-devel >= 1.8.2
-BuildRequires:	intltool
+BuildRequires:	gnome-desktop-devel >= 2.1.0
+BuildRequires:	gnome-vfs2-devel >= 2.0.2
+BuildRequires:	gtk+2-devel >= 2.1.0
+BuildRequires:	intltool >= 0.22
+BuildRequires:	libbonobo-devel >= 2.0.0
+BuildRequires:	libbonoboui-devel >= 2.0.1
+BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libgnome-devel >= 2.0.2
+BuildRequires:	libgnomeui-devel >= 2.1.0
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
-BuildRequires:	oaf-devel
-BuildRequires:	zlib-devel
-BuildRequires:  libxml-devel
-Requires(post,postun):	/sbin/ldconfig
-Requires(post,postun):	scrollkeeper
+BuildRequires:	scrollkeeper >= 0.3.6
+PreReq:		scrollkeeper
+PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
-%define		_sysconfdir	/etc/X11/GNOME
-%define		_omf_dest_dir	%(scrollkeeper-config --omfdir)
+%define		_sysconfdir	/etc/X11/GNOME2
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -89,107 +83,39 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Цей пакет потр╕бний, якщо ви встановлю╓те середовище GNOME.
 
 %package devel
-Summary:	GNOME control-center includes
-Summary(es):	Archivos para desarrollo con el control-center del GNOME
-Summary(pl):	Pliki nagЁСwkowe centrum kontroli GNOME
-Summary(pt_BR):	Arquivos para desenvolvimento com o control-center do GNOME
-Summary(ru):	Среда разработки программ для Центра Управления GNOME
-Summary(uk):	Середовище розробки програм для Центру Керування GNOME
+Summary:	GNOME Control-Center includes
+Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-Capplet development stuff.
+GNOME Control-Center header files.
 
-%description devel -l es
-Archivos para desarrollo con el control-center del GNOME
-
-%description -l pl
-Rzeczy potrzebne do kompilacji.
-
-%description devel -l pt_BR
-Se vocЙ estiver interessado em desenvolver painИis para o centro de
-controle do GNOME este pacote serА necessАrio.
-
-O control-center-devel lhe a ajuda na criaГЦo de 'capplets', que sЦo
-usados no centro de controle.
-
-%description devel -l ru
-Пакет control-center-devel содержит среду, необходимую для разработки
-модулей (`capplets'), используемых в Центре Управления GNOME.
-
-Если вы только используете рабочий стол GNOME, но не разрабатываете
-программ, то вам не нужно устанавливать этот пакет.
-
-%description devel -l uk
-Пакет control-center-devel м╕стить середовище, необх╕дне для розробки
-модул╕в (`capplets'), як╕ використовуються в Центр╕ Керування GNOME.
-
-Якщо ви лише використову╓те робочий ст╕л GNOME, але не розробля╓те
-програм, то вам не потр╕бно встановлювати цей пакет.
+%description devel -l pl
+Pliki nagЁСwkowe bibliotek GNOME Control-Center
 
 %package static
-Summary:	GNOME control-center static libraries
-Summary(es):	Archivos estАticos para desarrollo con el control-center del GNOME
-Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
-Summary(pt_BR):	Arquivos estАticos para desenvolvimento com o control-center
-Summary(ru):	Статические библиотеки для разработки программ Центра Управления GNOME
-Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм Центру Керування GNOME
-Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Summary:	GNOME Control-Center static libraries
+Summary(pl):	Statyczne biblioteki GNOME Control-Center
+Group:          X11/Development/Libraries                                       
+Requires:       %{name} = %{version}  
 
-%description static
-GNOME control-center static libraries.
-
-%description static -l es
-El control-center es una herramienta para una configuraciСn facilitada
-el entorno GNOME.
-
-Archivos para desarrollo con el control-center del GNOME Archivos
-estАticos del control-center del gnome.
-
-%description -l pl
-Statyczne biblioteki dla centrum kontroli GNOME.
-
-%description static -l pt_BR
-O control-center-devel lhe a ajuda na criaГЦo de 'capplets', que sЦo
-usados no centro de controle.
-
-Se vocЙ estiver interessado em desenvolver painИis para o centro de
-controle do GNOME este pacote serА necessАrio. Nota: este pacote
-contИm somente os arquivos estАticos.
-
-%description static -l ru
-Пакет control-center-static содержит статические библиотеки для
-разработки модулей (`capplets'), используемых в Центре Управления
-GNOME.
-
-%description static -l uk
-Пакет control-center-static м╕стить статичн╕ б╕бл╕отеки для розробки
-модул╕в (`capplets'), як╕ використовуються в Центр╕ Керування GNOME.
+%description static                                                             
+GNOME Control-Centerp static libraries.                                                
+                                                                                
+%description static -l pl                                                       
+Statyczne biblioteki GNOME Control-Center.   
 
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
 
 %build
-sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
-mv -f configure.in.tmp configure.in
-rm -f missing
-xml-i18n-toolize --copy --force
-%{__libtoolize}
-%{__gettextize}
-rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
-%{__aclocal} -I macros
+glib-gettextize --copy --force
+intltoolize --copy --force
+libtoolize --copy --force
+aclocal
 %{__autoconf}
 %{__automake}
 %configure
@@ -200,49 +126,49 @@ rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
-	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
-
-find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs rm -f
-
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-/usr/bin/scrollkeeper-update
+GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
+/usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
 
 %postun
 /sbin/ldconfig
-/usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%{_sysconfdir}/CORBA/servers/*
+%{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-
-%{_datadir}/control-center
-%{_applnkdir}/Settings/GNOME
-%{_omf_dest_dir}/%{name}
-%dir %{_datadir}/gnome/wm-properties
-%{_pixmapsdir}/*
+%{_libdir}/bonobo/servers/*
+%{_libdir}/window-manager-settings/*.so
+%{_datadir}/applications/*
+%{_datadir}/control-center-2.0/capplets/*
+%{_datadir}/control-center-2.0/icons
+%{_datadir}/control-center-2.0/interfaces
+%{_datadir}/control-center-2.0/pixmaps
+%{_datadir}/gnome/cursor-fonts
+%{_datadir}/gnome/vfolders/*
+%{_datadir}/gnome-2.0/ui/*
 %{_datadir}/idl/*
+%{_pixmapsdir}/gnomecc-2
+%{_pixmapsdir}/*.png
 
 %files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/*.sh
-%{_includedir}/*
+%defattr(644,root,root,755)                                                     
+%{_includedir}/gnome-window-settings-2.0
+%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/pkgconfig/*.pc
+%{_libdir}/window-manager-settings/*.la
 
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%files static                                                                   
+%defattr(644,root,root,755)                                                     
+%{_libdir}/*.a
+%{_libdir}/window-manager-settings/*.a
