@@ -5,12 +5,12 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.0.1
+Version:	2.0.1.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
@@ -33,7 +33,7 @@ BuildRequires:	libbonoboui-devel >= 2.0.1
 BuildRequires:	libglade2-devel >= 2.0.0
 BuildRequires:	libgnome-devel >= 2.0.2
 BuildRequires:	libgnomeui-devel >= 2.0.3
-BuildRequires:	libxml2-devel >= 2.4.23
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
 PreReq:		scrollkeeper
