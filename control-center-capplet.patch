@@ -6,7 +6,7 @@ diff -ur control-center-2.8.0.orig/capplets/accessibility/at-properties/at-prope
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Settings;Accessibility;
-+Categories=GTK;GNOME;Settings;Accessibility;Capplet;
++Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=Assistive Technology Support
@@ -18,7 +18,7 @@ diff -ur control-center-2.8.0.orig/capplets/accessibility/keyboard/accessibility
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;Accessibility;
-+Categories=GTK;GNOME;Settings;Accessibility;Capplet;
++Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=Keyboard Accessibility
@@ -30,7 +30,7 @@ diff -ur control-center-2.8.0.orig/capplets/background/background.desktop.in con
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;Capplet;
++Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=background
@@ -42,7 +42,7 @@ diff -ur control-center-2.8.0.orig/capplets/default-applications/default-applica
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;AdvancedSettings;
-+Categories=GTK;GNOME;Settings;AdvancedSettings;Capplet;
++Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=other capplets
@@ -54,7 +54,7 @@ diff -ur control-center-2.8.0.orig/capplets/display/display-properties.desktop.i
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;Capplet;
++Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=display properties
@@ -66,7 +66,7 @@ diff -ur control-center-2.8.0.orig/capplets/font/font-properties.desktop.in cont
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;Capplet;
++Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=font properties
@@ -78,7 +78,7 @@ diff -ur control-center-2.8.0.orig/capplets/keybindings/keybinding.desktop.in co
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=Keybinding
@@ -90,7 +90,7 @@ diff -ur control-center-2.8.0.orig/capplets/keyboard/keyboard.desktop.in control
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=Keyboard
@@ -102,7 +102,7 @@ diff -ur control-center-2.8.0.orig/capplets/mouse/gnome-settings-mouse.desktop.i
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=mouse
@@ -114,7 +114,7 @@ diff -ur control-center-2.8.0.orig/capplets/network/gnome-network-preferences.de
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=network preferences
@@ -126,7 +126,7 @@ diff -ur control-center-2.8.0.orig/capplets/sound/gnome-settings-sound.desktop.i
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=sound
@@ -138,7 +138,7 @@ diff -ur control-center-2.8.0.orig/capplets/theme-switcher/gtk-theme-selector.de
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=theme-manager
@@ -150,7 +150,7 @@ diff -ur control-center-2.8.0.orig/capplets/ui-properties/gnome-ui-properties.de
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=other-capplets
@@ -162,7 +162,7 @@ diff -ur control-center-2.8.0.orig/capplets/windows/window-properties.desktop.in
  Type=Application
  StartupNotify=true
 -Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;Capplet;
++Categories=GTK;GNOME;Settings;X-Capplet;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
  X-GNOME-Bugzilla-Component=Window preferences
