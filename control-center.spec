@@ -1,7 +1,7 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.2.3
+Version:	1.2.4
 Release:	1
 Epoch:		1
 License:	GPL
@@ -20,7 +20,7 @@ BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.5
-BuildRequires:	gdk-pixbuf-devel
+BuildRequires:	gdk-pixbuf-devel >= 0.7.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
