@@ -1,0 +1,12 @@
+diff -urN control-center-2.8.1.orig/control-center/gnomecc.desktop.in.in control-center-2.8.1/control-center/gnomecc.desktop.in.in
+--- control-center-2.8.1.orig/control-center/gnomecc.desktop.in.in	2004-11-17 13:20:05.575248376 +0100
++++ control-center-2.8.1/control-center/gnomecc.desktop.in.in	2004-11-17 13:23:05.832845056 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;Application;Settings;
++Categories=GTK;GNOME;Settings;
+ OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=control-center
