@@ -143,7 +143,7 @@ gettextize --copy --force
 rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
 aclocal -I macros
 autoconf
-automake -a -c
+automake -a -c -f
 %configure
 
 %{__make}
