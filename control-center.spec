@@ -5,7 +5,7 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.99.7
+Version:	1.99.8
 Release:	0.1
 Epoch:		1
 License:	GPL
@@ -35,7 +35,6 @@ BuildRequires:	libgnomeui-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libtool
 PreReq:		/sbin/ldconfig
-PreReq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -102,15 +101,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-/usr/bin/scrollkeeper-update
-export GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-for SCHEMAS in apps_gnome_keybinding_properties.schemas apps_gnome_settings_daemon_screensaver.schemas; do
-        /usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/$SCHEMAS > /dev/null 2>&1
-done
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`; export GCONF_CONFIG_SOURCE
+/usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 2>&1
 
 %postun
 /sbin/ldconfig
-/usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
