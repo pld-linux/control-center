@@ -2,15 +2,39 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.0.5
-Release:	2
+Release:	21
 Copyright:	LGPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
 Source:		ftp://ftp.gnome.org/pub/GNOME/source/%{name}-%{version}.tar.gz
-Patch0:		control-center-DESTDIR.patch
+Source1:	control-center.png
+Source2:	gnomecc.desktop
+Patch0:		control-center-nosound.patch
+Patch1:		control-center-esdrelease.patch
+Patch2:		control-center-bgcolor1.patch
+Patch3:		control-center-fsbgpath.patch
+Patch4:		control-center-dontstartesd.patch
+Patch5:		control-center-newsession.patch
+Patch6:		control-center-fixclosedlg.patch 
+Patch7:		control-center-limitedbgs.patch
+Patch8:		control-center-smfixtry.patch
+Patch9:		control-center-quietdebug.patch
+Patch10:	control-center-geditfixtry.patch
+Patch11:	control-center-addmime.patch
+Patch12:	control-center-noscreensaver.patch
+Patch13:	control-center-numwallpapers.patch
+Patch14:	control-center-warning.patch
 URL:		http://www.gnome.org/
+Icon:		control-center.gif
 Requires:	gtk+ = 1.2.1
 Requires:	xscreensaver >= 2.34
+BuildPrereq:	gtk+-devel >= 1.1.16
+BuildPrereq:	esound-devel >= 0.2.5
+BuildPrereq:	imlib-devel >= 1.8.2
+BuildPrereq:	gnome-libs-devel
+BuildPrereq:	ORBit-devel
+BuildPrereq:	XFree86-devel
+BuildPrereq:	zlib-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	gnome
 
@@ -57,9 +81,26 @@ Statyczne biblioteki dla centrum kontroli GNOME
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0  -p1
+%patch1  -p1
+%patch2  -p1
+%patch3  -p1
+%patch4  -p1
+%patch5  -p1
+%patch6  -p1
+%patch7  -p1
+%patch8  -p1
+%patch9  -p1
+%patch10 -p1
+%patch11 -p1
+%patch12 -p1
+%patch13 -p1
+%patch14 -p1
+
+cp %{SOURCE1} %{SOURCE2} control-center
 
 %build
+gettextize --force --copy
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target} \
 	--prefix=/usr/X11R6 \
@@ -70,7 +111,12 @@ rm -rf $RPM_BUILD_ROOT
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
-strip $RPM_BUILD_ROOT/usr/X11R6/lib/lib*.so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT/usr/X11R6/lib/lib*.so.*.*
+
+rm -f $RPM_BUILD_ROOT/usr/X11R6/bin/ui-properties
+rm -rf $RPM_BUILD_ROOT/usr/X11R6/share/control-center/UIOptions
+rm -rf $RPM_BUILD_ROOT/usr/X11R6/share/gnome/apps/Settings/UIOptions
+                                                                                                              
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -119,6 +165,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) /usr/X11R6/lib/lib*.a
 
 %changelog
+* Wed May  5 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.0.5-21]
+- added patches from RH lab,
+- recompiled on new rpm.
+
 * Thu Mar 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.0.4-1]
 - updated spec for latest version.
