@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.8.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -156,6 +156,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv $RPM_BUILD_ROOT%{_iconsdir}/gnome/48x48/apps/accessibility-directory.png \
+	$RPM_BUILD_ROOT%{_pixmapsdir}
+
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/bonobo/*.{a,la}
@@ -196,7 +199,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/capplets
 %{_datadir}/idl/*
 %{_datadir}/mime-info/*
-%{_iconsdir}/*
 %{_pixmapsdir}/gnomecc-2
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*
