@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.7.0
-Release:	0.2
+Release:	0.3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
