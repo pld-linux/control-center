@@ -1,0 +1,11 @@
+--- control-center-1.0.4/capplets/background-properties/property-background.c.bgcolor1	Mon Mar 22 14:05:34 1999
++++ control-center-1.0.4/capplets/background-properties/property-background.c	Mon Mar 22 14:05:47 1999
+@@ -1108,7 +1108,7 @@
+ 	gint r, g, b;
+ 
+ 	gdk_color_parse
+-		(gnome_config_get_string ("/Background/Default/color1=#005060"),
++		(gnome_config_get_string ("/Background/Default/color1=#356390"),
+ 		 &state->bgColor1);
+ 	r = state->bgColor1.red >> 8;
+ 	g = state->bgColor1.green >> 8;

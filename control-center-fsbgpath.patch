@@ -1,0 +1,14 @@
+--- control-center-1.0.4/capplets/background-properties/property-background.c.fsbgdir	Thu Mar 25 11:44:24 1999
++++ control-center-1.0.4/capplets/background-properties/property-background.c	Thu Mar 25 11:56:53 1999
+@@ -814,7 +814,10 @@
+ 	else if (origState.wpFileName)
+ 	    gtk_file_selection_set_filename (GTK_FILE_SELECTION (fileSel),
+ 					     origState.wpFileName);
+-	
++	else if (g_file_exists("/usr/share/pixmaps/backgrounds"))
++	    gtk_file_selection_set_filename (GTK_FILE_SELECTION (fileSel),
++					     "/usr/share/pixmaps/backgrounds/");
++
+ 	gtk_signal_connect (GTK_OBJECT (fileSel), "delete_event",
+ 			    (GtkSignalFunc) delete_browse,
+ 			    &fileSel);

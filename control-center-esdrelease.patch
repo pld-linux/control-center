@@ -1,0 +1,18 @@
+--- control-center-1.0.3/capplets/sound-properties/sound-properties.c.esdrelease	Sun Mar 14 23:55:16 1999
++++ control-center-1.0.3/capplets/sound-properties/sound-properties.c	Sun Mar 14 23:58:57 1999
+@@ -133,12 +133,13 @@
+             if(gnome_sound_connection < 0
+                && gnome_config_get_bool("/sound/system/settings/start_esd=false")) {
+                 int esdpid;
+-                static const char *esd_cmdline[] = {"esd", "-nobeeps", NULL};
++                static const char *esd_cmdline[] = {"esd", "-nobeeps", 
++                                                    "-as", "30", NULL};
+                 char *tmpargv[3];
+                 char argbuf[32];
+                 time_t starttime;
+ 
+-                esdpid = gnome_execute_async(NULL, 2, (char **)esd_cmdline);
++                esdpid = gnome_execute_async(NULL, 4, (char **)esd_cmdline);
+                 g_snprintf(argbuf, sizeof(argbuf), "%d", esdpid);
+                 tmpargv[0] = "kill"; tmpargv[1] = argbuf; tmpargv[2] = NULL;
+                 gnome_client_set_shutdown_command(client, 2, tmpargv);
