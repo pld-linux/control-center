@@ -2,10 +2,10 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.0.51
-Release:	1
-Copyright:	LGPL
-Group:		X11/Libraries
-Group(pl):	X11/Biblioteki
+Release:	2
+License:	GPL
+Group:		X11/GNOME
+Group(pl):	X11/GNOME
 Source:		ftp://ftp.gnome.org/pub/GNOME/source/control-center/%{name}-%{version}.tar.gz
 Patch0:		control-center-nosound.patch
 Patch1:		control-center-esdrelease.patch
@@ -113,7 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
-
 %defattr(644,root,root,755)
 %{_sysconfdir}/CORBA/servers/*
 %attr(755,root,root) %{_bindir}/*
