@@ -15,6 +15,9 @@ Patch2:		%{name}-gettext.patch
 Patch3:		%{name}-wm-properties_path.patch
 Patch4:		%{name}-esdrelease.patch
 Patch5:		%{name}-pldrelease.patch
+Patch6:		%{name}-am_conditional.patch
+Patch7:		%{name}-xml-i18n.patch
+Patch8:		%{name}-pixbuf_cflags.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
@@ -104,6 +107,9 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p0
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
 
 %build
 rm -f missing

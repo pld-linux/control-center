@@ -1,0 +1,12 @@
+--- control-center-1.4.0.1/configure.in~	Sat Nov 24 19:07:50 2001
++++ control-center-1.4.0.1/configure.in	Sat Nov 24 19:09:13 2001
+@@ -40,9 +40,6 @@
+ CFLAGS=$CFLAGS_save
+ LIBS=$LIBS_save
+ 
+-dnl utility conditional
+-AM_CONDITIONAL(FALSE, test "x" = "y")
+-
+ ALL_LINGUAS="az bg ca cs da de el en_GB es et eu fi fr ga gl hr hu it ja ko lt nl no pl pt pt_BR ro ru sk sl sv tr uk wa zh_CN.GB2312 zh_TW.Big5"
+ AM_GNU_GETTEXT
+ 

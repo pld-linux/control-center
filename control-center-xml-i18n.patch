@@ -1,0 +1,201 @@
+diff -urN control-center-1.4.0.1.orig/capplets/background-properties/Makefile.am control-center-1.4.0.1/capplets/background-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/background-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/background-properties/Makefile.am	Sat Nov 24 19:29:44 2001
+@@ -25,7 +25,8 @@
+ sysdir = $(datadir)/control-center/Desktop
+ sys_in_files = background-properties.desktop.in 
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/background-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/background-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/desktop-links/Makefile.am control-center-1.4.0.1/capplets/desktop-links/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/desktop-links/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/desktop-links/Makefile.am	Sat Nov 24 19:29:32 2001
+@@ -26,7 +26,8 @@
+ 	UIOptions.directory.in
+ 
+ noinst_DATA = $(directory_in_files:.directory.in=.directory)
+-@XML_I18N_MERGE_DIRECTORY_RULE@
++@XML_I18N_MERGE_DIRECTORY_RULE1@
++@XML_I18N_MERGE_DIRECTORY_RULE2@
+ 
+ EXTRA_DIST = $(directory_in_files) $(noinst_DATA)
+ 
+diff -urN control-center-1.4.0.1.orig/capplets/file-types/Makefile.am control-center-1.4.0.1/capplets/file-types/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/file-types/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/file-types/Makefile.am	Sat Nov 24 19:29:49 2001
+@@ -45,7 +45,8 @@
+ settingsdir = $(datadir)/applnk/Settings
+ settings_DATA = $(sys_DATA)
+ 
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ EXTRA_DIST = \
+ 	$(sys_DATA) $(sys_in_files)
+diff -urN control-center-1.4.0.1.orig/capplets/gnome-edit-properties/Makefile.am control-center-1.4.0.1/capplets/gnome-edit-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/gnome-edit-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/gnome-edit-properties/Makefile.am	Sat Nov 24 19:29:39 2001
+@@ -21,7 +21,8 @@
+ sysdir = $(datadir)/control-center/Documents
+ sys_in_files = gnome-edit-properties.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/gnome-edit-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/keyboard-properties/Makefile.am control-center-1.4.0.1/capplets/keyboard-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/keyboard-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/keyboard-properties/Makefile.am	Sat Nov 24 19:30:24 2001
+@@ -19,7 +19,8 @@
+ sysdir = $(datadir)/control-center/Peripherals
+ sys_in_files = keyboard-properties.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/keyboard-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Peripherals/keyboard-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/mouse-properties/Makefile.am control-center-1.4.0.1/capplets/mouse-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/mouse-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/mouse-properties/Makefile.am	Sat Nov 24 19:29:57 2001
+@@ -20,7 +20,8 @@
+ sysdir = $(datadir)/control-center/Peripherals
+ sys_in_files = mouse-properties.desktop.in 
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Peripherals/mouse-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/screensaver-properties/Makefile.am control-center-1.4.0.1/capplets/screensaver-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/screensaver-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/screensaver-properties/Makefile.am	Sat Nov 24 19:30:42 2001
+@@ -28,7 +28,8 @@
+ sysdir = $(datadir)/control-center/Desktop
+ sys_in_files = screensaver-properties.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/screensaver-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/screensaver-properties/screensaver-desktops/Makefile.am control-center-1.4.0.1/capplets/screensaver-properties/screensaver-desktops/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/screensaver-properties/screensaver-desktops/Makefile.am	Thu Mar 15 20:05:57 2001
++++ control-center-1.4.0.1/capplets/screensaver-properties/screensaver-desktops/Makefile.am	Sat Nov 24 19:30:37 2001
+@@ -154,7 +154,8 @@
+ 
+ ssdata_DATA= $(ssdata_in_files:.desktop.in=.desktop)
+ 
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ EXTRA_DIST= $(ssdata_DATA)  $(ssdata_in_files)
+ 
+diff -urN control-center-1.4.0.1.orig/capplets/sound-properties/Makefile.am control-center-1.4.0.1/capplets/sound-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/sound-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/sound-properties/Makefile.am	Sat Nov 24 19:30:28 2001
+@@ -21,7 +21,8 @@
+ sysdir = $(datadir)/control-center/Multimedia
+ sys_in_files = sound-properties.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/sound-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Multimedia/sound-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/theme-switcher/Makefile.am control-center-1.4.0.1/capplets/theme-switcher/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/theme-switcher/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/theme-switcher/Makefile.am	Sat Nov 24 19:30:33 2001
+@@ -31,7 +31,8 @@
+ sysdir = $(datadir)/control-center/Desktop
+ sys_in_files = theme-selector.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/theme-selector.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/theme-selector.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/ui-properties/Makefile.am control-center-1.4.0.1/capplets/ui-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/ui-properties/Makefile.am	Fri Mar  9 17:22:48 2001
++++ control-center-1.4.0.1/capplets/ui-properties/Makefile.am	Sat Nov 24 19:30:04 2001
+@@ -20,14 +20,16 @@
+ 	dialogs.desktop.in			\
+ 	mdi.desktop.in 
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ directory_in_files = ui-properties.directory.in
+ noinst_DATA = $(directory_in_files:.directory.in=.directory)
+ 
+ EXTRA_DIST = $(sys_in_files) $(sys_DATA) $(directory_in_files) $(noinst_DATA)
+ 
+-@XML_I18N_MERGE_DIRECTORY_RULE@
++@XML_I18N_MERGE_DIRECTORY_RULE1@
++@XML_I18N_MERGE_DIRECTORY_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/ui-properties.directory $(DESTDIR)$(sysdir)/.directory
+diff -urN control-center-1.4.0.1.orig/capplets/url-properties/Makefile.am control-center-1.4.0.1/capplets/url-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/url-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/url-properties/Makefile.am	Sat Nov 24 19:30:09 2001
+@@ -21,7 +21,8 @@
+ sysdir = $(datadir)/control-center/Documents
+ sys_in_files = url-properties.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/url-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/url-properties.desktop
+diff -urN control-center-1.4.0.1.orig/capplets/wm-properties/Makefile.am control-center-1.4.0.1/capplets/wm-properties/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/wm-properties/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/capplets/wm-properties/Makefile.am	Sat Nov 24 19:30:20 2001
+@@ -30,4 +30,5 @@
+ 
+ Set_DATA = $(sys_DATA)
+ 
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+diff -urN control-center-1.4.0.1.orig/capplets/wm-properties/wm-desktops/Makefile.am control-center-1.4.0.1/capplets/wm-properties/wm-desktops/Makefile.am
+--- control-center-1.4.0.1.orig/capplets/wm-properties/wm-desktops/Makefile.am	Fri Mar  9 17:22:52 2001
++++ control-center-1.4.0.1/capplets/wm-properties/wm-desktops/Makefile.am	Sat Nov 24 19:30:14 2001
+@@ -9,7 +9,8 @@
+ 
+ wmdata_DATA=$(wmdata_in_files:.desktop.in=.desktop)
+ 
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ EXTRA_DIST= $(wmdata_DATA) $(wmdata_in_files)
+ 
+diff -urN control-center-1.4.0.1.orig/control-center/Makefile.am control-center-1.4.0.1/control-center/Makefile.am
+--- control-center-1.4.0.1.orig/control-center/Makefile.am	Sat Nov 24 19:28:10 2001
++++ control-center-1.4.0.1/control-center/Makefile.am	Sat Nov 24 19:29:24 2001
+@@ -50,7 +50,8 @@
+ sysdir = $(datadir)/applnk/Settings
+ sys_in_files = gnomecc.desktop.in
+ sys_DATA = $(sys_in_files:.desktop.in=.desktop)
+-@XML_I18N_MERGE_DESKTOP_RULE@
++@XML_I18N_MERGE_DESKTOP_RULE1@
++@XML_I18N_MERGE_DESKTOP_RULE2@
+ 
+ ## Put `exec' in the name because this should be installed by
+ ## `install-exec', not `install-data'.
