@@ -185,7 +185,7 @@ mv -f configure.in.tmp configure.in
 rm -f missing
 xml-i18n-toolize --copy --force
 %{__libtoolize}
-gettextize --copy --force
+%{__gettextize}
 rm -f macros/xml-i18n-tools.m4	# have it in xml-i18n-tools
 aclocal -I macros
 %{__autoconf}
