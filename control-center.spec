@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.8.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -23,6 +23,7 @@ Patch7:		%{name}-reduced_resources.patch
 Patch8:		%{name}-def-apps-capplet-browsers.patch
 Patch9:		%{name}-evolution.patch
 Patch10:	%{name}-capplet.patch
+Patch11:	%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.8.0
@@ -134,6 +135,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 glib-gettextize --copy --force
