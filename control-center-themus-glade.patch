@@ -1,6 +1,6 @@
 diff -Nuard control-center-2.4.0.orig/vfs-methods/themus/Makefile.am control-center-2.4.0/vfs-methods/themus/Makefile.am
 --- control-center-2.4.0.orig/vfs-methods/themus/Makefile.am	2003-08-28 01:01:56.000000000 +0200
-+++ control-center-2.4.0/vfs-methods/themus/Makefile.am	2003-11-09 03:51:25.000000000 +0100
++++ control-center-2.4.0/vfs-methods/themus/Makefile.am	2003-11-11 01:55:19.000000000 +0100
 @@ -2,6 +2,7 @@
    $(THEMUS_THUMBNAILER_CFLAGS) \
    $(THEMUS_COMPONENT_CFLAGS) \
@@ -27,3 +27,15 @@ diff -Nuard control-center-2.4.0.orig/vfs-methods/themus/Makefile.am control-cen
    apply-font.glade \
    theme-method.directory.in \
    theme-method.conf \
+diff -Nuard control-center-2.4.0.orig/vfs-methods/themus/themus-theme-applier.c control-center-2.4.0/vfs-methods/themus/themus-theme-applier.c
+--- control-center-2.4.0.orig/vfs-methods/themus/themus-theme-applier.c	2003-07-24 23:06:38.000000000 +0200
++++ control-center-2.4.0/vfs-methods/themus/themus-theme-applier.c	2003-11-11 01:56:31.000000000 +0100
+@@ -69,7 +69,7 @@
+ 		if (theme->application_font)
+ 		{
+ 			glade_init ();
+-			font_xml = glade_xml_new (DATA_DIR "/apply-font.glade",
++			font_xml = glade_xml_new (GNOMECC_GLADE_DIR "/apply-font.glade",
+ 								NULL, NULL);
+ 			if (font_xml)
+ 			{
