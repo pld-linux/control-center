@@ -1,0 +1,162 @@
+--- control-center-1.0.5/capplets/background-properties/property-background.c.limitedbgs	Fri Apr  2 17:16:33 1999
++++ control-center-1.0.5/capplets/background-properties/property-background.c	Mon Apr  5 17:09:53 1999
+@@ -19,6 +19,8 @@
+ #include <gnome.h>
+ #include "imlib-misc.h"
+ 
++#define MAX_NUMBER_OF_WP 8
++
+ static GtkWidget *capplet=NULL;
+ 
+ static GtkWidget *preview;
+@@ -31,6 +33,7 @@
+ static gint wpNum;
+ static gint fillPreview = TRUE;
+ static gint ignoreChanges = TRUE;
++static GList *wplist = NULL;
+ 
+ enum {
+ 	WALLPAPER_TILED,
+@@ -758,26 +761,17 @@
+     /* hack */
+     if (!ignoreChanges && found < 0) {
+ 	
+-	cf = gtk_menu_item_new_with_label (str);
+-	gtk_signal_connect (GTK_OBJECT (cf),
+-			    "activate",
+-			    (GtkSignalFunc) browse_activated, str);
+-	gtk_menu_append (GTK_MENU (wpMenu), cf);
+-	gtk_widget_show (cf);
+-	wpNum++;
+-	
+-	gs = g_string_new ("/Background/Default/wallpaper");
+-	snprintf (num, sizeof(num), "%d", wpNum);
+-	g_string_append (gs, num);
+-	gnome_config_set_string (gs->str, str);
+-	g_string_free (gs, TRUE);
+-	
+-	gnome_config_set_int ("/Background/Default/wallpapers", wpNum);
+-	gnome_config_set_string ("/Background/Default/wallpapers_dir",
+-				 str);
+-	
+-	found = wpNum;
+-	gnome_config_sync ();
++			cf = gtk_menu_item_new_with_label (str);
++			gtk_signal_connect (GTK_OBJECT (cf),
++								"activate",
++								(GtkSignalFunc) browse_activated, str);
++			gtk_menu_append (GTK_MENU (wpMenu), cf);
++			gtk_widget_show (cf);
++			wpNum++;
++
++			wplist = g_list_prepend (wplist, g_strdup (str));
++			found = wpNum;
++			gnome_config_sync ();
+     }
+     
+     if (curState.wpFileName)
+@@ -785,7 +779,7 @@
+     curState.wpFileName = g_strdup(str);
+     curState.bgType = BACKGROUND_WALLPAPER;
+     
+-    gtk_option_menu_set_history (GTK_OPTION_MENU (wpOMenu), found);
++    gtk_option_menu_set_history (GTK_OPTION_MENU (wpOMenu), found - 1);
+     
+     fill_monitor (!ignoreChanges, &curState);
+ 
+@@ -960,31 +954,31 @@
+ 			(GtkSignalFunc) browse_activated, NULL);
+     
+     wpNum = gnome_config_get_int ("/Background/Default/wallpapers=0");
+-    
+     for (i = 0; i<wpNum; i++) {
+-	
+-	/* printf ("wallpaper%d", i); */
+-	wpName = g_string_new ("/Background/Default/wallpaper");
+-	snprintf (num, sizeof(num),"%d", i+1);
+-	g_string_append (wpName, num);
+-	g_string_append (wpName, "=???");
+-	
+-	wpName1 = gnome_config_get_string (wpName->str);
+-	/* printf (": %s\n", wpName1); */
+-	if (wpName1) {
+-	    if (state->wpFileName)
+-		if (!strcmp (wpName1, state->wpFileName))
+-		    selectedWp = i + 1;
+-	    
+-	    none = gtk_menu_item_new_with_label (wpName1);
+-	    gtk_menu_append (GTK_MENU (wpMenu), none);
+-	    gtk_signal_connect (GTK_OBJECT (none),
+-				"activate",
+-				(GtkSignalFunc) browse_activated, wpName1);
+-	    gtk_widget_show (none);
+-	}
+-	
+-	g_string_free (wpName, TRUE);
++		wpName = g_string_new ("/Background/Default/wallpaper");
++		snprintf (num, sizeof(num),"%d", i);
++		g_string_append (wpName, num);
++        if (i > MAX_NUMBER_OF_WP) {
++				/* We want to blow away the old ones.  */
++				gnome_config_clean_key (wpName->str);
++	    } else {
++				/* printf ("wallpaper%d", i); */
++				
++				wpName1 = gnome_config_get_string (wpName->str);
++				if (wpName1) {
++						if (state->wpFileName)
++								if (!strcmp (wpName1, state->wpFileName))
++										selectedWp = i + 1;
++						none = gtk_menu_item_new_with_label (wpName1);
++						wplist = g_list_prepend (wplist, g_strdup (wpName1));
++						gtk_menu_append (GTK_MENU (wpMenu), none);
++						gtk_signal_connect (GTK_OBJECT (none),
++											"activate",
++											(GtkSignalFunc) browse_activated, wpName1);
++						gtk_widget_show (none);
++				}
++		}
++		g_string_free (wpName, TRUE);
+     }
+     
+     wpOMenu = gtk_option_menu_new ();
+@@ -1137,7 +1131,7 @@
+ background_try(GtkWidget *widget, struct bgState *state)
+ {
+ 
+-printState(state);
++/*printState(state);*/
+     background_apply(state);
+ }
+ 
+@@ -1166,7 +1160,8 @@
+ background_write (struct bgState *state)
+ {
+     char buffer [60];
+-
++	GList *list;
++	gint i = 0;
+ 
+     snprintf (buffer, sizeof(buffer), "#%02x%02x%02x",
+ 	      state->bgColor1.red >> 8,
+@@ -1189,11 +1184,17 @@
+     gnome_config_set_string ("/Background/Default/wallpaper",
+ 			     (state->bgType == BACKGROUND_SIMPLE) ? "none" : state->wpFileName);
+     gnome_config_set_int ("/Background/Default/wallpaperAlign", state->wpType);
++	for (list = wplist; list; list = list->next) {
++/*			if (i > MAX_NUMBER_OF_WP)
++			break;*/
++			snprintf (buffer, sizeof(buffer), "/Background/Default/wallpaper%d", i);
++			gnome_config_set_string (buffer, (gchar *) list->data);
++			i++;
++	}
++	gnome_config_set_int ("/Background/Default/wallpapers", i - 1);
+     
+     gnome_config_sync ();
+-#if 0    
+-    background_apply(state);
+-#endif
++	
+ }
+ 
+ void
