@@ -5,18 +5,18 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.2.1
-Release:	1.2
+Version:	2.3.1
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.2.0
-BuildRequires:	ORBit2-devel >= 2.6.0
+BuildRequires:	GConf2-devel >= 2.3.2
+BuildRequires:	ORBit2-devel >= 2.7.1
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -25,22 +25,22 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.2.0
-BuildRequires:	gnome-vfs2-devel >= 2.2.0
-BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gnome-desktop-devel >= 2.3.1
+BuildRequires:	gnome-vfs2-devel >= 2.3.1
+BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libbonobo-devel >= 2.1.1
-BuildRequires:	libbonoboui-devel >= 2.1.2
-BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.1.90
-BuildRequires:	libgnomeui-devel >= 2.1.90
-BuildRequires:	libxml2-devel >= 2.5.1
+BuildRequires:	libbonobo-devel >= 2.2.1
+BuildRequires:	libbonoboui-devel >= 2.2.0.1
+BuildRequires:	libglade2-devel >= 2.0.1
+BuildRequires:	libgnome-devel >= 2.3.0
+BuildRequires:	libgnomeui-devel >= 2.3.0
+BuildRequires:	libxml2-devel >= 2.5.7
 BuildRequires:	libtool
-BuildRequires:	scrollkeeper >= 0.3.11
+BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
-BuildRequires:	metacity-devel
-BuildRequires:	Xft-devel >= 2.1
-Requires:	gnome-vfs2 >= 2.2.0
+BuildRequires:	metacity-devel >= 2.5.1
+BuildRequires:	xft-devel >= 2.1.1
+Requires:	gnome-vfs2 >= 2.3.1
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -130,6 +130,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
+# no static modules - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
+
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -157,6 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/control-center-2.0/icons
 %{_datadir}/control-center-2.0/interfaces
 %{_datadir}/control-center-2.0/pixmaps
+%{_datadir}/control-center-2.0/xrdb
 %{_datadir}/gnome/cursor-fonts
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
@@ -170,9 +174,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_pkgconfigdir}/*.pc
-%{_libdir}/window-manager-settings/*.la
 
 %files static                                                                   
 %defattr(644,root,root,755)                                                     
 %{_libdir}/*.a
-%{_libdir}/window-manager-settings/*.a
