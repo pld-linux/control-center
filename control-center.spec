@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.3.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -14,10 +14,11 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.t
 # Source0-md5:	b334c9a657d947754e6020bd0ccdb5c6
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
+Patch2:		%{name}-link.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.3.2
-BuildRequires:	ORBit2-devel >= 2.7.1
+BuildRequires:	ORBit2-devel >= 2.7.5-1
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,30 +27,30 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.3.2
+BuildRequires:	gnome-desktop-devel >= 2.3.4-2
 BuildRequires:	gnome-vfs2-devel >= 2.3.2
 BuildRequires:	gtk+2-devel >= 2.2.1
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonobo-devel >= 2.2.1
-BuildRequires:	libbonoboui-devel >= 2.2.2
+BuildRequires:	libbonoboui-devel >= 2.3.3-2
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.3.0
-BuildRequires:	libgnomeui-devel >= 2.3.0
+BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libxml2-devel >= 2.5.7
 BuildRequires:	libtool
-BuildRequires:	nautilus-devel >= 2.3.5
+BuildRequires:	nautilus-devel >= 2.3.7-3
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	xft-devel >= 2.1.1
-Requires:	gnome-vfs2 >= 2.3.2
-Requires(post):	GConf2
-PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
-Obsoletes:	themus
+PreReq:		scrollkeeper
+Requires(post):	GConf2
+Requires:	gnome-vfs2 >= 2.3.2
 Obsoletes:	fontilus
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
+Obsoletes:	themus
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -103,8 +104,8 @@ Pliki nagЁСwkowe bibliotek GNOME Control-Center
 %package static
 Summary:	GNOME Control-Center static libraries
 Summary(pl):	Statyczne biblioteki GNOME Control-Center
-Group:          X11/Development/Libraries                                       
-Requires:       %{name}-devel = %{epoch}:%{version}  
+Group:		X11/Development/Libraries                                       
+Requires:	%{name}-devel = %{epoch}:%{version}  
 
 %description static                                                             
 GNOME Control-Centerp static libraries.                                                
@@ -116,6 +117,7 @@ Statyczne biblioteki GNOME Control-Center.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 glib-gettextize --copy --force
