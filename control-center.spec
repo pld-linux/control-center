@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.7.0
-Release:	0.3
+Version:	2.7.1
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	d7490644ba6564a2efe8281b9444a915
+# Source0-md5:	f3f04612dc2485acaaa8e92c66f03331
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
 #Patch2:		%{name}-def-apps-capplet.patch
@@ -24,8 +24,8 @@ Patch7:		%{name}-locale-names.patch
 Patch9:		%{name}-def-apps-capplet-browsers.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.7.3
-BuildRequires:	ORBit2-devel >= 1:2.11.1
+BuildRequires:	GConf2-devel >= 2.7.91
+BuildRequires:	ORBit2-devel >= 1:2.11.2
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -34,28 +34,28 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.7.4
-BuildRequires:	gnome-vfs2-devel >= 2.7.5
-BuildRequires:	gstreamer-plugins-devel >= 0.8.2
+BuildRequires:	gnome-desktop-devel >= 2.7.91
+BuildRequires:	gnome-vfs2-devel >= 2.7.91
+BuildRequires:	gstreamer-plugins-devel >= 0.8.3
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libbonobo-devel >= 2.6.2
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.7.2
-BuildRequires:	libgnomeui-devel >= 2.7.2
+BuildRequires:	libgnome-devel >= 2.7.91
+BuildRequires:	libgnomeui-devel >= 2.7.91
 BuildRequires:	libxml2-devel >= 2.6.7
 BuildRequires:	libxklavier-devel >= 1.03
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.8.3
-BuildRequires:	nautilus-devel >= 2.7.2
+BuildRequires:	nautilus-devel >= 2.7.4
 BuildRequires:	scrollkeeper >= 0.3.12
-BuildRequires:	startup-notification-devel >= 0.5
+BuildRequires:	startup-notification-devel >= 0.7
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.7.5
+Requires:	gnome-vfs2 >= 2.7.91
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -136,7 +136,7 @@ Statyczne biblioteki GNOME Control-Center.
 ##%patch8 -p1
 %patch9 -p0
 
-mv po/{no,nb}.po
+rm po/no.po
 
 %build
 glib-gettextize --copy --force
