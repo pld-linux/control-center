@@ -21,6 +21,7 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.5
 BuildRequires:	gdk-pixbuf-devel >= 0.7.0
 BuildRequires:	gnome-libs-devel >= 1.2.12-3
+BuildRequires:	gnome-vfs-devel >= 0.9
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
@@ -86,6 +87,7 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %build
 rm missing
 xml-i18n-toolize --copy --force
+libtoolize --copy --force
 gettextize --copy --force
 automake -a -c
 aclocal -I macros
