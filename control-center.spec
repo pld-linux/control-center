@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.9.4
+Version:	2.9.91
 Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	b95677dc4caf09c1143804bc54f1b468
+# Source0-md5:	99a8c387fa207f07c2e393f6c772dcd4
 Patch0:		%{name}-randr.patch
 #Patch1:		%{name}-def-apps-capplet.patch
 Patch2:		%{name}-wm_properties-dir.patch
@@ -23,7 +23,7 @@ Patch7:		%{name}-capplet.patch
 Patch8:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.9.2
+BuildRequires:	GConf2-devel >= 2.9.90
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	alsa-lib-devel >= 0.9.0
 BuildRequires:	audiofile >= 1:0.2.6
@@ -34,8 +34,8 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.9.90
-BuildRequires:	gnome-menus-devel >= 2.9.91
+BuildRequires:	gnome-desktop-devel >= 2.9.91
+BuildRequires:	gnome-menus-devel >= 2.9.90
 BuildRequires:	gnome-vfs2-devel >= 2.9.90
 BuildRequires:	gstreamer-plugins-devel >= 0.8.7
 BuildRequires:	gtk+2-devel >= 2:2.6.2
