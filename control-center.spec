@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.1.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -129,7 +129,8 @@ aclocal
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	pkgconfigdir=%{_pkgconfigdir}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -168,7 +169,7 @@ GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 %defattr(644,root,root,755)                                                     
 %{_includedir}/gnome-window-settings-2.0
 %attr(755,root,root) %{_libdir}/lib*.??
-%{_libdir}/pkgconfig/*.pc
+%{_pkgconfigdir}/*.pc
 %{_libdir}/window-manager-settings/*.la
 
 %files static                                                                   
