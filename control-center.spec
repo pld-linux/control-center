@@ -5,15 +5,14 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.1.3
-Release:	5
+Version:	2.1.5
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-am.patch
-Patch1:		%{name}-fontconfig.patch
-Patch2:		%{name}-mouse-am.patch
+Patch0:		%{name}-fontconfig.patch
+Patch1:		%{name}-mouse-am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 1.2.1
@@ -26,21 +25,21 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.1.0
-BuildRequires:	gnome-vfs2-devel >= 2.1.3.1-3
-BuildRequires:	gtk+2-devel >= 2.1.3-3
-BuildRequires:	intltool >= 0.23
+BuildRequires:	gnome-desktop-devel >= 2.1.5
+BuildRequires:	gnome-vfs2-devel >= 2.1.5
+BuildRequires:	gtk+2-devel >= 2.1.5
+BuildRequires:	intltool >= 0.24
 BuildRequires:	libbonobo-devel >= 2.1.0-3
 BuildRequires:	libbonoboui-devel >= 2.1.0
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.1.1-2
-BuildRequires:	libgnomeui-devel >= 2.1.2
+BuildRequires:	libgnome-devel >= 2.1.5
+BuildRequires:	libgnomeui-devel >= 2.1.5
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
 BuildRequires:	metacity-devel
-BuildRequires:	Xft-devel >= 2.0-6
-Requires:	gnome-vfs2 >= 2.1.3.1-3
+BuildRequires:	Xft-devel >= 2.1
+Requires:	gnome-vfs2 >= 2.1.5
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -111,16 +110,15 @@ Statyczne biblioteki GNOME Control-Center.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 glib-gettextize --copy --force
 intltoolize --copy --force
-libtoolize --copy --force
-aclocal
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure --disable-schemas-install
 
 %{__make}
 
@@ -128,8 +126,7 @@ aclocal
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} 
+	DESTDIR=$RPM_BUILD_ROOT 
 
 %find_lang %{name} --with-gnome --all-name
 
