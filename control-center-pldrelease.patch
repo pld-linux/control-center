@@ -1,6 +1,5 @@
-diff -Nur control-center.orig/splash.c control-center/splash.c
---- control-center.orig/splash.c	Thu Feb  8 20:07:54 2001
-+++ control-center/splash.c	Mon Aug 20 23:24:41 2001
+--- control-center-1.4.0.3/control-center.orig/splash.c	Thu Feb  8 20:07:54 2001
++++ control-center-1.4.0.3/control-center/splash.c	Mon Aug 20 23:24:41 2001
 @@ -171,6 +171,16 @@
  	  info[si_distribution] = g_strdup(buf);
  	  fclose(f);
