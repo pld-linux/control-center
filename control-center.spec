@@ -5,8 +5,8 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	1.99.9
-Release:	0.1
+Version:	1.99.10
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
