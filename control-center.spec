@@ -128,7 +128,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -136,7 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-GCONF_CONFIG_SOURCE="" \
+GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" \
 /usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
 
 %postun
