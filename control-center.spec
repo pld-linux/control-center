@@ -1,6 +1,3 @@
-# TODO:
-# - smash desktop-file-utils dep (do not run it at bulid time!)
-#
 Summary:	GNOME control center
 Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
@@ -9,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.10.0
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -24,6 +21,7 @@ Patch5:		%{name}-reduced_resources.patch
 Patch6:		%{name}-def-apps-capplet-browsers.patch
 Patch7:		%{name}-capplet.patch
 Patch8:		%{name}-desktop.patch
+Patch9:		%{name}-Makefile.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -33,7 +31,6 @@ BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
-BuildRequires:	desktop-file-utils
 BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
@@ -51,11 +48,11 @@ BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.10.0
 BuildRequires:	nautilus-devel >= 2.10.0-3
-BuildRequires:	scrollkeeper >= 0.3.12
+BuildRequires:	rpmbuild(macros) >= 1.196
 BuildRequires:	xft-devel >= 2.1.1
-PreReq:		/sbin/ldconfig
-PreReq:		scrollkeeper
-Requires(post):	GConf2
+Requires(post,postun):	/sbin/ldconfig
+Requires(post,preun):	GConf2
+Requires(post,postun):	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.10.0-2
 Obsoletes:	acme
 Obsoletes:	fontilus
@@ -135,6 +132,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch6 -p1 
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 glib-gettextize --copy --force
@@ -170,9 +168,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-%gconf_schema_install
+%gconf_schema_install /etc/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
+%gconf_schema_install /etc/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
+%gconf_schema_install /etc/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
+%gconf_schema_install /etc/gconf/schemas/desktop_gnome_font_rendering.schemas
+%gconf_schema_install /etc/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
+%gconf_schema_install /etc/gconf/schemas/fontilus.schemas
+%gconf_schema_install /etc/gconf/schemas/themus.schemas
+/usr/bin/update-desktop-database
 
-%postun -p /sbin/ldconfig
+%preun
+%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_font_rendering.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/fontilus.schemas
+%gconf_schema_uninstall /etc/gconf/schemas/themus.schemas
+
+%postun
+/sbin/ldconfig
+/usr/bin/update-desktop-database
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
