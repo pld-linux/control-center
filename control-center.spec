@@ -12,6 +12,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
+Patch1:		%{name}-fontconfig.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 1.2.1
@@ -108,6 +109,7 @@ Statyczne biblioteki GNOME Control-Center.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 glib-gettextize --copy --force
