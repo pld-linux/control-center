@@ -1,9 +1,0 @@
-diff -urN control-center-2.3.5.orig/gnome-settings-daemon/Makefile.am control-center-2.3.5/gnome-settings-daemon/Makefile.am
---- control-center-2.3.5.orig/gnome-settings-daemon/Makefile.am	Tue Aug 12 06:23:31 2003
-+++ control-center-2.3.5/gnome-settings-daemon/Makefile.am	Tue Aug 12 06:24:58 2003
-@@ -89,4 +89,4 @@
- CLEANFILES = $(BUILT_SOURCES)
- 
- EXTRA_DIST =						\
--	$(server_in_files)				\
-+	$(server_in_files)				
