@@ -1,6 +1,6 @@
 diff -Nuard control-center-2.4.0.orig/capplets/font/font-properties.glade control-center-2.4.0/capplets/font/font-properties.glade
 --- control-center-2.4.0.orig/capplets/font/font-properties.glade	2003-08-04 17:33:22.000000000 +0200
-+++ control-center-2.4.0/capplets/font/font-properties.glade	2003-11-14 00:12:09.000000000 +0100
++++ control-center-2.4.0/capplets/font/font-properties.glade	2003-11-14 21:01:26.000000000 +0100
 @@ -723,6 +723,24 @@
  		      <property name="fill">False</property>
  		    </packing>
@@ -28,7 +28,7 @@ diff -Nuard control-center-2.4.0.orig/capplets/font/font-properties.glade contro
  	    </widget>
 diff -Nuard control-center-2.4.0.orig/capplets/font/main.c control-center-2.4.0/capplets/font/main.c
 --- control-center-2.4.0.orig/capplets/font/main.c	2003-08-02 18:02:47.000000000 +0200
-+++ control-center-2.4.0/capplets/font/main.c	2003-11-14 00:17:10.000000000 +0100
++++ control-center-2.4.0/capplets/font/main.c	2003-11-14 21:01:26.000000000 +0100
 @@ -38,6 +38,7 @@
  #define FONT_HINTING_KEY      FONT_RENDER_DIR "/hinting"
  #define FONT_RGBA_ORDER_KEY   FONT_RENDER_DIR "/rgba_order"
@@ -97,9 +97,68 @@ diff -Nuard control-center-2.4.0.orig/capplets/font/main.c control-center-2.4.0/
  
  		setup_font_sample (WID ("antialias_none_sample"),      ANTIALIAS_NONE,      HINT_FULL);
  		setup_font_sample (WID ("antialias_grayscale_sample"), ANTIALIAS_GRAYSCALE, HINT_FULL);
+diff -Nuard control-center-2.4.0.orig/gnome-settings-daemon/gnome-settings-xsettings.c control-center-2.4.0/gnome-settings-daemon/gnome-settings-xsettings.c
+--- control-center-2.4.0.orig/gnome-settings-daemon/gnome-settings-xsettings.c	2003-07-31 20:25:42.000000000 +0200
++++ control-center-2.4.0/gnome-settings-daemon/gnome-settings-xsettings.c	2003-11-14 21:34:46.000000000 +0100
+@@ -17,6 +17,7 @@
+ #define FONT_HINTING_KEY      FONT_RENDER_DIR "/hinting"
+ #define FONT_RGBA_ORDER_KEY   FONT_RENDER_DIR "/rgba_order"
+ #define FONT_DPI_KEY          FONT_RENDER_DIR "/dpi"
++#define FONT_CALCULATE_DPI_KEY          FONT_RENDER_DIR "/calculate_dpi"
+ #endif /* HAVE_XFT2 */
+ 
+ typedef struct _TranslationEntry TranslationEntry;
+@@ -268,10 +269,11 @@
+ gnome_xft_settings_get (GConfClient      *client,
+ 			GnomeXftSettings *settings)
+ {
+-  char *antialiasing = gconf_client_get_string (client, FONT_ANTIALIASING_KEY, NULL);
+-  char *hinting = gconf_client_get_string (client, FONT_HINTING_KEY, NULL);
+-  char *rgba_order = gconf_client_get_string (client, FONT_RGBA_ORDER_KEY, NULL);
+-  double dpi = gconf_client_get_float (client, FONT_DPI_KEY, NULL);
++  gchar *antialiasing = gconf_client_get_string (client, FONT_ANTIALIASING_KEY, NULL);
++  gchar *hinting = gconf_client_get_string (client, FONT_HINTING_KEY, NULL);
++  gchar *rgba_order = gconf_client_get_string (client, FONT_RGBA_ORDER_KEY, NULL);
++  gdouble  dpi = gconf_client_get_float (client, FONT_DPI_KEY, NULL);
++  gboolean calculate_dpi = gconf_client_get_bool (client, FONT_CALCULATE_DPI_KEY ,NULL);
+ 
+   settings->antialias = TRUE;
+   settings->hinting = TRUE;
+@@ -279,12 +281,28 @@
+   settings->dpi = 96;
+   settings->rgba = "rgb";
+ 
+-  if ((int)(1024 * dpi + 0.5) > 0)
+-    settings->dpi = (int)(1024 * dpi + 0.5);
++  if (calculate_dpi == TRUE)
++    {
++      gdouble xres;
++      gint width_mm, width_px;
++      GdkScreen *screen = gdk_screen_get_default();
++	  
++      width_mm = gdk_screen_get_width_mm(screen);
++      width_px  = gdk_screen_get_width(screen);
++
++      xres = ((((gdouble)width_px) * 25.4) / ((gdouble)width_mm));
++      dpi = xres;
++      
++      gconf_client_set_float (client, FONT_DPI_KEY, (gint)(xres + 0.5) ,NULL);
++    } 
++    
++  if ((gint)(1024 * dpi + 0.5) > 0)
++    settings->dpi = (gint)(1024 * dpi + 0.5);
++
+ 
+   if (rgba_order)
+     {
+-      int i;
++      gint i;
+       gboolean found = FALSE;
+ 
+       for (i = 0; i < G_N_ELEMENTS (rgba_types) && !found; i++)
 diff -Nuard control-center-2.4.0.orig/schemas/desktop_gnome_font_rendering.schemas control-center-2.4.0/schemas/desktop_gnome_font_rendering.schemas
 --- control-center-2.4.0.orig/schemas/desktop_gnome_font_rendering.schemas	2003-09-08 16:58:39.000000000 +0200
-+++ control-center-2.4.0/schemas/desktop_gnome_font_rendering.schemas	2003-11-13 22:29:49.000000000 +0100
++++ control-center-2.4.0/schemas/desktop_gnome_font_rendering.schemas	2003-11-14 21:01:26.000000000 +0100
 @@ -1,6 +1,21 @@
  <?xml version="1.0"?>
  <gconfschemafile>
