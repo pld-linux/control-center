@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.2.1
-Release:	1.1
+Release:	1.2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -40,6 +40,7 @@ BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel
 BuildRequires:	Xft-devel >= 2.1
 Requires:	gnome-vfs2 >= 2.2.0
+Requires:	glade2
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
