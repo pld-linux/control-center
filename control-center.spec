@@ -2,7 +2,8 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.2.2
-Release:	6
+Release:	7
+Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
