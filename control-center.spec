@@ -38,10 +38,10 @@ BuildRequires:	libgnome-devel >= 2.3.0
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libxml2-devel >= 2.5.7
 BuildRequires:	libtool
+BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	nautilus-devel >= 2.3.8
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
-BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
@@ -90,7 +90,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Цей пакет потр╕бний, якщо ви встановлю╓те середовище GNOME.
 
 %package devel
-Summary:	GNOME Control-Center includes
+Summary:	GNOME Control-Center header files
 Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
@@ -108,7 +108,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
-GNOME Control-Centerp static libraries.
+GNOME Control-Center static libraries.
 
 %description static -l pl
 Statyczne biblioteki GNOME Control-Center.
@@ -127,7 +127,8 @@ intltoolize --copy --force
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-%configure --disable-schemas-install
+%configure \
+	--disable-schemas-install
 
 %{__make}
 
