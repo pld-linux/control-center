@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.2.1
-Release:	1
+Release:	1.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -149,6 +149,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
 %{_datadir}/applications/*
+%dir %{_datadir}/control-center-2.0
+%dir %{_datadir}/control-center-2.0/capplets
 %{_datadir}/control-center-2.0/capplets/*
 %{_datadir}/control-center-2.0/icons
 %{_datadir}/control-center-2.0/interfaces
