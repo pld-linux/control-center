@@ -1,0 +1,10 @@
+--- control-center-1.4.0.1/capplets/ui-properties/Makefile.am.uipropertiesmenu	Wed Aug 29 15:52:06 2001
++++ control-center-1.4.0.1/capplets/ui-properties/Makefile.am	Wed Aug 29 15:53:22 2001
+@@ -31,3 +31,6 @@
+ 
+ install-data-local:
+ 	$(INSTALL_DATA) $(srcdir)/ui-properties.directory $(DESTDIR)$(sysdir)/.directory
++	$(INSTALL_DATA) $(srcdir)/application.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions
++	$(INSTALL_DATA) $(srcdir)/dialogs.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions
++	$(INSTALL_DATA) $(srcdir)/mdi.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions
+\ No newline at end of file
