@@ -5,24 +5,21 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.5.0
+Version:	2.5.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	e0c68e47e730eb92a243c5f423c9791b
+# Source0-md5:	a603265844fac85eb59b88cd9aa8a30e
 Patch0:		%{name}-fontconfig.patch
-Patch1:		%{name}-am17.patch
-Patch2:		%{name}-link.patch
-Patch3:		%{name}-randr.patch
-Patch4:		%{name}-def-apps-capplet.patch
-Patch5:		%{name}-wm_properties-dir.patch
-Patch6:		%{name}-additional-metacity-keybinding.patch
-Patch7:		%{name}-pixmaps-dirs.patch
-Patch8:		%{name}-capplets-dir.patch
-Patch9:		%{name}-themus-glade.patch
-Patch10:	%{name}-dpi.patch
+Patch1:		%{name}-randr.patch
+Patch2:		%{name}-def-apps-capplet.patch
+Patch3:		%{name}-wm_properties-dir.patch
+Patch4:		%{name}-additional-metacity-keybinding.patch
+Patch5:		%{name}-capplets-dir.patch
+Patch6:		%{name}-themus-glade.patch
+Patch7:		%{name}-dpi.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.3.3
@@ -132,9 +129,6 @@ Statyczne biblioteki GNOME Control-Center.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
 
 %build
 glib-gettextize --copy --force
@@ -179,6 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/fontilus-context-menu
+%attr(755,root,root) %{_libdir}/gnome-settings-daemon
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/bonobo/*.so
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
@@ -191,6 +186,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/gnome/capplets
+%{_datadir}/icons/*
 %{_datadir}/idl/*
 %{_datadir}/mime-info/*
 %{_pixmapsdir}/gnomecc-2
