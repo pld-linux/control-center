@@ -24,6 +24,7 @@ Patch8:		%{name}-capplets-dir.patch
 Patch9:		%{name}-themus-glade.patch
 Patch10:	%{name}-dpi.patch
 Patch11:	%{name}-home-themes-fix.patch
+Patch12:	%{name}-report-no-theme.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.3.3
@@ -136,6 +137,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 %build
 glib-gettextize --copy --force
