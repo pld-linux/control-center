@@ -25,7 +25,7 @@ diff -Nuard control-center-2.4.0.orig/capplets/default-applications/gnome-defaul
  	for (i = 0; i < G_N_ELEMENTS (possible_browsers); i++ ) {
  		if (possible_browsers[i].in_path == FALSE)
  			continue;
--		
+-
 -		if (browser && strcmp (browser, possible_browsers[i].command) == 0 &&
 -		    needs_term == possible_browsers[i].needs_term) {
 +
@@ -51,7 +51,7 @@ diff -Nuard control-center-2.4.0.orig/capplets/default-applications/gnome-defaul
 @@ -427,18 +429,19 @@
  		if (possible_mailers[i].in_path == FALSE)
  			continue;
- 		
+ 
 -		if (mailer && strcmp (mailer, possible_mailers[i].command) == 0 &&
 -		    needs_term == possible_mailers[i].needs_term) {
 +		if (mailer && (strcmp (mailer, possible_mailers[i].command) == 0)
