@@ -1,0 +1,26 @@
+diff -Nru control-center-2.5.2.orig/capplets/background/Makefile.am control-center-2.5.2/capplets/background/Makefile.am
+--- control-center-2.5.2.orig/capplets/background/Makefile.am	2004-01-12 07:33:07.000000000 +0100
++++ control-center-2.5.2/capplets/background/Makefile.am	2004-01-14 13:52:01.418770456 +0100
+@@ -29,7 +29,7 @@
+ @INTLTOOL_DESKTOP_RULE@
+ 
+ install-data-local:
+-	$(mkinstalldirs) $(WALLPAPER_DATADIR)
++	$(mkinstalldirs) $(DESTDIR)$(WALLPAPER_DATADIR)
+ 
+ EXTRA_DIST = \
+ 	$(desktop_in_files)
+diff -Nru control-center-2.5.2.orig/gnome-settings-daemon/Makefile.am control-center-2.5.2/gnome-settings-daemon/Makefile.am
+--- control-center-2.5.2.orig/gnome-settings-daemon/Makefile.am	2004-01-14 07:11:42.000000000 +0100
++++ control-center-2.5.2/gnome-settings-daemon/Makefile.am	2004-01-14 13:37:02.000000000 +0100
+@@ -99,8 +99,8 @@
+ serverfile = GNOME_SettingsDaemon.server.in
+ serverdir = $(libdir)/bonobo/servers
+ install-data-hook :
+-	$(mkinstalldirs) $(serverdir)
+-	sed -e "s|\@LIBEXECDIR\@|$(libexecdir)|" $(srcdir)/$(serverfile) > $(serverdir)/$(serverfile:.in=)
++	$(mkinstalldirs) $(DESTDIR)$(serverdir)
++	sed -e "s|\@LIBEXECDIR\@|$(libexecdir)|" $(srcdir)/$(serverfile) > $(DESTDIR)$(serverdir)/$(serverfile:.in=)
+ 
+ EXTRA_DIST = $(serverfile)
+ CLEANFILES = $(BUILT_SOURCES)
