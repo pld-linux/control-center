@@ -1,0 +1,14 @@
+diff -Nuard control-center-2.4.0.orig/libwindow-settings/gnome-wm-manager.c control-center-2.4.0/libwindow-settings/gnome-wm-manager.c
+--- control-center-2.4.0.orig/libwindow-settings/gnome-wm-manager.c	2002-10-29 07:19:52.000000000 +0100
++++ control-center-2.4.0/libwindow-settings/gnome-wm-manager.c	2003-09-20 19:43:04.000000000 +0200
+@@ -230,6 +230,10 @@
+         tempdir = gnome_unconditional_datadir_file ("gnome/wm-properties/");
+         scan_wm_directory (tempdir, FALSE);
+         g_free (tempdir);
++
++        tempdir = gnome_unconditional_datadir_file ("wm-properties/");
++        scan_wm_directory (tempdir, FALSE);
++        g_free (tempdir);
+         
+ 	tempdir = gnome_util_home_file("wm-properties/");
+         scan_wm_directory (tempdir, TRUE);
