@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	1.4.0.5
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -20,6 +20,7 @@ Patch5:		%{name}-am_conditional.patch
 Patch6:		%{name}-uipropertiesmenu.patch
 Patch7:		%{name}-setroothint.patch
 Patch8:		%{name}-no_mans.patch
+Patch9:		%{name}-omf.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
@@ -178,6 +179,7 @@ GNOME.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
