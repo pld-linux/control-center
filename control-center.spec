@@ -22,7 +22,6 @@ BuildRequires:	esound-devel >= 0.2.5
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
-BuildRequires:	XFree86-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
