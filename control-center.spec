@@ -2,11 +2,11 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.2.2
-Release:	1
+Release:	6
 License:	GPL
-Group:		X11/GNOME
-Group(de):	X11/GNOME
-Group(pl):	X11/GNOME
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-nosound.patch
 Patch1:		%{name}-esdrelease.patch
@@ -96,8 +96,6 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
