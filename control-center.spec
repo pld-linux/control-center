@@ -26,7 +26,6 @@ Patch13:	control-center-numwallpapers.patch
 Patch14:	control-center-warning.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-Requires:	gtk+ = 1.2.1
 Requires:	xscreensaver >= 2.34
 BuildPrereq:	gtk+-devel >= 1.1.16
 BuildPrereq:	esound-devel >= 0.2.5
