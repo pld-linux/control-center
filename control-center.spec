@@ -40,6 +40,7 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	oaf-devel
 BuildRequires:	zlib-devel
+BuildRequires:  libxml-devel
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
