@@ -11,6 +11,7 @@ Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-ac_am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel
@@ -80,8 +81,15 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+intltoolize --copy --force
+gettextize --copy --force
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c -f
 %configure
 
 %{__make}
