@@ -22,7 +22,7 @@ Patch4:		%{name}-pldrelease.patch
 Patch5:		%{name}-am_conditional.patch
 Patch6:		%{name}-uipropertiesmenu.patch
 Patch7:		%{name}-setroothint.patch
-Patch8:		{name}-no_mans.patch
+Patch8:		%{name}-no_mans.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
