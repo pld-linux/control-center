@@ -1,13 +1,18 @@
 Summary:	GNOME control center
+Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum kontroli GNOME
+Summary(pt_BR):	O Centro de Controle do GNOME
 Name:		control-center
 Version:	1.4.0.1
-Release:	5
+Release:	20
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
 Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/Aplicações
+Group(pt):	X11/Aplicações
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
@@ -16,15 +21,15 @@ Patch3:		%{name}-wm-properties_path.patch
 Patch4:		%{name}-esdrelease.patch
 Patch5:		%{name}-pldrelease.patch
 Patch6:		%{name}-am_conditional.patch
-Patch7:		%{name}-xml-i18n.patch
-Patch8:		%{name}-pixbuf_cflags.patch
+Patch7:		%{name}-pixbuf_cflags.patch
+Patch8:		%{name}-uipropertiesmenu.patch
+Patch9:		%{name}-setroothint.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel >= 0.2.5
@@ -35,7 +40,8 @@ BuildRequires:	gnome-libs-devel >= 1.2.12-3
 BuildRequires:	gnome-vfs-devel >= 0.9
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
-BuildRequires:	xml-i18n-tools
+BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	oaf-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,6 +60,10 @@ GNOME is the GNU Network Object Model Environment. That's a fancy name
 but really GNOME is a nice GUI desktop environment. It makes using
 your computer easy, powerful, and easy to configure.
 
+%description -l es
+El control-center es una herramienta para una configuración facilitada
+el entorno GNOME.
+
 %description -l pl
 Narzêdzie do ³atwej konfiguracji twojego ¶rodowiska GNOME. GNOME to
 Obiektowe ¦rodowisko Sieciowe na licencji GNU (GNU Network Object
@@ -61,9 +71,15 @@ Model Environment). Nazwa jest do¶æ dziwaczna, ale w rzeczywisto¶ci
 jest to mi³e ¶rodowisko pracy. Powoduje, ¿e u¿ywanie komputera jest
 proste, wydajne i ³atwe w konfiguracji.
 
+%description -l pt_BR
+O control-center é uma ferramenta para facilmente configurar seu
+ambiente GNOME.
+
 %package devel
 Summary:	GNOME control-center includes
+Summary(es):	Archivos para desarrollo con el control-center del GNOME
 Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
+Summary(pt_BR):	Arquivos para desenvolvimento com o control-center do GNOME
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -77,12 +93,24 @@ Requires:	%{name} = %{version}
 %description devel
 Capplet development stuff.
 
+%description -l es devel
+Archivos para desarrollo con el control-center del GNOME
+
 %description -l pl
 Rzeczy potrzebne do kompilacji.
 
+%description -l pt_BR devel
+Se você estiver interessado em desenvolver painéis para o centro de
+controle do GNOME este pacote será necessário.
+
+O control-center-devel lhe a ajuda na criação de 'capplets', que são
+usados no centro de controle.
+
 %package static
 Summary:	GNOME control-center static libraries
+Summary(es):	Archivos estáticos para desarrollo con el control-center del GNOME
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
+Summary(pt_BR):	Arquivos estáticos para desenvolvimento com o control-center
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -96,8 +124,23 @@ Requires:	%{name}-devel = %{version}
 %description static
 GNOME control-center static libraries.
 
+%description -l es static
+El control-center es una herramienta para una configuración facilitada
+el entorno GNOME.
+
+Archivos para desarrollo con el control-center del GNOME Archivos
+estáticos del control-center del gnome.
+
 %description -l pl
 Statyczne biblioteki dla centrum kontroli GNOME.
+
+%description -l pt_BR static
+O control-center-devel lhe a ajuda na criação de 'capplets', que são
+usados no centro de controle.
+
+Se você estiver interessado em desenvolver painéis para o centro de
+controle do GNOME este pacote será necessário. Nota: este pacote
+contém somente os arquivos estáticos.
 
 %prep
 %setup -q
@@ -110,6 +153,7 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 rm -f missing
