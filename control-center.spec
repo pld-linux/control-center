@@ -11,7 +11,6 @@ Patch0:		control-center-DESTDIR.patch
 URL:		http://www.gnome.org/
 Requires:	gtk+ = 1.2.1
 Requires:	xscreensaver >= 2.34
-Requires:	ORBit = 0.4.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 Obsoletes:	gnome
 
