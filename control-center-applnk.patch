@@ -31,16 +31,6 @@ diff -urN control-center-1.4.0.1.org/capplets/file-types/Makefile.am control-cen
  settings_DATA = $(sys_DATA)
  
  @XML_I18N_MERGE_DESKTOP_RULE@
-diff -urN control-center-1.4.0.1.org/capplets/gnome-edit-properties/Makefile.am control-center-1.4.0.1/capplets/gnome-edit-properties/Makefile.am
---- control-center-1.4.0.1.org/capplets/gnome-edit-properties/Makefile.am	Sun Apr  1 18:49:14 2001
-+++ control-center-1.4.0.1/capplets/gnome-edit-properties/Makefile.am	Sun Apr  1 18:52:37 2001
-@@ -24,4 +24,4 @@
- @XML_I18N_MERGE_DESKTOP_RULE@
- 
- install-data-local:
--	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Documents/gnome-edit-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/gnome-edit-properties.desktop
-diff -urN control-center-1.4.0.1.org/capplets/keyboard-properties/Makefile.am control-center-1.4.0.1/capplets/keyboard-properties/Makefile.am
 --- control-center-1.4.0.1.org/capplets/keyboard-properties/Makefile.am	Sun Apr  1 18:49:14 2001
 +++ control-center-1.4.0.1/capplets/keyboard-properties/Makefile.am	Sun Apr  1 18:52:37 2001
 @@ -22,4 +22,4 @@
@@ -58,16 +48,6 @@ diff -urN control-center-1.4.0.1.org/capplets/mouse-properties/Makefile.am contr
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Peripherals/mouse-properties.desktop
 +	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Peripherals/mouse-properties.desktop
-diff -urN control-center-1.4.0.1.org/capplets/screensaver-properties/Makefile.am control-center-1.4.0.1/capplets/screensaver-properties/Makefile.am
---- control-center-1.4.0.1.org/capplets/screensaver-properties/Makefile.am	Sun Apr  1 18:49:13 2001
-+++ control-center-1.4.0.1/capplets/screensaver-properties/Makefile.am	Sun Apr  1 18:52:39 2001
-@@ -31,4 +31,4 @@
- @XML_I18N_MERGE_DESKTOP_RULE@
- 
- install-data-local:
--	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Desktop/screensaver-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/screensaver-properties.desktop
-diff -urN control-center-1.4.0.1.org/capplets/sound-properties/Makefile.am control-center-1.4.0.1/capplets/sound-properties/Makefile.am
 --- control-center-1.4.0.1.org/capplets/sound-properties/Makefile.am	Sun Apr  1 18:49:14 2001
 +++ control-center-1.4.0.1/capplets/sound-properties/Makefile.am	Sun Apr  1 18:52:39 2001
 @@ -24,4 +24,4 @@
@@ -283,3 +263,11 @@ diff -urN control-center-1.4.0.1.org/control-center-applnk.patch control-center-
  sys_in_files = gnomecc.desktop.in
  sys_DATA = $(sys_in_files:.desktop.in=.desktop)
  @XML_I18N_MERGE_DESKTOP_RULE@
+--- control-center-1.4.0.5/capplets/default-applications/Makefile.am~	Sun Apr  7 11:12:35 2002
++++ control-center-1.4.0.5/capplets/default-applications/Makefile.am	Sun Apr  7 11:12:35 2002
+@@ -33,4 +33,4 @@
+ @XML_I18N_MERGE_DESKTOP_RULE@
+ 
+ install-data-local:
+-	$(INSTALL_DATA) $(srcdir)/default-application-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Documents/default-applicaiton-properties.desktop
++	$(INSTALL_DATA) $(srcdir)/default-application-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/default-applicaiton-properties.desktop
