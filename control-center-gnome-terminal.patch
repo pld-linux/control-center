@@ -1,0 +1,12 @@
+diff -Nuard control-center-2.4.0.orig/capplets/default-applications/gnome-default-applications-properties-structs.c control-center-2.4.0/capplets/default-applications/gnome-default-applications-properties-structs.c
+--- control-center-2.4.0.orig/capplets/default-applications/gnome-default-applications-properties-structs.c	2003-08-01 21:39:54.000000000 +0200
++++ control-center-2.4.0/capplets/default-applications/gnome-default-applications-properties-structs.c	2003-09-16 20:51:43.000000000 +0200
+@@ -63,7 +63,7 @@
+ 
+ TerminalDescription possible_terminals[] = 
+ { 
+-        { N_("Gnome Terminal"), "gnome-terminal", "-x", FALSE },
++        { N_("Gnome Terminal"), "gnome-terminal", "-e", FALSE },
+         { N_("Standard XTerminal"), "xterm", "-e", FALSE },
+         { N_("NXterm"), "nxterm", "-e", FALSE },
+         { N_("RXVT"), "rxvt", "-e", FALSE },
