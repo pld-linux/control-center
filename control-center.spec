@@ -102,7 +102,7 @@ Pliki nag³ówkowe bibliotek GNOME Control-Center
 Summary:	GNOME Control-Center static libraries
 Summary(pl):	Statyczne biblioteki GNOME Control-Center
 Group:          X11/Development/Libraries                                       
-Requires:       %{name} = %{epoch}:%{version}  
+Requires:       %{name}-devel = %{epoch}:%{version}  
 
 %description static                                                             
 GNOME Control-Centerp static libraries.                                                
