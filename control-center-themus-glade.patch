@@ -1,0 +1,41 @@
+diff -Nuard control-center-2.4.0.orig/vfs-methods/themus/Makefile.am control-center-2.4.0/vfs-methods/themus/Makefile.am
+--- control-center-2.4.0.orig/vfs-methods/themus/Makefile.am	2003-08-28 01:01:56.000000000 +0200
++++ control-center-2.4.0/vfs-methods/themus/Makefile.am	2003-11-11 01:55:19.000000000 +0100
+@@ -2,6 +2,7 @@
+   $(THEMUS_THUMBNAILER_CFLAGS) \
+   $(THEMUS_COMPONENT_CFLAGS) \
+   -I$(top_srcdir)/capplets/common \
++  -DGNOMECC_GLADE_DIR=\"$(GNOMECC_GLADE_DIR)\" \
+   -DDIRECTORY_DIR=\"$(vfsdirectorydir)\" \
+   -DDATA_DIR=\"$(datadir)/themus\"
+ 
+@@ -39,7 +40,8 @@
+ 	themus-properties-view.h \
+ 	themus-properties-main.c
+ 
+-pkgdata_DATA = apply-font.glade
++Gladedir   = $(GNOMECC_GLADE_DIR)
++Glade_DATA = apply-font.glade
+ 
+ @INTLTOOL_DIRECTORY_RULE@
+ 
+@@ -78,6 +80,7 @@
+ @INTLTOOL_SCHEMAS_RULE@
+ 
+ EXTRA_DIST = \
++  $(Glade_DATA) \
+   apply-font.glade \
+   theme-method.directory.in \
+   theme-method.conf \
+diff -Nuard control-center-2.4.0.orig/vfs-methods/themus/themus-theme-applier.c control-center-2.4.0/vfs-methods/themus/themus-theme-applier.c
+--- control-center-2.4.0.orig/vfs-methods/themus/themus-theme-applier.c	2003-07-24 23:06:38.000000000 +0200
++++ control-center-2.4.0/vfs-methods/themus/themus-theme-applier.c	2003-11-11 01:56:31.000000000 +0100
+@@ -69,7 +69,7 @@
+ 		if (theme->application_font)
+ 		{
+ 			glade_init ();
+-			font_xml = glade_xml_new (DATA_DIR "/apply-font.glade",
++			font_xml = glade_xml_new (GNOMECC_GLADE_DIR "/apply-font.glade",
+ 								NULL, NULL);
+ 			if (font_xml)
+ 			{

@@ -1,0 +1,29 @@
+diff -urN aa/control-center-2.5.2/libgswitchit/gswitchit_config.c control-center-2.5.2/libgswitchit/gswitchit_config.c
+--- aa/control-center-2.5.2/libgswitchit/gswitchit_config.c	2004-01-12 20:30:47.000000000 +0100
++++ control-center-2.5.2/libgswitchit/gswitchit_config.c	2004-01-29 23:46:29.523783336 +0100
+@@ -362,7 +362,6 @@
+ 				   gboolean activate,
+ 				   const char *psFileName)
+ {
+-	XkbDescModifierFunc fun = NULL;
+ 	gboolean rv = FALSE;
+ 
+ 	XklConfigRec data;
+@@ -371,7 +370,7 @@
+ 	_GSwitchItXkbConfigCopyToXklConfig (xkbConfig, &data);
+ 
+ 	if (activate) {
+-		rv = XklConfigActivate (&data, fun, NULL);
++		rv = XklConfigActivate (&data, NULL);
+ 	} else {
+ 		char *home = getenv ("HOME");
+ 		char xkmFileName[PATH_MAX];
+@@ -379,7 +378,7 @@
+ 		int status;
+ 		g_snprintf (xkmFileName, sizeof (xkmFileName),
+ 			    "%s/.gnome_private/xkbpreview.xkm", home);
+-		rv = XklConfigWriteXKMFile (xkmFileName, &data, fun, NULL);
++		rv = XklConfigWriteXKMFile (xkmFileName, &data, NULL);
+ 		if (rv) {
+ 			g_snprintf (cmd, sizeof (cmd),
+ 				    "xkbprint -full -color %s %s",
