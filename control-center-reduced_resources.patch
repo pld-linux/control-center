@@ -202,24 +202,6 @@ diff -Nuard control-center-2.4.0.orig/capplets/windows/gnome-window-properties.g
  	    <widget class="GtkVBox" id="vbox5">
  	      <property name="visible">True</property>
  	      <property name="homogeneous">False</property>
-diff -Nuard control-center-2.4.0.orig/po/control-center-2.0.pot control-center-2.4.0/po/control-center-2.0.pot
---- control-center-2.4.0.orig/po/control-center-2.0.pot	2003-08-27 21:02:41.000000000 +0200
-+++ control-center-2.4.0/po/control-center-2.0.pot	2003-12-05 00:31:19.744571640 +0100
-@@ -2305,6 +2305,14 @@
- msgid "_Select windows when the mouse moves over them"
- msgstr ""
- 
-+#: capplets/windows/gnome-window-properties.glade.h:7
-+msgid "<b>Reduced Resources</b>"
-+msgstr ""
-+
-+#: capplets/windows/gnome-window-properties.glade.h:7
-+msgid "_Use wireframe move/resize"
-+msgstr ""
-+
- #: capplets/windows/window-properties.desktop.in.in.h:1
- msgid "Set your window properties"
- msgstr ""
 diff -Nuard control-center-2.4.0.orig/po/pl.po control-center-2.4.0/po/pl.po
 --- control-center-2.4.0.orig/po/pl.po	2003-09-02 21:34:47.000000000 +0200
 +++ control-center-2.4.0/po/pl.po	2003-12-05 00:33:08.050106696 +0100
