@@ -1,33 +1,29 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.2.4
-Release:	2
+Version:	1.3.1
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
-Patch0:		%{name}-nosound.patch
-Patch1:		%{name}-esdrelease.patch
-Patch2:		%{name}-bgcolor1.patch
-Patch3:		%{name}-fsbgpath.patch
-Patch4:		%{name}-applnk.patch
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/control-center/%{name}-%{version}.tar.gz
+Patch0:		%{name}-macros.patch
+Patch1:		%{name}-applnk.patch
+Patch2:		%{name}-make.patch
 Icon:		control-center.gif
-Requires:	xscreensaver >= 2.34
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.5
 BuildRequires:	gdk-pixbuf-devel >= 0.7.0
-BuildRequires:	gnome-libs-devel
+BuildRequires:	gnome-libs-devel >= 1.2.12-3
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
-Obsoletes:	xcsreensaver-gnome
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME
@@ -78,12 +74,10 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 gettextize --force --copy
-aclocal -I macros
+aclocal -I %{_aclocaldir}/gnome
 autoconf
 automake -a -c
 %configure 
@@ -93,7 +87,9 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} DESTDIR=$RPM_BUILD_ROOT install \
+paneldir        = $(datadir)/gnome/apps/Settings
+
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
