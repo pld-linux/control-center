@@ -1,8 +1,8 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.2.2
-Release:	8
+Version:	1.2.3
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -13,19 +13,18 @@ Patch0:		%{name}-nosound.patch
 Patch1:		%{name}-esdrelease.patch
 Patch2:		%{name}-bgcolor1.patch
 Patch3:		%{name}-fsbgpath.patch
-Patch4:		%{name}-dontstartesd.patch
-Patch5:		%{name}-limitedbgs.patch
-Patch6:		%{name}-applnk.patch
+Patch4:		%{name}-applnk.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	ORBit-devel
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	gdk-pixbuf-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
-BuildRequires:	gdk-pixbuf-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -80,12 +79,12 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-#%patch5 -p1
-%patch6 -p1
 
 %build
 gettextize --force --copy
-automake
+aclocal -I macros
+autoconf
+automake -a -c
 %configure 
 
 %{__make}
