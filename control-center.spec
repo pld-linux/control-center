@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.1.3
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -44,9 +44,6 @@ PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
-
-%define		_prefix		/usr/X11R6
-%define		_sysconfdir	/etc/X11/GNOME2
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
