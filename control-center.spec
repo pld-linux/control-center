@@ -37,6 +37,7 @@ BuildRequires:	libgnomeui-devel >= 2.1.5
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper >= 0.3.6
+BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel
 BuildRequires:	Xft-devel >= 2.1
 Requires:	gnome-vfs2 >= 2.1.5
