@@ -1,17 +1,16 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.3.1
+Version:	1.4.0.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/control-center/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
-Patch2:		%{name}-make.patch
 Icon:		control-center.gif
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -22,6 +21,9 @@ BuildRequires:	gnome-libs-devel >= 1.2.12-3
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
+BuildRequires:	gettext-devel
+BuildRequires:	xml-i18n-tools
+BuildRequires:	findutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
@@ -73,13 +75,14 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
-gettextize --force --copy
-aclocal -I %{_aclocaldir}/gnome
-autoconf
+rm missing
+gettextize --copy --force
+xml-i18n-toolize --copy --force
 automake -a -c
+aclocal -I macros
+autoconf
 %configure 
 
 %{__make}
@@ -87,16 +90,18 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install \
-paneldir        = $(datadir)/gnome/apps/Settings
-
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
 	
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Settings/{[!G]*,GNOME}
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Settings/*.desktop \
+      $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
+cp    $RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/*.desktop \
+      $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop
+
+find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs | rm -f
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -126,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_datadir}/idl/*
+%{_datadir}/omf/*
 %{_includedir}/*
 
 %files static
