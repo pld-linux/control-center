@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	1.4.0.5
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -198,7 +198,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
+	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
@@ -229,7 +229,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/control-center
 %{_applnkdir}/Settings/GNOME
-%{_omf_dest_dir}/omf/%{name}
+%{_omf_dest_dir}/%{name}
 %dir %{_datadir}/gnome/wm-properties
 %{_pixmapsdir}/*
 %{_datadir}/idl/*
