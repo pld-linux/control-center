@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.6.0.3
+Version:	2.6.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d482e42842dc5b8a52714ae7a0aafed
+# Source0-md5:	da02f983fbf2e94cd5f09fc8f9d1d143
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
 Patch2:		%{name}-def-apps-capplet.patch
