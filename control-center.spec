@@ -2,7 +2,7 @@ Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
 Version:	1.4.0.1
-Release:	2
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -13,6 +13,7 @@ Patch0:		%{name}-macros.patch
 Patch1:		%{name}-applnk.patch
 Patch2:		%{name}-gettext.patch
 Patch3:		%{name}-wm-properties_path.patch
+PAtch4:		%{name}-esdrelease.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	ORBit-devel
@@ -83,15 +84,16 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
-rm missing
+rm -f missing
 xml-i18n-toolize --copy --force
 libtoolize --copy --force
 gettextize --copy --force
-automake -a -c
 aclocal -I macros
 autoconf
+automake -a -c
 %configure 
 
 %{__make}
