@@ -11,6 +11,7 @@ Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	d2dfe082624a5ac7294e8bb1a64fe6c3
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 URL:		http://www.gnome.org/
