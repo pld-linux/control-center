@@ -32,8 +32,8 @@ i ³atwe w konfiguracji.
 %package devel
 Summary:	GNOME control-center includes
 Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
-Group:		X11/Libraries
-Group(pl):	X11/Biblioteki
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
@@ -45,8 +45,8 @@ Rzeczy potrzebne do kompilacji.
 %package static
 Summary:	GNOME control-center static libraries
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
-Group:		X11/Libraries
-Group(pl):	X11/Biblioteki
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
