@@ -1,102 +1,90 @@
-diff -Nru control-center-1.2.0/capplets/background-properties/Makefile.am control-center-1.2.0.new/capplets/background-properties/Makefile.am
---- control-center-1.2.0/capplets/background-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/background-properties/Makefile.am	Tue May 23 00:16:16 2000
-@@ -23,4 +23,4 @@
+diff -Nru control-center-1.2.3/capplets/background-properties/Makefile.am control-center-1.2.3.new/capplets/background-properties/Makefile.am
+--- control-center-1.2.3/capplets/background-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/background-properties/Makefile.am	Tue Feb 20 02:33:18 2001
+@@ -26,4 +26,4 @@
  sys_DATA = background-properties.desktop 
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/background-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Desktop/background-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/background-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Desktop/background-properties.desktop
-diff -Nru control-center-1.2.0/capplets/desktop-links/Makefile.am control-center-1.2.0.new/capplets/desktop-links/Makefile.am
---- control-center-1.2.0/capplets/desktop-links/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/desktop-links/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/background-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/background-properties.desktop
+diff -Nru control-center-1.2.3/capplets/desktop-links/Makefile.am control-center-1.2.3.new/capplets/desktop-links/Makefile.am
+--- control-center-1.2.3/capplets/desktop-links/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/desktop-links/Makefile.am	Tue Feb 20 02:33:37 2001
 @@ -6,7 +6,7 @@
  Sessiondir	= $(ccenterdir)/Session
  Documentsdir	= $(ccenterdir)/Documents
  
 -paneldir        = $(datadir)/gnome/apps/Settings
-+paneldir        = $(datadir)/applnk/Settings
++paneldir        = $(datadir)/applnk/Settings/GNOME
  Multimediadirp	= $(paneldir)/Multimedia
  Desktopdirp	= $(paneldir)/Desktop
  UIOptionsdirp   = $(paneldir)/UIOptions
-diff -Nru control-center-1.2.0/capplets/gnome-edit-properties/Makefile.am control-center-1.2.0.new/capplets/gnome-edit-properties/Makefile.am
---- control-center-1.2.0/capplets/gnome-edit-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/gnome-edit-properties/Makefile.am	Tue May 23 00:19:32 2000
+diff -Nru control-center-1.2.3/capplets/gnome-edit-properties/Makefile.am control-center-1.2.3.new/capplets/gnome-edit-properties/Makefile.am
+--- control-center-1.2.3/capplets/gnome-edit-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/gnome-edit-properties/Makefile.am	Tue Feb 20 02:33:59 2001
 @@ -21,4 +21,4 @@
  sys_DATA = gnome-edit-properties.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Documents/gnome-edit-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Documents/gnome-edit-properties.desktop
-diff -Nru control-center-1.2.0/capplets/keyboard-properties/Makefile.am control-center-1.2.0.new/capplets/keyboard-properties/Makefile.am
---- control-center-1.2.0/capplets/keyboard-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/keyboard-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/gnome-edit-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/gnome-edit-properties.desktop
+diff -Nru control-center-1.2.3/capplets/keyboard-properties/Makefile.am control-center-1.2.3.new/capplets/keyboard-properties/Makefile.am
+--- control-center-1.2.3/capplets/keyboard-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/keyboard-properties/Makefile.am	Tue Feb 20 02:34:28 2001
 @@ -19,4 +19,4 @@
  sys_DATA = keyboard-properties.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/keyboard-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Peripherals/keyboard-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/keyboard-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Peripherals/keyboard-properties.desktop
-diff -Nru control-center-1.2.0/capplets/mime-type/Makefile.am control-center-1.2.0.new/capplets/mime-type/Makefile.am
---- control-center-1.2.0/capplets/mime-type/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/mime-type/Makefile.am	Tue May 23 00:19:07 2000
++	$(INSTALL_DATA) $(srcdir)/keyboard-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Peripherals/keyboard-properties.desktop
+diff -Nru control-center-1.2.3/capplets/mime-type/Makefile.am control-center-1.2.3.new/capplets/mime-type/Makefile.am
+--- control-center-1.2.3/capplets/mime-type/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/mime-type/Makefile.am	Tue Feb 20 02:34:42 2001
 @@ -23,4 +23,4 @@
  sys_DATA = mime-type.desktop 
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/mime-type.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Documents/mime-type.desktop
-+	$(INSTALL_DATA) $(srcdir)/mime-type.desktop $(DESTDIR)$(datadir)/applnk/Settings/Documents/mime-type.desktop
-diff -Nru control-center-1.2.0/capplets/mouse-properties/Makefile.am control-center-1.2.0.new/capplets/mouse-properties/Makefile.am
---- control-center-1.2.0/capplets/mouse-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/mouse-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/mime-type.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/mime-type.desktop
+diff -Nru control-center-1.2.3/capplets/mouse-properties/Makefile.am control-center-1.2.3.new/capplets/mouse-properties/Makefile.am
+--- control-center-1.2.3/capplets/mouse-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/mouse-properties/Makefile.am	Tue Feb 20 02:34:57 2001
 @@ -20,4 +20,4 @@
  sys_DATA = mouse-properties.desktop 
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Peripherals/mouse-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Peripherals/mouse-properties.desktop
-diff -Nru control-center-1.2.0/capplets/screensaver-properties/Makefile.am control-center-1.2.0.new/capplets/screensaver-properties/Makefile.am
---- control-center-1.2.0/capplets/screensaver-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/screensaver-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/mouse-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Peripherals/mouse-properties.desktop
+diff -Nru control-center-1.2.3/capplets/screensaver-properties/Makefile.am control-center-1.2.3.new/capplets/screensaver-properties/Makefile.am
+--- control-center-1.2.3/capplets/screensaver-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/screensaver-properties/Makefile.am	Tue Feb 20 02:35:13 2001
 @@ -29,4 +29,4 @@
  sys_DATA = screensaver-properties.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Desktop/screensaver-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Desktop/screensaver-properties.desktop
-diff -Nru control-center-1.2.0/capplets/session-properties/Makefile.am control-center-1.2.0.new/capplets/session-properties/Makefile.am
---- control-center-1.2.0/capplets/session-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/session-properties/Makefile.am	Tue May 23 00:16:16 2000
-@@ -38,7 +38,7 @@
- sys_DATA = session-properties.desktop
- endif
- 
--settingsdir = $(datadir)/gnome/apps/Settings/Session
-+settingsdir = $(datadir)/applnk/Settings/Session
- 
- if SESSION
- settings_DATA = session-properties.desktop
-diff -Nru control-center-1.2.0/capplets/sound-properties/Makefile.am control-center-1.2.0.new/capplets/sound-properties/Makefile.am
---- control-center-1.2.0/capplets/sound-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/sound-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/screensaver-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/screensaver-properties.desktop
+diff -Nru control-center-1.2.3/capplets/sound-properties/Makefile.am control-center-1.2.3.new/capplets/sound-properties/Makefile.am
+--- control-center-1.2.3/capplets/sound-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/sound-properties/Makefile.am	Tue Feb 20 02:35:41 2001
 @@ -21,4 +21,4 @@
  sys_DATA = sound-properties.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/sound-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Multimedia/sound-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/sound-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Multimedia/sound-properties.desktop
-diff -Nru control-center-1.2.0/capplets/theme-switcher/Makefile.am control-center-1.2.0.new/capplets/theme-switcher/Makefile.am
---- control-center-1.2.0/capplets/theme-switcher/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/theme-switcher/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/sound-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Multimedia/sound-properties.desktop
+diff -Nru control-center-1.2.3/capplets/theme-switcher/Makefile.am control-center-1.2.3.new/capplets/theme-switcher/Makefile.am
+--- control-center-1.2.3/capplets/theme-switcher/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/theme-switcher/Makefile.am	Tue Feb 20 02:35:55 2001
 @@ -31,4 +31,4 @@
  sys_DATA = theme-selector.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/theme-selector.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Desktop/theme-selector.desktop
-+	$(INSTALL_DATA) $(srcdir)/theme-selector.desktop $(DESTDIR)$(datadir)/applnk/Settings/Desktop/theme-selector.desktop
-diff -Nru control-center-1.2.0/capplets/ui-properties/Makefile.am control-center-1.2.0.new/capplets/ui-properties/Makefile.am
---- control-center-1.2.0/capplets/ui-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/ui-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/theme-selector.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Desktop/theme-selector.desktop
+diff -Nru control-center-1.2.3/capplets/ui-properties/Makefile.am control-center-1.2.3.new/capplets/ui-properties/Makefile.am
+--- control-center-1.2.3/capplets/ui-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/ui-properties/Makefile.am	Tue Feb 20 02:36:16 2001
 @@ -27,6 +27,6 @@
  	mdi.desktop 
  
@@ -104,31 +92,31 @@ diff -Nru control-center-1.2.0/capplets/ui-properties/Makefile.am control-center
 -	$(INSTALL_DATA) $(srcdir)/application.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/UIOptions/application.desktop
 -	$(INSTALL_DATA) $(srcdir)/dialogs.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/UIOptions/dialogs.desktop
 -	$(INSTALL_DATA) $(srcdir)/mdi.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/UIOptions/mdi.desktop
-+	$(INSTALL_DATA) $(srcdir)/application.desktop $(DESTDIR)$(datadir)/applnk/Settings/UIOptions/application.desktop
-+	$(INSTALL_DATA) $(srcdir)/dialogs.desktop $(DESTDIR)$(datadir)/applnk/Settings/UIOptions/dialogs.desktop
-+	$(INSTALL_DATA) $(srcdir)/mdi.desktop $(DESTDIR)$(datadir)/applnk/Settings/UIOptions/mdi.desktop
-diff -Nru control-center-1.2.0/capplets/url-properties/Makefile.am control-center-1.2.0.new/capplets/url-properties/Makefile.am
---- control-center-1.2.0/capplets/url-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/url-properties/Makefile.am	Tue May 23 00:18:36 2000
++	$(INSTALL_DATA) $(srcdir)/application.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions/application.desktop
++	$(INSTALL_DATA) $(srcdir)/dialogs.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions/dialogs.desktop
++	$(INSTALL_DATA) $(srcdir)/mdi.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/UIOptions/mdi.desktop
+diff -Nru control-center-1.2.3/capplets/url-properties/Makefile.am control-center-1.2.3.new/capplets/url-properties/Makefile.am
+--- control-center-1.2.3/capplets/url-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/url-properties/Makefile.am	Tue Feb 20 02:36:28 2001
 @@ -21,4 +21,4 @@
  sys_DATA = url-properties.desktop
  
  install-data-local:
 -	$(INSTALL_DATA) $(srcdir)/url-properties.desktop $(DESTDIR)$(datadir)/gnome/apps/Settings/Documents/url-properties.desktop
-+	$(INSTALL_DATA) $(srcdir)/url-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/Documents/url-properties.desktop
-diff -Nru control-center-1.2.0/capplets/wm-properties/Makefile.am control-center-1.2.0.new/capplets/wm-properties/Makefile.am
---- control-center-1.2.0/capplets/wm-properties/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/capplets/wm-properties/Makefile.am	Tue May 23 00:16:16 2000
++	$(INSTALL_DATA) $(srcdir)/url-properties.desktop $(DESTDIR)$(datadir)/applnk/Settings/GNOME/Documents/url-properties.desktop
+diff -Nru control-center-1.2.3/capplets/wm-properties/Makefile.am control-center-1.2.3.new/capplets/wm-properties/Makefile.am
+--- control-center-1.2.3/capplets/wm-properties/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/capplets/wm-properties/Makefile.am	Tue Feb 20 02:36:46 2001
 @@ -25,5 +25,5 @@
  sysdir = $(datadir)/control-center/Desktop
  sys_DATA = wm-properties.desktop
  
 -Setdir = $(datadir)/gnome/apps/Settings/Desktop
-+Setdir = $(datadir)/applnk/Settings/Desktop
++Setdir = $(datadir)/applnk/Settings/GNOME/Desktop
  Set_DATA = wm-properties.desktop
-diff -Nru control-center-1.2.0/control-center/Makefile.am control-center-1.2.0.new/control-center/Makefile.am
---- control-center-1.2.0/control-center/Makefile.am	Tue May 23 00:22:46 2000
-+++ control-center-1.2.0.new/control-center/Makefile.am	Tue May 23 00:16:16 2000
+diff -Nru control-center-1.2.3/control-center/Makefile.am control-center-1.2.3.new/control-center/Makefile.am
+--- control-center-1.2.3/control-center/Makefile.am	Tue Feb 20 02:32:44 2001
++++ control-center-1.2.3.new/control-center/Makefile.am	Tue Feb 20 02:31:47 2001
 @@ -47,7 +47,7 @@
  
  EXTRA_DIST = gnomecc.desktop cappletConf.sh.in $(appicon_DATA) $(splash_DATA)
