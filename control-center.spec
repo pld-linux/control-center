@@ -47,7 +47,7 @@ BuildRequires:	libgnomeui-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.6.7
 BuildRequires:	libxklavier-devel >= 1.02
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2.8.0
+BuildRequires:	metacity-devel >= 1:2.8.0
 BuildRequires:	nautilus-devel >= 2.6.0
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel >= 0.5
