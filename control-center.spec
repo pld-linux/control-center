@@ -114,8 +114,8 @@ Statyczne biblioteki GNOME Control-Center.
 %build
 glib-gettextize --copy --force
 intltoolize --copy --force
-libtoolize --copy --force
-aclocal
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
