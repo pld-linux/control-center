@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.3.2
+Version:	2.3.3
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	d2dfe082624a5ac7294e8bb1a64fe6c3
+# Source0-md5:	b4e0cf31aaf6f755f82b8548bbda9cc3
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 URL:		http://www.gnome.org/
@@ -37,6 +37,7 @@ BuildRequires:	libgnome-devel >= 2.3.0
 BuildRequires:	libgnomeui-devel >= 2.3.0
 BuildRequires:	libxml2-devel >= 2.5.7
 BuildRequires:	libtool
+BuildRequires:	nautilus-devel >= 2.3.5
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel >= 2.5.1
