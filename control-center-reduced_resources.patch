@@ -229,11 +229,11 @@ diff -Nuard control-center-2.4.0.orig/po/pl.po control-center-2.4.0/po/pl.po
  
 +#: capplets/windows/gnome-window-properties.glade.h:7
 +msgid "<b>Reduced Resources</b>"
-+msgstr "Zredukowane zasoby"
++msgstr "<b>Zredukowane zasoby</b>"
 +
 +#: capplets/windows/gnome-window-properties.glade.h:7
 +msgid "_Use wireframe move/resize"
-+msgstr "_Wyświetlaj tylko ramkę podczas przenoszenia okna"
++msgstr "_Ramka podczas przenoszenia/skalowania okna"
 +
  #: capplets/windows/window-properties.desktop.in.h:1
  msgid "Window Properties"
