@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.5.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -20,6 +20,7 @@ Patch4:		%{name}-additional-metacity-keybinding.patch
 Patch5:		%{name}-capplets-dir.patch
 Patch6:		%{name}-DESTDIR.patch
 Patch7:		%{name}-dpi.patch
+Patch8:		%{name}-libxklavier.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.5.0
@@ -42,7 +43,7 @@ BuildRequires:	libglade2-devel >= 2.3.0
 BuildRequires:	libgnome-devel >= 2.5.0
 BuildRequires:	libgnomeui-devel >= 2.5.0
 BuildRequires:	libxml2-devel >= 2.5.10
-BuildRequires:	libxklavier-devel 
+BuildRequires:	libxklavier-devel >= 0.97
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	nautilus-devel >= 2.5.0
@@ -129,6 +130,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 glib-gettextize --copy --force
