@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.4.0
-Release:	9
+Version:	2.5.0
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	44115d3174d2f603f34a336ada562bae
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	e0c68e47e730eb92a243c5f423c9791b
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-am17.patch
 Patch2:		%{name}-link.patch
@@ -45,6 +45,7 @@ BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.4.0
 BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libxml2-devel >= 2.5.10
+BuildRequires:	libxklavier-devel 
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2.5.1
 BuildRequires:	nautilus-devel >= 2.3.90
@@ -123,7 +124,7 @@ Statyczne biblioteki GNOME Control-Center.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .wiget
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
