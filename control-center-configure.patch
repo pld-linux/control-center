@@ -1,0 +1,10 @@
+diff -urN control-center-2.1.0.orig/configure.in control-center-2.1.0/configure.in
+--- control-center-2.1.0.orig/configure.in	Sat Sep 28 01:28:10 2002
++++ control-center-2.1.0/configure.in	Sat Sep 28 01:29:16 2002
+@@ -253,6 +253,5 @@
+ capplets/windows/Makefile
+ schemas/Makefile
+ libsounds/Makefile
+-dnl due to a bug in intltool we need to expand something from the root last
+ control-center.spec
+ ])
