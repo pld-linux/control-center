@@ -44,15 +44,14 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	oaf-devel
 BuildRequires:	zlib-devel
+Prereq:		/sbin/ldconfig
+Prereq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
 %define		_prefix		/usr/X11R6
-%define		_bindir		%{_prefix}/bin
-%define		_datadir	%{_prefix}/share
-%define		_includedir	%{_prefix}/include
-%define		_libdir		%{_prefix}/lib
 %define		_sysconfdir	/etc/X11/GNOME
+%define		_omf_dest_dir	%(scrollkeeper-config --omfdir)
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
@@ -171,16 +170,18 @@ automake -a -c
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/control-center/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/screensaver-properties.desktop \
 	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop/screensaver-properties.desktop
 	
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/Settings/*.desktop \
-      $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME
 cp    $RPM_BUILD_ROOT%{_applnkdir}/Settings/Desktop/*.desktop \
-      $RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop
+	$RPM_BUILD_ROOT%{_applnkdir}/Settings/GNOME/Desktop
 
 find $RPM_BUILD_ROOT%{_applnkdir} -name .directory | xargs | rm -f
 
@@ -191,8 +192,13 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+/sbin/ldconfig
+/usr/bin/scrollkeeper-update
+
+%postun
+/sbin/ldconfig
+/usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -202,6 +208,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_datadir}/control-center
 %{_applnkdir}/Settings/GNOME
+%{_omf_dest_dir}/omf/%{name}
 %dir %{_datadir}/gnome/wm-properties
 %{_pixmapsdir}/*
 
@@ -212,7 +219,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_datadir}/idl/*
-%{_datadir}/omf/*
 %{_includedir}/*
 
 %files static
