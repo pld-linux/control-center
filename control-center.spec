@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.5.1
+Version:	2.5.1.1
 Release:	1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	a603265844fac85eb59b88cd9aa8a30e
+# Source0-md5:	db42d61fd2c9b21f55266803843bd0ab
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
 Patch2:		%{name}-def-apps-capplet.patch
@@ -22,8 +22,8 @@ Patch6:		%{name}-themus-glade.patch
 Patch7:		%{name}-dpi.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.3.3
-BuildRequires:	ORBit2-devel >= 2.8.0
+BuildRequires:	GConf2-devel >= 2.5.0
+BuildRequires:	ORBit2-devel >= 2.9.0
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,27 +32,27 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.3.90
-BuildRequires:	gnome-vfs2-devel >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2.2.3
+BuildRequires:	gnome-desktop-devel >= 2.5.0
+BuildRequires:	gnome-vfs2-devel >= 2.5.0
+BuildRequires:	gtk+2-devel >= 2.3.1
 BuildRequires:	intltool >= 0.25
-BuildRequires:	libbonobo-devel >= 2.4.0
-BuildRequires:	libbonoboui-devel >= 2.4.0
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnome-devel >= 2.4.0
-BuildRequires:	libgnomeui-devel >= 2.4.0
+BuildRequires:	libbonobo-devel >= 2.5.0
+BuildRequires:	libbonoboui-devel >= 2.5.0
+BuildRequires:	libglade2-devel >= 2.3.0
+BuildRequires:	libgnome-devel >= 2.5.0
+BuildRequires:	libgnomeui-devel >= 2.5.0
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	libxklavier-devel 
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2.5.1
-BuildRequires:	nautilus-devel >= 2.3.90
+BuildRequires:	nautilus-devel >= 2.5.0
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.4.0
+Requires:	gnome-vfs2 >= 2.5.0
 Obsoletes:	fontilus
 Obsoletes:	gnome
 Obsoletes:	themus
