@@ -1,8 +1,8 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.0.53
-Release:	2
+Version:	1.2.0
+Release:	1
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
@@ -17,11 +17,12 @@ Patch6:		control-center-numwallpapers.patch
 Patch7:		control-center-applnk.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
-BuildRequires:	gtk+-devel >= 1.1.16
-BuildRequires:	esound-devel >= 0.2.5
-BuildRequires:	imlib-devel >= 1.8.2
-BuildRequires:	gnome-libs-devel
 BuildRequires:	ORBit-devel
+BuildRequires:	automake
+BuildRequires:	esound-devel >= 0.2.5
+BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel >= 1.1.16
+BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
