@@ -1,20 +1,19 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.2.0
-Release:	2
+Version:	1.2.1
+Release:	1
 License:	GPL
 Group:		X11/GNOME
 Group(pl):	X11/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
-Patch0:		control-center-nosound.patch
-Patch1:		control-center-esdrelease.patch
-Patch2:		control-center-bgcolor1.patch
-Patch3:		control-center-fsbgpath.patch
-Patch4:		control-center-dontstartesd.patch
-Patch5:		control-center-limitedbgs.patch
-Patch6:		control-center-numwallpapers.patch
-Patch7:		control-center-applnk.patch
+Patch0:		%{name}-nosound.patch
+Patch1:		%{name}-esdrelease.patch
+Patch2:		%{name}-bgcolor1.patch
+Patch3:		%{name}-fsbgpath.patch
+Patch4:		%{name}-dontstartesd.patch
+Patch5:		%{name}-limitedbgs.patch
+Patch6:		%{name}-applnk.patch
 Icon:		control-center.gif
 Requires:	xscreensaver >= 2.34
 BuildRequires:	ORBit-devel
@@ -76,9 +75,8 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
+#%patch5 -p1
 %patch6 -p1
-%patch7 -p1
 
 %build
 gettextize --force --copy
