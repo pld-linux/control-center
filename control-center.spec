@@ -23,7 +23,7 @@ BuildRequires:	gnome-libs-devel
 BuildRequires:	gtk+-devel >= 1.1.16
 BuildRequires:	imlib-devel >= 1.8.2
 BuildRequires:	zlib-devel
-BuildRequires:	gdk_pixbuf-devel
+BuildRequires:	gdk-pixbuf-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gnome
 
