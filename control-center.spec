@@ -40,7 +40,6 @@ BuildRequires:	startup-notification-devel
 BuildRequires:	metacity-devel
 BuildRequires:	Xft-devel >= 2.1
 Requires:	gnome-vfs2 >= 2.2.0
-Requires:	glade2
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
