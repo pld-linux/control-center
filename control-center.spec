@@ -11,11 +11,13 @@ Epoch:		1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source1:	xmldocs.make
+Source2:	omf.make
 Patch0:		%{name}-ac_am.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel
-BuildRequires:	ORBit2-devel
+BuildRequires:	GConf2-devel >= 1.2.0
+BuildRequires:	ORBit2-devel >= 2.4.0
 BuildRequires:	audiofile >= 0.2.3-3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -24,17 +26,18 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel
-BuildRequires:	gnome-vfs2-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	intltool >= 0.18
-BuildRequires:	libbonobo-devel
-BuildRequires:	libbonoboui-devel
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnome-devel
-BuildRequires:	libgnomeui-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	gnome-desktop-devel >= 2.0.0
+BuildRequires:	gnome-vfs2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	intltool >= 0.22
+BuildRequires:	libbonobo-devel >= 2.0.0
+BuildRequires:	libbonoboui-devel >= 2.0.0
+BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libgnome-devel >= 2.0.1
+BuildRequires:	libgnomeui-devel >= 2.0.1
+BuildRequires:	libxml2-devel >= 2.4.22
 BuildRequires:	libtool
+BuildRequires:	scrollkeeper >= 0.3.6
 PreReq:		scrollkeeper
 PreReq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,15 +85,17 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
+install %{SOURCE1} help/xmldocs.make
+install %{SOURCE2} omf.make
 
 %build
+glib-gettextize --copy --force
 intltoolize --copy --force
-gettextize --copy --force
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
@@ -110,8 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source`; export GCONF_CONFIG_SOURCE
-/usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 2>&1
+GCONF_CONFIG_SOURCE="" \
+/usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
 
 %postun
 /sbin/ldconfig
