@@ -1,10 +1,11 @@
 Summary:	GNOME control center
 Summary(pl):	Centrum kontroli GNOME
 Name:		control-center
-Version:	1.2.1
-Release:	2
+Version:	1.2.2
+Release:	1
 License:	GPL
 Group:		X11/GNOME
+Group(de):	X11/GNOME
 Group(pl):	X11/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/control-center/%{name}-%{version}.tar.gz
 Patch0:		%{name}-nosound.patch
@@ -47,6 +48,7 @@ proste, wydajne i ³atwe w konfiguracji.
 Summary:	GNOME control-center includes
 Summary(pl):	Pliki nag³ówkowe centrum kontroli GNOME
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -60,6 +62,7 @@ Rzeczy potrzebne do kompilacji.
 Summary:	GNOME control-center static libraries
 Summary(pl):	Statyczne biblioteki dla centrum kontroli GNOME
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
@@ -82,7 +85,6 @@ Statyczne biblioteki dla centrum kontroli GNOME.
 %build
 gettextize --force --copy
 automake
-LDFLAGS="-s"; export LDFLAGS 
 %configure 
 
 %{__make}
