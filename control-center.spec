@@ -5,26 +5,26 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.6.1
-Release:	1
+Version:	2.7.0
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	da02f983fbf2e94cd5f09fc8f9d1d143
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	d7490644ba6564a2efe8281b9444a915
 Patch0:		%{name}-fontconfig.patch
 Patch1:		%{name}-randr.patch
-Patch2:		%{name}-def-apps-capplet.patch
+#Patch2:		%{name}-def-apps-capplet.patch
 Patch3:		%{name}-wm_properties-dir.patch
 Patch4:		%{name}-additional-metacity-keybinding.patch
 Patch5:		%{name}-capplets-dir.patch
 Patch6:		%{name}-dpi.patch
 Patch7:		%{name}-locale-names.patch
-Patch8:		%{name}-reduced_resources.patch
+#Patch8:		%{name}-reduced_resources.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
-BuildRequires:	GConf2-devel >= 2.6.0
-BuildRequires:	ORBit2-devel >= 1:2.10.0
+BuildRequires:	GConf2-devel >= 2.7.3
+BuildRequires:	ORBit2-devel >= 1:2.11.1
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,28 +33,28 @@ BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	findutils
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.6.0
-BuildRequires:	gnome-vfs2-devel >= 2.6.0
-BuildRequires:	gstreamer-plugins-devel >= 0.8.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gnome-desktop-devel >= 2.7.4
+BuildRequires:	gnome-vfs2-devel >= 2.7.5
+BuildRequires:	gstreamer-plugins-devel >= 0.8.2
+BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.30
-BuildRequires:	libbonobo-devel >= 2.6.0
-BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnome-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libbonobo-devel >= 2.6.2
+BuildRequires:	libbonoboui-devel >= 2.6.1
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libgnome-devel >= 2.7.2
+BuildRequires:	libgnomeui-devel >= 2.7.2
 BuildRequires:	libxml2-devel >= 2.6.7
-BuildRequires:	libxklavier-devel >= 1.02
+BuildRequires:	libxklavier-devel >= 1.03
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2.8.0
-BuildRequires:	nautilus-devel >= 2.6.0
+BuildRequires:	nautilus-devel >= 2.7.2
 BuildRequires:	scrollkeeper >= 0.3.12
 BuildRequires:	startup-notification-devel >= 0.5
 BuildRequires:	xft-devel >= 2.1.1
 PreReq:		/sbin/ldconfig
 PreReq:		scrollkeeper
 Requires(post):	GConf2
-Requires:	gnome-vfs2 >= 2.6.0
+Requires:	gnome-vfs2 >= 2.7.5
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -126,13 +126,13 @@ Statyczne biblioteki GNOME Control-Center.
 %setup -q
 %patch0 -p1 -b .wiget
 %patch1 -p1
-%patch2 -p1
+##%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-%patch8 -p1
+##%patch8 -p1
 
 mv po/{no,nb}.po
 
