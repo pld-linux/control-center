@@ -167,6 +167,7 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/sbin/ldconfig
 %gconf_schema_install apps_gnome_settings_daemon_default_editor.schemas
 %gconf_schema_install apps_gnome_settings_daemon_keybindings.schemas
 %gconf_schema_install apps_gnome_settings_daemon_screensaver.schemas
@@ -174,7 +175,6 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install desktop_gnome_peripherals_keyboard_xkb.schemas
 %gconf_schema_install fontilus.schemas
 %gconf_schema_install themus.schemas
-%ldconfig_post
 %update_desktop_database_post
 
 %preun
@@ -187,7 +187,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall themus.schemas
 
 %postun
-%ldconfig_postun
+/sbin/ldconfig
 %update_desktop_database_postun
 
 %files -f %{name}.lang
