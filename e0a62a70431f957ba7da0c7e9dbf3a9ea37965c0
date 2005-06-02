@@ -1,0 +1,7 @@
+- use pldrelease.patch
+- define %_*dir explicitly (won't build otherwise)
+- buildrequires {oaf,GConf,libwrap}-devel
+- remove macros/xml-i18n-tools.m4 (conflicts with the m4 from
+  xml-i18n-tools)
+- release 5
+- STB
