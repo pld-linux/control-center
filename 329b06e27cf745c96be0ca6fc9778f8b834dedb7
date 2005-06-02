@@ -1,0 +1,5 @@
+- added Makefile patch
+- removed useless scrollkeeper BR/PreReq
+- run update-desktop-database in %post{,un}
+- use new faster rpm's GConf automation
+- rel. 4, STBR
