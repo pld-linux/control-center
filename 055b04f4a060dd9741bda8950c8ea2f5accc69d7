@@ -1,0 +1,2 @@
+- updated to 2.10.1
+- fixed %preun and %postun
