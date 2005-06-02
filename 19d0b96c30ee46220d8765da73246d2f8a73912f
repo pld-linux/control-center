@@ -1,0 +1,2 @@
+- release 8
+- moved %{_applnkdir}/Settings to %{_applnkdir}/Settings/GNOME
