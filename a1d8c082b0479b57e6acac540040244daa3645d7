@@ -1,0 +1,4 @@
+- merged from DEVEL and updated to 2.8.0
+- removed locale-names patch and remove no locale in %install
+- added evolution patch (there is no evolution-1.6 binary, but evolution-2.0)
+- rel. 0.1 (reduced_resources and def-apps-capplet patches need to be checked)
