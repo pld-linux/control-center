@@ -33,7 +33,6 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
-BuildRequires:	findutils
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.10.0-2
 BuildRequires:	gnome-menus-devel >= 2.10.1
