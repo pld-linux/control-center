@@ -5,23 +5,20 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.10.1
+Version:	2.11.4
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	d95a5746aa349536dc0f59c61cdaf19f
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	f3f5303df9f78e0ca85ae1569db4a8b3
 Patch0:		%{name}-randr.patch
-#Patch1:		%{name}-def-apps-capplet.patch
-Patch2:		%{name}-wm_properties-dir.patch
-Patch3:		%{name}-additional-metacity-keybinding.patch
-Patch4:		%{name}-dpi.patch
-Patch5:		%{name}-reduced_resources.patch
-Patch6:		%{name}-def-apps-capplet-browsers.patch
-Patch7:		%{name}-capplet.patch
-Patch8:		%{name}-desktop.patch
-Patch9:		%{name}-Makefile.patch
+Patch1:		%{name}-wm_properties-dir.patch
+Patch2:		%{name}-additional-metacity-keybinding.patch
+Patch3:		%{name}-def-apps-capplet-browsers.patch
+Patch4:		%{name}-capplet.patch
+Patch5:		%{name}-desktop.patch
+Patch6:		%{name}-Makefile.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -129,9 +126,6 @@ Statyczne biblioteki GNOME Control-Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
 
 %build
 %{__glib_gettextize}
