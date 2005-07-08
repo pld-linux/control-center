@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.11.4
+Version:	2.11.5
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	f3f5303df9f78e0ca85ae1569db4a8b3
+# Source0-md5:	2e6f3a42b2ccf1cf57fa8a49841e919c
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -31,25 +31,25 @@ BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.10.0-2
-BuildRequires:	gnome-menus-devel >= 2.10.1
-BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
+BuildRequires:	gnome-desktop-devel >= 2.11.0
+BuildRequires:	gnome-menus-devel >= 2.11.0
+BuildRequires:	gnome-vfs2-devel >= 2.11.0
 BuildRequires:	gstreamer-plugins-devel >= 0.8.8
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libgnomeui-devel >= 2.11.0
 BuildRequires:	libxml2-devel >= 1:2.6.19
 BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.10.0
-BuildRequires:	nautilus-devel >= 2.10.0-3
+BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xft-devel >= 2.1.1
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.10.0-2
+Requires:	gnome-vfs2 >= 2.11.0
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
