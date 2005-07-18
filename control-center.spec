@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.11.5
+Version:	2.11.6
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	2e6f3a42b2ccf1cf57fa8a49841e919c
+# Source0-md5:	adf6804249cff2e4d2ed1b3e87035c3d
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -19,6 +19,7 @@ Patch3:		%{name}-def-apps-capplet-browsers.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
+Patch7:		%{name}-xft-hack.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -126,6 +127,7 @@ Statyczne biblioteki GNOME Control-Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
+%patch7 -p1 
 
 %build
 %{__glib_gettextize}
@@ -138,6 +140,7 @@ Statyczne biblioteki GNOME Control-Center.
 %configure \
 	--disable-schemas-install \
 	--enable-gstreamer \
+	--enable-aboutme \
 	X_EXTRA_LIBS="-lXext"
 %{__make}
 
