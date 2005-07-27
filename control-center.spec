@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.11.6
-Release:	2
+Version:	2.11.90
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	adf6804249cff2e4d2ed1b3e87035c3d
+# Source0-md5:	6b94f8c671eb3d0e6699ee24b5df4854
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -27,12 +27,13 @@ BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	alsa-lib-devel >= 0.9.0
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.11.0
+BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gnome-menus-devel >= 2.11.0
 BuildRequires:	gnome-vfs2-devel >= 2.11.0
 BuildRequires:	gstreamer-plugins-devel >= 0.8.8
@@ -130,6 +131,8 @@ Statyczne biblioteki GNOME Control-Center.
 %patch7 -p1 
 
 %build
+gnome-doc-prepare --copy --force
+%{__gnome_doc_common}
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
