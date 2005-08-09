@@ -47,10 +47,12 @@ BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.10.0
 BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1.1
 Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	scrollkeeper
 Requires:	gnome-vfs2 >= 2.11.0
 Obsoletes:	acme
 Obsoletes:	fontilus
@@ -174,6 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install desktop_gnome_peripherals_keyboard_xkb.schemas
 %gconf_schema_install fontilus.schemas
 %gconf_schema_install themus.schemas
+%scrollkeeper_update_post
 %update_desktop_database_post
 
 %preun
@@ -187,12 +190,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 /sbin/ldconfig
+%scrollkeeper_update_postun
 %update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gconf/schemas/
+%{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
+%{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
+%{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
+%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
+%{_sysconfdir}/gconf/schemas/fontilus.schemas
+%{_sysconfdir}/gconf/schemas/themus.schemas
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-settings-daemon
@@ -207,6 +218,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/idl/*
 %{_iconsdir}/*/*/*/gnome-control-center.png
+%{_omf_dest_dir}/control-center
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
 
