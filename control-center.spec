@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.11.91
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -20,6 +20,7 @@ Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
 Patch7:		%{name}-xft-hack.patch
+Patch8:		%{name}-pangoxft_fix.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -37,7 +38,7 @@ BuildRequires:	gnome-doc-utils >= 0.3.2
 BuildRequires:	gnome-menus-devel >= 2.11.0
 BuildRequires:	gnome-vfs2-devel >= 2.11.0
 BuildRequires:	gstreamer-plugins-devel >= 0.8.8
-BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.11.0
@@ -130,7 +131,8 @@ Statyczne biblioteki GNOME Control-Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
-%patch7 -p1 
+%patch7 -p1
+%patch8 -p1
 
 %build
 gnome-doc-prepare --copy --force
