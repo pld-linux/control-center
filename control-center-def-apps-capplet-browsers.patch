@@ -1,0 +1,11 @@
+--- control-center-2.8.1/capplets/default-applications/gnome-default-applications-properties-structs.c.orig	2004-10-14 19:35:56.000000000 +0200
++++ control-center-2.8.1/capplets/default-applications/gnome-default-applications-properties-structs.c	2004-10-15 11:55:15.065483960 +0200
+@@ -10,7 +10,7 @@
+         { N_("Galeon"), 		"galeon",	"galeon %s",		FALSE, FALSE },
+         { N_("Encompass"), 		"encompass",	"encompass %s",		FALSE, FALSE },
+         { N_("Firebird"),       "mozilla-firebird",  "mozilla-firebird %s",  FALSE, FALSE },
+-        { N_("Firefox"),  	"firefox",	"firefox %s",	FALSE, FALSE },
++        { N_("Firefox"),  	"mozilla-firefox",	"mozilla-firefox %s",	FALSE, FALSE },
+         { N_("Mozilla"), 	"mozilla-1.6",	"mozilla-1.6 %s",	FALSE, FALSE },
+         { N_("Mozilla"), 	"mozilla",	"mozilla %s",		FALSE, FALSE },
+         { N_("Netscape Communicator"), 	"netscape",	"netscape %s",		FALSE, FALSE },
