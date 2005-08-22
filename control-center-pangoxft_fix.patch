@@ -1,15 +1,7 @@
-diff -aurN control-center-2.11.91.orig/capplets/keyboard/Makefile.am control-center-2.11.91/capplets/keyboard/Makefile.am
---- control-center-2.11.91.orig/capplets/keyboard/Makefile.am	2004-11-28 09:14:04.000000000 +0100
-+++ control-center-2.11.91/capplets/keyboard/Makefile.am	2005-08-14 23:24:03.000000000 +0200
-@@ -10,6 +10,7 @@
- gnome_keyboard_properties_LDADD =				\
- 	../accessibility/keyboard/libaccessibility-keyboard.a 	\
- 	$(GNOMECC_CAPPLETS_LIBS) $(LIBXKLAVIER_LIBS) \
-+	$(PANGOXFT_LIBS) \
- 	../../libgswitchit/libgswitchit.a \
- 	../../libkbdraw/libkbdraw.a
- 
-@@ -29,6 +30,6 @@
+diff -urN control-center-2.11.92.orig/capplets/keyboard/Makefile.am control-center-2.11.92/capplets/keyboard/Makefile.am
+--- control-center-2.11.92.orig/capplets/keyboard/Makefile.am	2005-08-22 22:44:26.558451264 +0200
++++ control-center-2.11.92/capplets/keyboard/Makefile.am	2005-08-22 22:46:46.310205768 +0200
+@@ -29,6 +29,6 @@
  Desktop_in_files = keyboard.desktop.in
  desktop_DATA = $(Desktop_in_files:.desktop.in=.desktop)
  
@@ -17,18 +9,17 @@ diff -aurN control-center-2.11.91.orig/capplets/keyboard/Makefile.am control-cen
 +INCLUDES   = $(GNOMECC_CAPPLETS_CFLAGS) $(LIBXKLAVIER_CFLAGS) $(PANGOXFT_CFLAGS)
  CLEANFILES = $(GNOMECC_CAPPLETS_CLEANFILES) $(Desktop_in_files) $(desktop_DATA)
  EXTRA_DIST = $(Glade_DATA) $(pixmaps_DATA)
-diff -aurN control-center-2.11.91.orig/configure.in control-center-2.11.91/configure.in
---- control-center-2.11.91.orig/configure.in	2005-08-10 11:45:08.000000000 +0200
-+++ control-center-2.11.91/configure.in	2005-08-14 23:18:51.000000000 +0200
-@@ -97,6 +97,11 @@
-  libbonobo-2.0 dnl
-  libbonoboui-2.0 dnl
-  gnome-desktop-2.0 >= 2.2.0"
-+
+diff -urN control-center-2.11.92.orig/configure.in control-center-2.11.92/configure.in
+--- control-center-2.11.92.orig/configure.in	2005-08-22 22:44:27.329334072 +0200
++++ control-center-2.11.92/configure.in	2005-08-22 22:47:35.247766128 +0200
+@@ -126,7 +126,9 @@
+ 
+ PKG_CHECK_MODULES(AT_CAPPLET, $COMMON_MODULES)
+ 
+-PKG_CHECK_MODULES(PANGOXFT, pangoxft >= 1.8)
 +PKG_CHECK_MODULES(PANGOXFT, pangoxft >= 1.9.1)
 +AC_SUBST(PANGOXFT_CFLAGS)
 +AC_SUBST(PANGOXFT_LIBS)
-+
- PKG_CHECK_MODULES(CAPPLET, $COMMON_MODULES)
- PKG_CHECK_MODULES(GNOMECC, $COMMON_MODULES libgnome-menu >= 2.11.1)
- PKG_CHECK_MODULES(GNOME_SETTINGS_DAEMON,
+ 				
+ dnl
+ dnl Check for XRandR, needed for display capplet
