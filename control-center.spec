@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.11.92
+Version:	2.12.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	9572d1033c1103c2ed57e802c24b5a5c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	06a213f801bff26cee4f5db03a54da08
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -19,8 +19,6 @@ Patch3:		%{name}-def-apps-capplet-browsers.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
-Patch7:		%{name}-xft-hack.patch
-Patch8:		%{name}-pangoxft_fix.patch
 URL:		http://www.gnome.org/
 Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -47,7 +45,6 @@ BuildRequires:	libxklavier-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.10.0
 BuildRequires:	nautilus-devel >= 2.11.0
-BuildRequires:	pango-devel >= 1:1.9.1
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1.1
@@ -132,8 +129,6 @@ Statyczne biblioteki GNOME Control-Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
-%patch7 -p1
-%patch8 -p1
 
 %build
 gnome-doc-prepare --copy --force
