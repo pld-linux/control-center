@@ -30,6 +30,7 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
+BuildRequires:	evolution-data-server-devel >= 1.4.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.11.0
 BuildRequires:	gnome-doc-utils >= 0.3.2
