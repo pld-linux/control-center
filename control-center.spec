@@ -53,6 +53,7 @@ Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
+Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.11.0
 Obsoletes:	acme
 Obsoletes:	fontilus
