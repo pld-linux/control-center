@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.12.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -55,6 +55,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.12.1
+Requires:	libxklavier >= 2.0-3
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
