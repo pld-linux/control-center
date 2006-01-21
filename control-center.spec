@@ -20,7 +20,6 @@ Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
 URL:		http://www.gnome.org/
-Icon:		control-center.gif
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	alsa-lib-devel >= 0.9.0
