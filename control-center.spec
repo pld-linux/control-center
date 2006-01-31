@@ -135,6 +135,8 @@ Statyczne biblioteki GNOME Control-Center.
 
 sed -i -e 's|-Wextra||' configure.in
 
+rm -rf help/es
+
 %build
 gnome-doc-prepare --copy --force
 %{__gnome_doc_common}
