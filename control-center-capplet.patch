@@ -1,168 +1,180 @@
-diff -ur control-center-2.8.0.orig/capplets/accessibility/at-properties/at-properties.desktop.in.in control-center-2.8.0/capplets/accessibility/at-properties/at-properties.desktop.in.in
---- control-center-2.8.0.orig/capplets/accessibility/at-properties/at-properties.desktop.in.in	2003-12-16 22:38:05.000000000 +0100
-+++ control-center-2.8.0/capplets/accessibility/at-properties/at-properties.desktop.in.in	2004-09-16 22:40:26.432812736 +0200
+diff -aurN control-center-2.13.90.orig/capplets/about-me/gnome-about-me.desktop.in.in control-center-2.13.90/capplets/about-me/gnome-about-me.desktop.in.in
+--- control-center-2.13.90.orig/capplets/about-me/gnome-about-me.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/about-me/gnome-about-me.desktop.in.in	2006-01-30 22:34:18.650754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Settings;Accessibility;
+-Categories=GNOME;GTK;Application;Settings;
++Categories=GTK;GNOME;Settings;X-Capplet;
+ OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=control-center
+diff -aurN control-center-2.13.90.orig/capplets/accessibility/at-properties/at-properties.desktop.in.in control-center-2.13.90/capplets/accessibility/at-properties/at-properties.desktop.in.in
+--- control-center-2.13.90.orig/capplets/accessibility/at-properties/at-properties.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/accessibility/at-properties/at-properties.desktop.in.in	2006-01-30 22:34:36.710754000 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Settings;Accessibility;
 +Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in control-center-2.8.0/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in
---- control-center-2.8.0.orig/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in	2003-12-16 22:38:05.000000000 +0100
-+++ control-center-2.8.0/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in	2004-09-16 22:40:37.486132376 +0200
+diff -aurN control-center-2.13.90.orig/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in control-center-2.13.90/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in
+--- control-center-2.13.90.orig/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/accessibility/keyboard/accessibility-keyboard.desktop.in.in	2006-01-30 22:35:01.620754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;Accessibility;
+-Categories=GNOME;GTK;Application;Settings;Accessibility;
 +Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/background/background.desktop.in.in control-center-2.8.0/capplets/background/background.desktop.in.in
---- control-center-2.8.0.orig/capplets/background/background.desktop.in.in	2004-02-04 23:04:14.000000000 +0100
-+++ control-center-2.8.0/capplets/background/background.desktop.in.in	2004-09-16 22:40:49.479309136 +0200
+diff -aurN control-center-2.13.90.orig/capplets/background/background.desktop.in.in control-center-2.13.90/capplets/background/background.desktop.in.in
+--- control-center-2.13.90.orig/capplets/background/background.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/background/background.desktop.in.in	2006-01-30 22:35:18.440754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
+-Categories=GNOME;GTK;Settings;DesktopSettings;
++Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/default-applications/default-applications.desktop.in.in control-center-2.8.0/capplets/default-applications/default-applications.desktop.in.in
---- control-center-2.8.0.orig/capplets/default-applications/default-applications.desktop.in.in	2003-12-16 22:38:07.000000000 +0100
-+++ control-center-2.8.0/capplets/default-applications/default-applications.desktop.in.in	2004-09-16 22:42:01.076424720 +0200
+diff -aurN control-center-2.13.90.orig/capplets/default-applications/default-applications.desktop.in.in control-center-2.13.90/capplets/default-applications/default-applications.desktop.in.in
+--- control-center-2.13.90.orig/capplets/default-applications/default-applications.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/default-applications/default-applications.desktop.in.in	2006-01-30 22:35:43.670754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;AdvancedSettings;
-+Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
- OnlyShowIn=GNOME;
- X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/display/display-properties.desktop.in.in control-center-2.8.0/capplets/display/display-properties.desktop.in.in
---- control-center-2.8.0.orig/capplets/display/display-properties.desktop.in.in	2003-04-23 17:01:16.000000000 +0200
-+++ control-center-2.8.0/capplets/display/display-properties.desktop.in.in	2004-09-16 22:42:25.259748296 +0200
-@@ -7,7 +7,7 @@
- Terminal=false
- Type=Application
- StartupNotify=true
--Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
- OnlyShowIn=GNOME;
- X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/font/font-properties.desktop.in.in control-center-2.8.0/capplets/font/font-properties.desktop.in.in
---- control-center-2.8.0.orig/capplets/font/font-properties.desktop.in.in	2003-12-16 22:38:11.000000000 +0100
-+++ control-center-2.8.0/capplets/font/font-properties.desktop.in.in	2004-09-16 22:47:31.484195104 +0200
-@@ -7,7 +7,7 @@
- Terminal=false
- Type=Application
- StartupNotify=true
--Categories=GNOME;Settings;Appearance;
-+Categories=GTK;GNOME;Settings;Appearance;X-Capplet;
- OnlyShowIn=GNOME;
- X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/keybindings/keybinding.desktop.in.in control-center-2.8.0/capplets/keybindings/keybinding.desktop.in.in
---- control-center-2.8.0.orig/capplets/keybindings/keybinding.desktop.in.in	2003-12-16 22:38:13.000000000 +0100
-+++ control-center-2.8.0/capplets/keybindings/keybinding.desktop.in.in	2004-09-16 22:47:54.745658824 +0200
-@@ -7,7 +7,7 @@
- Terminal=false
- Type=Application
- StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/keyboard/keyboard.desktop.in.in control-center-2.8.0/capplets/keyboard/keyboard.desktop.in.in
---- control-center-2.8.0.orig/capplets/keyboard/keyboard.desktop.in.in	2003-12-16 22:38:14.000000000 +0100
-+++ control-center-2.8.0/capplets/keyboard/keyboard.desktop.in.in	2004-09-16 22:48:42.817350816 +0200
+diff -aurN control-center-2.13.90.orig/capplets/display/display-properties.desktop.in.in control-center-2.13.90/capplets/display/display-properties.desktop.in.in
+--- control-center-2.13.90.orig/capplets/display/display-properties.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/display/display-properties.desktop.in.in	2006-01-30 22:43:44.960754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Settings;HardwareSettings;
++Categories=GTK;GNOME;Settings;HardwareSettings;X-Capplet;
+ OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=control-center
+diff -aurN control-center-2.13.90.orig/capplets/font/font-properties.desktop.in.in control-center-2.13.90/capplets/font/font-properties.desktop.in.in
+--- control-center-2.13.90.orig/capplets/font/font-properties.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/font/font-properties.desktop.in.in	2006-01-30 22:44:52.430754000 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Settings;DesktopSettings;
++Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
+ OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=control-center
+diff -aurN control-center-2.13.90.orig/capplets/keybindings/keybinding.desktop.in.in control-center-2.13.90/capplets/keybindings/keybinding.desktop.in.in
+--- control-center-2.13.90.orig/capplets/keybindings/keybinding.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/keybindings/keybinding.desktop.in.in	2006-01-30 22:45:11.700754000 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/mouse/gnome-settings-mouse.desktop.in.in control-center-2.8.0/capplets/mouse/gnome-settings-mouse.desktop.in.in
---- control-center-2.8.0.orig/capplets/mouse/gnome-settings-mouse.desktop.in.in	2003-12-16 22:38:15.000000000 +0100
-+++ control-center-2.8.0/capplets/mouse/gnome-settings-mouse.desktop.in.in	2004-09-16 22:49:04.546047552 +0200
+diff -aurN control-center-2.13.90.orig/capplets/keyboard/keyboard.desktop.in.in control-center-2.13.90/capplets/keyboard/keyboard.desktop.in.in
+--- control-center-2.13.90.orig/capplets/keyboard/keyboard.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/keyboard/keyboard.desktop.in.in	2006-01-30 22:45:41.620754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/network/gnome-network-preferences.desktop.in.in control-center-2.8.0/capplets/network/gnome-network-preferences.desktop.in.in
---- control-center-2.8.0.orig/capplets/network/gnome-network-preferences.desktop.in.in	2004-04-15 20:32:22.000000000 +0200
-+++ control-center-2.8.0/capplets/network/gnome-network-preferences.desktop.in.in	2004-09-16 22:49:19.076838536 +0200
+diff -aurN control-center-2.13.90.orig/capplets/mouse/gnome-settings-mouse.desktop.in.in control-center-2.13.90/capplets/mouse/gnome-settings-mouse.desktop.in.in
+--- control-center-2.13.90.orig/capplets/mouse/gnome-settings-mouse.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/mouse/gnome-settings-mouse.desktop.in.in	2006-01-30 22:45:55.270754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/sound/gnome-settings-sound.desktop.in.in control-center-2.8.0/capplets/sound/gnome-settings-sound.desktop.in.in
---- control-center-2.8.0.orig/capplets/sound/gnome-settings-sound.desktop.in.in	2003-12-16 22:38:50.000000000 +0100
-+++ control-center-2.8.0/capplets/sound/gnome-settings-sound.desktop.in.in	2004-09-16 22:50:00.206585864 +0200
+diff -aurN control-center-2.13.90.orig/capplets/network/gnome-network-preferences.desktop.in.in control-center-2.13.90/capplets/network/gnome-network-preferences.desktop.in.in
+--- control-center-2.13.90.orig/capplets/network/gnome-network-preferences.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/network/gnome-network-preferences.desktop.in.in	2006-01-30 22:46:08.550754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/theme-switcher/gtk-theme-selector.desktop.in.in control-center-2.8.0/capplets/theme-switcher/gtk-theme-selector.desktop.in.in
---- control-center-2.8.0.orig/capplets/theme-switcher/gtk-theme-selector.desktop.in.in	2003-12-16 22:38:50.000000000 +0100
-+++ control-center-2.8.0/capplets/theme-switcher/gtk-theme-selector.desktop.in.in	2004-09-16 22:50:14.395428832 +0200
+diff -aurN control-center-2.13.90.orig/capplets/sound/gnome-settings-sound.desktop.in.in control-center-2.13.90/capplets/sound/gnome-settings-sound.desktop.in.in
+--- control-center-2.13.90.orig/capplets/sound/gnome-settings-sound.desktop.in.in	2006-01-29 21:13:17.000000000 +0100
++++ control-center-2.13.90/capplets/sound/gnome-settings-sound.desktop.in.in	2006-01-30 22:46:22.590754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
+-Categories=GNOME;GTK;Application;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/ui-properties/gnome-ui-properties.desktop.in.in control-center-2.8.0/capplets/ui-properties/gnome-ui-properties.desktop.in.in
---- control-center-2.8.0.orig/capplets/ui-properties/gnome-ui-properties.desktop.in.in	2003-12-16 22:38:51.000000000 +0100
-+++ control-center-2.8.0/capplets/ui-properties/gnome-ui-properties.desktop.in.in	2004-09-16 22:50:31.661803944 +0200
+diff -aurN control-center-2.13.90.orig/capplets/theme-switcher/gtk-theme-selector.desktop.in.in control-center-2.13.90/capplets/theme-switcher/gtk-theme-selector.desktop.in.in
+--- control-center-2.13.90.orig/capplets/theme-switcher/gtk-theme-selector.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/theme-switcher/gtk-theme-selector.desktop.in.in	2006-01-30 22:46:41.190754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Application;Settings;DesktopSettings;
++Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
-diff -ur control-center-2.8.0.orig/capplets/windows/window-properties.desktop.in.in control-center-2.8.0/capplets/windows/window-properties.desktop.in.in
---- control-center-2.8.0.orig/capplets/windows/window-properties.desktop.in.in	2003-12-16 22:38:52.000000000 +0100
-+++ control-center-2.8.0/capplets/windows/window-properties.desktop.in.in	2004-09-16 22:50:45.692670928 +0200
+diff -aurN control-center-2.13.90.orig/capplets/ui-properties/gnome-ui-properties.desktop.in.in control-center-2.13.90/capplets/ui-properties/gnome-ui-properties.desktop.in.in
+--- control-center-2.13.90.orig/capplets/ui-properties/gnome-ui-properties.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/ui-properties/gnome-ui-properties.desktop.in.in	2006-01-30 22:47:11.520754000 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;Application;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Application;Settings;DesktopSettings;
++Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
+ OnlyShowIn=GNOME;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=control-center
+diff -aurN control-center-2.13.90.orig/capplets/windows/window-properties.desktop.in.in control-center-2.13.90/capplets/windows/window-properties.desktop.in.in
+--- control-center-2.13.90.orig/capplets/windows/window-properties.desktop.in.in	2006-01-23 12:36:20.000000000 +0100
++++ control-center-2.13.90/capplets/windows/window-properties.desktop.in.in	2006-01-30 22:47:26.940754000 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Application;Settings;DesktopSettings;
++Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
