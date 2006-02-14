@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.13.91
+Version:	2.13.92
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	205c4a6ace4747e4ffb9db44868e755d
+# Source0-md5:	eba22b935cfad8660a8ee1a4a0b1e47d
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -37,7 +37,6 @@ BuildRequires:	gnome-menus-devel >= 2.12.0
 BuildRequires:	gnome-vfs2-devel >= 2.13.4
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10
 BuildRequires:	gtk+2-devel >= 2:2.8.6
-BuildRequires:	hal-devel >= 0.5.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.11.0
@@ -48,13 +47,11 @@ BuildRequires:	metacity-devel >= 2:2.12.1
 BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-BuildRequires:	xft-devel >= 2.1.1
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.12.1
-Requires:	hal >= 0.5.6
 Requires:	libxklavier >= 2.0-3
 Obsoletes:	acme
 Obsoletes:	fontilus
