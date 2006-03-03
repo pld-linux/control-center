@@ -10,13 +10,7 @@ diff -aurN control-center-2.13.90.orig/capplets/default-applications/gnome-defau
        <icon-name>firefox</icon-name>
        <run-in-terminal>false</run-in-terminal>
        <netscape-remote>true</netscape-remote>
-@@ -229,11 +229,18 @@
-     </mail-reader>
-     <mail-reader>
-       <_name>Sylpheed-Claws</_name>
--      <executable>sylpheed-claws</executable>
-+      <executable>Sylpheed-claws</executable>
-       <command>sylpheed-claws --compose %s</command>
+@@ -234,6 +234,13 @@
        <icon-name>sylpheed</icon-name>
        <run-in-terminal>false</run-in-terminal>
      </mail-reader>
@@ -30,17 +24,3 @@ diff -aurN control-center-2.13.90.orig/capplets/default-applications/gnome-defau
    </mail-readers>
  
    <terminals>
-@@ -273,6 +280,13 @@
-       <exec-flag>-e</exec-flag>
-     </terminal>
-     <terminal>
-+      <_name>RXVT unicode</_name>
-+      <executable>urxvt</executable>
-+      <command>urxvt</command>
-+      <icon-name>gnome-mime-application-x-executable</icon-name>
-+      <exec-flag>-e</exec-flag>
-+    </terminal>
-+    <terminal>
-       <_name>aterm</_name>
-       <executable>aterm</executable>
-       <command>aterm</command>
