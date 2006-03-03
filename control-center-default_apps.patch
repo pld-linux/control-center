@@ -14,7 +14,7 @@ diff -aurN control-center-2.13.90.orig/capplets/default-applications/gnome-defau
      </mail-reader>
      <mail-reader>
        <_name>Sylpheed-Claws</_name>
--      <executable>ylpheed-claws</executable>
+-      <executable>sylpheed-claws</executable>
 +      <executable>Sylpheed-claws</executable>
        <command>sylpheed-claws --compose %s</command>
        <icon-name>sylpheed</icon-name>
