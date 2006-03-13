@@ -5,17 +5,17 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.12.2
-Release:	2
+Version:	2.14.0
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	efed1ba0833849c3bc74d502b0a07d00
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	90195a0b42b94d80b0959c32162a10e3
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
-Patch3:		%{name}-def-apps-capplet-browsers.patch
+Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
@@ -34,8 +34,8 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.12.1
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	gnome-menus-devel >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.12.1
-BuildRequires:	gstreamer-plugins-devel >= 0.8.8
+BuildRequires:	gnome-vfs2-devel >= 2.13.4
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10
 BuildRequires:	gtk+2-devel >= 2:2.8.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
@@ -47,8 +47,6 @@ BuildRequires:	metacity-devel >= 2:2.12.1
 BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-BuildRequires:	xft-devel >= 2.1.1
-Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
@@ -216,6 +214,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %{_datadir}/control-center-2.0
 %{_datadir}/gnome/cursor-fonts
+%{_datadir}/gnome-default-applications
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/idl/*
 %{_iconsdir}/*/*/*/gnome-control-center.png
