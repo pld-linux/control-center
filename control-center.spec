@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.13.93
+Version:	2.14.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	35418845bdcf6d82badcd58ffc784c24
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	90195a0b42b94d80b0959c32162a10e3
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
