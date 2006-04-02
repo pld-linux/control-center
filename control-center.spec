@@ -1,4 +1,4 @@
-Summary:	GNOME control center
+Summary:	GNOME Control Center
 Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum Kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
