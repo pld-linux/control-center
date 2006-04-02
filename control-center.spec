@@ -1,21 +1,21 @@
 Summary:	GNOME control center
 Summary(es):	El centro de controle del GNOME
-Summary(pl):	Centrum kontroli GNOME
+Summary(pl):	Centrum Kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.12.3
+Version:	2.14.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8f57ec1852d08d421016732b605a615
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	90195a0b42b94d80b0959c32162a10e3
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
-Patch3:		%{name}-def-apps-capplet-browsers.patch
+Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
@@ -34,8 +34,8 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.12.1
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	gnome-menus-devel >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.12.1
-BuildRequires:	gstreamer-plugins-devel >= 0.8.8
+BuildRequires:	gnome-vfs2-devel >= 2.13.4
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10
 BuildRequires:	gtk+2-devel >= 2:2.8.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
@@ -47,11 +47,10 @@ BuildRequires:	metacity-devel >= 2:2.12.1
 BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-BuildRequires:	xft-devel >= 2.1.1
-Requires(post,postun):	/sbin/ldconfig
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
+Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.12.1
 Requires:	libxklavier >= 2.0-3
@@ -63,27 +62,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A Configuration tool for easily setting up your GNOME environment.
-GNOME is the GNU Network Object Model Environment. That's a fancy name
-but really GNOME is a nice GUI desktop environment. It makes using
-your computer easy, powerful, and easy to configure.
 
 %description -l es
 El control-center es una herramienta para una configuraciСn facilitada
 el entorno GNOME.
 
 %description -l pl
-NarzЙdzie do Ёatwej konfiguracji twojego ╤rodowiska GNOME. GNOME to
-Obiektowe ╕rodowisko Sieciowe na licencji GNU (GNU Network Object
-Model Environment). Nazwa jest do╤Ф dziwaczna, ale w rzeczywisto╤ci
-jest to miЁe ╤rodowisko pracy. Powoduje, ©e u©ywanie komputera jest
-proste, wydajne i Ёatwe w konfiguracji.
+NarzЙdzie do Ёatwej konfiguracji ╤rodowiska GNOME.
 
 %description -l pt_BR
-O control-center И uma ferramenta para facilmente configurar seu
+O Control Center И uma ferramenta para facilmente configurar seu
 ambiente GNOME.
 
 %description -l ru
-Пакет control-center содержит утилиты, позволяющие настраивать среду
+Пакет Control Center содержит утилиты, позволяющие настраивать среду
 GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 программа сохранения экрана, оконный менеджер, системные звуки,
 поведение мыши и др.)
@@ -91,36 +83,48 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Этот пакет нужен, если вы устанавливаете среду GNOME.
 
 %description -l uk
-Пакет control-center м╕стить утил╕ти, як╕ дозволяють настроювати
+Пакет Control Center м╕стить утил╕ти, як╕ дозволяють настроювати
 середовище GNOME вашо╖ системи (так╕ реч╕ як фон робочого столу та
 теми, програма збереження екрану, в╕конний менеджер, системн╕ звуки,
 повед╕нка миш╕ та ╕н.)
 
 Цей пакет потр╕бний, якщо ви встановлю╓те середовище GNOME.
 
+%package libs
+Summary:	GNOME Control Center gnome-window-settings library
+Summary(pl):	Biblioteka Control Center gnome-window-settings
+Group:		Development/Libraries
+Requires:	libgnomeui >= 2.10.0-2
+
+%description libs
+This package contains gnome-window-settings library.
+
+%description libs -l pl
+Pakiet ten zawiera bibliotekЙ gnome-window-settings.
+
 %package devel
-Summary:	GNOME Control-Center header files
-Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control-Center
+Summary:	GNOME Control Center header files
+Summary(pl):	Pliki nagЁСwkowe bibliotek GNOME Control Center
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 
 %description devel
 GNOME Control-Center header files.
 
 %description devel -l pl
-Pliki nagЁСwkowe bibliotek GNOME Control-Center
+Pliki nagЁСwkowe bibliotek GNOME Control Center.
 
 %package static
-Summary:	GNOME Control-Center static libraries
-Summary(pl):	Statyczne biblioteki GNOME Control-Center
+Summary:	GNOME Control Center static libraries
+Summary(pl):	Statyczne biblioteki GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
-GNOME Control-Center static libraries.
+GNOME Control Center static libraries.
 
 %description static -l pl
-Statyczne biblioteki GNOME Control-Center.
+Statyczne biblioteki GNOME Control Center.
 
 %prep
 %setup -q
@@ -170,7 +174,6 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 %gconf_schema_install apps_gnome_settings_daemon_default_editor.schemas
 %gconf_schema_install apps_gnome_settings_daemon_keybindings.schemas
 %gconf_schema_install apps_gnome_settings_daemon_screensaver.schemas
@@ -191,9 +194,11 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall themus.schemas
 
 %postun
-/sbin/ldconfig
 %scrollkeeper_update_postun
 %update_desktop_database_postun
+
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -208,7 +213,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-settings-daemon
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/nautilus/extensions*/*.so
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
@@ -216,12 +220,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %{_datadir}/control-center-2.0
 %{_datadir}/gnome/cursor-fonts
+%{_datadir}/gnome-default-applications
 %{_datadir}/gnome/vfolders/*
 %{_datadir}/idl/*
 %{_iconsdir}/*/*/*/gnome-control-center.png
 %{_omf_dest_dir}/control-center
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
+
+%files libs
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
