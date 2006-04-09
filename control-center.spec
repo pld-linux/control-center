@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.14.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -19,6 +19,7 @@ Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
+Patch7:		%{name}-evdev.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel >= 1:2.12.1
@@ -47,6 +48,7 @@ BuildRequires:	metacity-devel >= 2:2.12.1
 BuildRequires:	nautilus-devel >= 2.11.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
+BuildRequires:	xorg-lib-libxkbfile-devel
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
@@ -135,6 +137,7 @@ Statyczne biblioteki GNOME Control Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
+%patch7 -p0
 
 sed -i -e 's|-Wextra||' configure.in
 
