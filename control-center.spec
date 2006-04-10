@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.14.0
-Release:	3
+Version:	2.14.1
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	90195a0b42b94d80b0959c32162a10e3
+# Source0-md5:	d673df12692ee08b9fc3d69739f8779e
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -19,7 +19,6 @@ Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
-Patch7:		%{name}-evdev.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	ORBit2-devel >= 1:2.12.1
@@ -137,9 +136,6 @@ Statyczne biblioteki GNOME Control Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1 
-%patch7 -p0
-
-sed -i -e 's|-Wextra||' configure.in
 
 %build
 gnome-doc-prepare --copy --force
@@ -222,9 +218,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/window-manager-settings
 %{_libdir}/bonobo/servers/*
 %{_datadir}/control-center-2.0
+%{_datadir}/desktop-directories/*.directory
 %{_datadir}/gnome/cursor-fonts
 %{_datadir}/gnome-default-applications
-%{_datadir}/gnome/vfolders/*
 %{_datadir}/idl/*
 %{_iconsdir}/*/*/*/gnome-control-center.png
 %{_omf_dest_dir}/control-center
