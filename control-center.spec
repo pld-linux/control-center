@@ -20,8 +20,8 @@ Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.10.0
-BuildRequires:	ORBit2-devel >= 1:2.12.1
+BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	ORBit2-devel >= 1:2.14.0
 BuildRequires:	alsa-lib-devel >= 0.9.0
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
@@ -29,22 +29,22 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.4.1
+BuildRequires:	evolution-data-server-devel >= 1.6.1
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.12.1
+BuildRequires:	gnome-desktop-devel >= 2.14.0
 BuildRequires:	gnome-doc-utils >= 0.4.2
-BuildRequires:	gnome-menus-devel >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.13.4
+BuildRequires:	gnome-menus-devel >= 2.14.0
+BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10
 BuildRequires:	gtk+2-devel >= 2:2.8.6
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.11.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libxml2-devel >= 1:2.6.19
-BuildRequires:	libxklavier-devel >= 2.0
+BuildRequires:	libxklavier-devel >= 2.2
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.12.1
-BuildRequires:	nautilus-devel >= 2.11.0
+BuildRequires:	metacity-devel >= 2:2.14.0
+BuildRequires:	nautilus-devel >= 2.14.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
@@ -53,8 +53,8 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.12.1
-Requires:	libxklavier >= 2.0-3
+Requires:	gnome-vfs2 >= 2.14.0
+Requires:	libxklavier >= 2.2
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -95,7 +95,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.10.0-2
+Requires:	libgnomeui >= 2.14.0
 
 %description libs
 This package contains gnome-window-settings library.
