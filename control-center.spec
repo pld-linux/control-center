@@ -54,6 +54,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.14.2
+Requires:	gstreamer-audio-effects-base >= 0.10.7
 Requires:	libxklavier >= 2.2
 Obsoletes:	acme
 Obsoletes:	fontilus
@@ -149,7 +150,7 @@ gnome-doc-prepare --copy --force
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--enable-gstreamer \
+	--enable-gstreamer=0.10 \
 	--enable-aboutme \
 	X_EXTRA_LIBS="-lXext"
 %{__make}
