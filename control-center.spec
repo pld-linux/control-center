@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.14.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -29,22 +29,22 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.6.2
+BuildRequires:	evolution-data-server-devel >= 1.7.2
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.14.2
+BuildRequires:	gnome-desktop-devel >= 2.15.2
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	gnome-menus-devel >= 2.14.0
-BuildRequires:	gnome-vfs2-devel >= 2.14.2
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10
-BuildRequires:	gtk+2-devel >= 2:2.8.18
+BuildRequires:	gnome-vfs2-devel >= 2.15.1
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.7
+BuildRequires:	gtk+2-devel >= 2:2.9.2
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeui-devel >= 2.14.1
-BuildRequires:	libxml2-devel >= 1:2.6.19
+BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxklavier-devel >= 2.2
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.14.2
-BuildRequires:	nautilus-devel >= 2.14.0
+BuildRequires:	metacity-devel >= 2:2.15.3
+BuildRequires:	nautilus-devel >= 2.15.1
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
@@ -53,7 +53,7 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.14.2
+Requires:	gnome-vfs2 >= 2.15.1
 Requires:	gstreamer-audio-effects-base >= 0.10.7
 Requires:	libxklavier >= 2.2
 Obsoletes:	acme
@@ -96,7 +96,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.14.1
+Requires:	libgnomeui >= 2.15.1
 
 %description libs
 This package contains gnome-window-settings library.
