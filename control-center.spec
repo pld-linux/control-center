@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.14.2
+Version:	2.15.3
 Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	08711b0f14584e7eaa9f4c275085ab36
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	8e6f9e1247e7878642177f6c6acd78fe
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -22,7 +22,7 @@ Patch6:		%{name}-Makefile.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	ORBit2-devel >= 1:2.14.0
-BuildRequires:	alsa-lib-devel >= 0.9.0
+BuildRequires:	alsa-lib-devel >= 1.0.11
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.9.0
@@ -32,30 +32,30 @@ BuildRequires:	esound-devel
 BuildRequires:	evolution-data-server-devel >= 1.7.2
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.15.2
-BuildRequires:	gnome-doc-utils >= 0.4.2
+BuildRequires:	gnome-doc-utils >= 0.7.1
 BuildRequires:	gnome-menus-devel >= 2.14.0
 BuildRequires:	gnome-vfs2-devel >= 2.15.1
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.7
 BuildRequires:	gtk+2-devel >= 2:2.9.2
-BuildRequires:	intltool >= 0.33
+BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	libxklavier-devel >= 2.2
+BuildRequires:	libxklavier-devel >= 2.91
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.15.3
-BuildRequires:	nautilus-devel >= 2.15.1
+BuildRequires:	metacity-devel >= 2:2.15.5
+BuildRequires:	nautilus-devel >= 2.15.2
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
-Requires(post,preun):	GConf2
+Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.15.1
 Requires:	gstreamer-audio-effects-base >= 0.10.7
-Requires:	libxklavier >= 2.2
+Requires:	libxklavier >= 2.91
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -166,7 +166,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions*/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-2.0/modules/*.{a,la}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome --all-name
 
