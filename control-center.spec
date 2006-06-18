@@ -109,6 +109,7 @@ Summary:	GNOME Control Center header files
 Summary(pl):	Pliki nag³ówkowe bibliotek GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
+Requires:	fam-devel
 
 %description devel
 GNOME Control-Center header files.
