@@ -5,7 +5,7 @@ diff -aurN control-center-2.13.90.orig/capplets/about-me/gnome-about-me.desktop.
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -29,7 +29,7 @@ diff -aurN control-center-2.13.90.orig/capplets/accessibility/keyboard/accessibi
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;Accessibility;
+-Categories=GNOME;GTK;Settings;Accessibility;
 +Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -53,7 +53,7 @@ diff -aurN control-center-2.13.90.orig/capplets/default-applications/default-app
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -89,7 +89,7 @@ diff -aurN control-center-2.13.90.orig/capplets/keybindings/keybinding.desktop.i
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -101,7 +101,7 @@ diff -aurN control-center-2.13.90.orig/capplets/keyboard/keyboard.desktop.in.in 
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;HardwareSettings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -113,7 +113,7 @@ diff -aurN control-center-2.13.90.orig/capplets/mouse/gnome-settings-mouse.deskt
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;HardwareSettings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -125,7 +125,7 @@ diff -aurN control-center-2.13.90.orig/capplets/network/gnome-network-preference
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -137,7 +137,7 @@ diff -aurN control-center-2.13.90.orig/capplets/sound/gnome-settings-sound.deskt
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;HardwareSettings;
 +Categories=GTK;GNOME;Settings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -149,7 +149,7 @@ diff -aurN control-center-2.13.90.orig/capplets/theme-switcher/gtk-theme-selecto
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;DesktopSettings;
+-Categories=GNOME;GTK;Settings;DesktopSettings;
 +Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -161,7 +161,7 @@ diff -aurN control-center-2.13.90.orig/capplets/ui-properties/gnome-ui-propertie
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;DesktopSettings;
+-Categories=GNOME;GTK;Settings;DesktopSettings;
 +Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
@@ -173,7 +173,7 @@ diff -aurN control-center-2.13.90.orig/capplets/windows/window-properties.deskto
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;DesktopSettings;
+-Categories=GNOME;GTK;Settings;DesktopSettings;
 +Categories=GTK;GNOME;Settings;DesktopSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME

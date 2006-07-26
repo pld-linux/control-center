@@ -5,7 +5,7 @@ diff -aurN control-center-2.13.90.orig/control-center/gnomecc.desktop.in.in cont
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Application;Settings;
+-Categories=GNOME;GTK;Settings;
 +Categories=GTK;GNOME;Settings;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
