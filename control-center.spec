@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.15.4
+Version:	2.15.90
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	de3a495fc1265e9ed84212299ade5a0a
+# Source0-md5:	e0864dc5e354064599a9ea50e155c0b8
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -19,9 +19,10 @@ Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
+Patch7:		%{name}-bug348821.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel >= 1:2.14.0
+BuildRequires:	ORBit2-devel >= 1:2.14.2
 BuildRequires:	alsa-lib-devel >= 1.0.11
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
@@ -29,34 +30,34 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.7.4
+BuildRequires:	evolution-data-server-devel >= 1.7.90.1
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.15.4
+BuildRequires:	gnome-desktop-devel >= 2.15.90
 BuildRequires:	gnome-doc-utils >= 0.7.1
-BuildRequires:	gnome-menus-devel >= 2.15.4.1
-BuildRequires:	gnome-vfs2-devel >= 2.15.3
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.7
-BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	gnome-menus-devel >= 2.15.90
+BuildRequires:	gnome-vfs2-devel >= 2.15.90
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.2
+BuildRequires:	libgnomeui-devel >= 2.15.90
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxklavier-devel >= 2.91
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.15.8
-BuildRequires:	nautilus-devel >= 2.15.4
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	metacity-devel >= 2:2.15.13
+BuildRequires:	nautilus-devel >= 2.15.90
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-lib-libXxf86misc-devel
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2.10.0
+Requires(post,postun):	gtk+2 >= 2.10.1
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.15.3
-Requires:	gstreamer-audio-effects-base >= 0.10.7
+Requires:	gnome-vfs2 >= 2.15.90
+Requires:	gstreamer-audio-effects-base >= 0.10.9
 Requires:	libxklavier >= 2.91
 Obsoletes:	acme
 Obsoletes:	fontilus
@@ -139,10 +140,11 @@ Statyczne biblioteki GNOME Control Center.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
-%patch6 -p1 
+%patch6 -p1
+%patch7 -p1
 
 %build
-gnome-doc-prepare --copy --force
+%{__gnome_doc_prepare}
 %{__gnome_doc_common}
 %{__glib_gettextize}
 %{__intltoolize}
@@ -151,7 +153,6 @@ gnome-doc-prepare --copy --force
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-schemas-install \
 	--enable-gstreamer=0.10 \
@@ -170,8 +171,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions*/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-2.0/modules/*.{a,la}
 
-#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -187,7 +186,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install themus.schemas
 %scrollkeeper_update_post
 %update_desktop_database_post
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %preun
 %gconf_schema_uninstall apps_gnome_settings_daemon_default_editor.schemas
@@ -201,7 +200,7 @@ gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %postun
 %scrollkeeper_update_postun
 %update_desktop_database_postun
-gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
+%update_icon_cache hicolor
 
 %post	libs -p /sbin/ldconfig
 %postun	libs -p /sbin/ldconfig
