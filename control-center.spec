@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.15.90
+Version:	2.15.91
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	e0864dc5e354064599a9ea50e155c0b8
+# Source0-md5:	693c4462a39a1d95530be75fc6813a31
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -19,7 +19,7 @@ Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
-Patch7:		%{name}-bug348821.patch
+Patch7:		%{name}-dbus.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	ORBit2-devel >= 1:2.14.2
@@ -30,22 +30,22 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.7.90.1
+BuildRequires:	evolution-data-server-devel >= 1.7.91
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.15.90
-BuildRequires:	gnome-doc-utils >= 0.7.1
-BuildRequires:	gnome-menus-devel >= 2.15.90
-BuildRequires:	gnome-vfs2-devel >= 2.15.90
+BuildRequires:	gnome-desktop-devel >= 2.15.91
+BuildRequires:	gnome-doc-utils >= 0.7.2
+BuildRequires:	gnome-menus-devel >= 2.15.91
+BuildRequires:	gnome-vfs2-devel >= 2.15.91
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.9
 BuildRequires:	gtk+2-devel >= 2:2.10.1
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.90
+BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxklavier-devel >= 2.91
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.15.13
-BuildRequires:	nautilus-devel >= 2.15.90
+BuildRequires:	metacity-devel >= 2:2.15.21
+BuildRequires:	nautilus-devel >= 2.15.91
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
