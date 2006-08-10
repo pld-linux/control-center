@@ -6,7 +6,7 @@ Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
 Version:	2.15.91
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -19,7 +19,6 @@ Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
 Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
-Patch7:		%{name}-dbus.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	ORBit2-devel >= 1:2.14.2
@@ -28,9 +27,10 @@ BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
-BuildRequires:	flex
+BuildRequires:	dbus-glib-devel >= 0.71-2
 BuildRequires:	esound-devel
 BuildRequires:	evolution-data-server-devel >= 1.7.91
+BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-desktop-devel >= 2.15.91
 BuildRequires:	gnome-doc-utils >= 0.7.2
@@ -141,7 +141,6 @@ Statyczne biblioteki GNOME Control Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-%patch7 -p1
 
 %build
 %{__gnome_doc_prepare}
