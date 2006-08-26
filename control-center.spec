@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.15.91
-Release:	2
+Version:	2.15.92
+Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	693c4462a39a1d95530be75fc6813a31
+# Source0-md5:	492ed30c90d59eb07f7ccd8fd1d9542c
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -29,34 +29,34 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	dbus-glib-devel >= 0.71-2
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.7.91
+BuildRequires:	evolution-data-server-devel >= 1.7.92
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.15.91
+BuildRequires:	gnome-desktop-devel >= 2.15.92
 BuildRequires:	gnome-doc-utils >= 0.7.2
 BuildRequires:	gnome-menus-devel >= 2.15.91
-BuildRequires:	gnome-vfs2-devel >= 2.15.91
+BuildRequires:	gnome-vfs2-devel >= 2.15.92
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.9
-BuildRequires:	gtk+2-devel >= 2:2.10.1
+BuildRequires:	gtk+2-devel >= 2:2.10.2
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxklavier-devel >= 2.91
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.15.21
-BuildRequires:	nautilus-devel >= 2.15.91
+BuildRequires:	metacity-devel >= 2:2.15.34
+BuildRequires:	nautilus-devel >= 2.15.92
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-lib-libXxf86misc-devel
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2.10.1
+Requires(post,postun):	gtk+2 >= 2.10.2
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.15.90
+Requires:	gnome-vfs2 >= 2.15.92
 Requires:	gstreamer-audio-effects-base >= 0.10.9
 Requires:	libxklavier >= 2.91
 Obsoletes:	acme
@@ -99,7 +99,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.15.2
+Requires:	libgnomeui >= 2.15.91
 
 %description libs
 This package contains gnome-window-settings library.
