@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.16.0
+Version:	2.16.1
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	20535dc3918d896c1a1087eff003ee27
+# Source0-md5:	be0e16ef4e42677ebeb0b580d0c9cf3f
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -30,35 +30,35 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	dbus-glib-devel >= 0.71-2
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.8.0
+BuildRequires:	evolution-data-server-devel >= 1.8.1
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.15.92
-BuildRequires:	gnome-doc-utils >= 0.7.2
-BuildRequires:	gnome-menus-devel >= 2.15.91
-BuildRequires:	gnome-vfs2-devel >= 2.16.0
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.9
-BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	gnome-desktop-devel >= 2.16.1
+BuildRequires:	gnome-doc-utils >= 0.8.0
+BuildRequires:	gnome-menus-devel >= 2.16.0
+BuildRequires:	gnome-vfs2-devel >= 2.16.1
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
+BuildRequires:	gtk+2-devel >= 2:2.10.5
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	libxklavier-devel >= 3.0
 BuildRequires:	libtool
-BuildRequires:	metacity-devel >= 2:2.16.0
-BuildRequires:	nautilus-devel >= 2.16.0
+BuildRequires:	metacity-devel >= 2:2.16.3
+BuildRequires:	nautilus-devel >= 2.16.1
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-lib-libXxf86misc-devel
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2:2.10.2
+Requires(post,postun):	gtk+2 >= 2:2.10.5
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.16.0
-Requires:	gstreamer-audio-effects-base >= 0.10.9
+Requires:	gnome-vfs2 >= 2.16.1
+Requires:	gstreamer-audio-effects-base >= 0.10.10
 Requires:	libxklavier >= 3.0
 Obsoletes:	acme
 Obsoletes:	fontilus
