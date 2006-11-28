@@ -5,13 +5,13 @@ Summary(pt_BR):	O Centro de Controle do GNOME
 Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
 Name:		control-center
-Version:	2.16.1
+Version:	2.16.2
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	be0e16ef4e42677ebeb0b580d0c9cf3f
+# Source0-md5:	fc6e2f5de89f4482758395d941ec6ae1
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -21,7 +21,7 @@ Patch5:		%{name}-desktop.patch
 Patch6:		%{name}-Makefile.patch
 Patch7:		%{name}-compiz-support.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.14.0
+BuildRequires:	GConf2-devel >= 2.16.0
 BuildRequires:	ORBit2-devel >= 1:2.14.3
 BuildRequires:	alsa-lib-devel >= 1.0.12
 BuildRequires:	audiofile >= 1:0.2.6
@@ -33,16 +33,16 @@ BuildRequires:	esound-devel
 BuildRequires:	evolution-data-server-devel >= 1.8.1
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.16.1
+BuildRequires:	gnome-desktop-devel >= 2.16.2
 BuildRequires:	gnome-doc-utils >= 0.8.0
-BuildRequires:	gnome-menus-devel >= 2.16.0
-BuildRequires:	gnome-vfs2-devel >= 2.16.1
+BuildRequires:	gnome-menus-devel >= 2.16.1
+BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.10.5
-BuildRequires:	intltool >= 0.35
+BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.0
-BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	libxklavier-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	metacity-devel >= 2:2.16.3
@@ -51,13 +51,13 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-lib-libXxf86misc-devel
-Requires(post,preun):	GConf2 >= 2.14.0
+Requires(post,preun):	GConf2 >= 2.16.0
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2:2.10.5
+Requires(post,postun):	gtk+2 >= 2:2.10.6
 Requires(post,postun):	scrollkeeper
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.16.1
+Requires:	gnome-vfs2 >= 2.16.3
 Requires:	gstreamer-audio-effects-base >= 0.10.10
 Requires:	libxklavier >= 3.0
 Obsoletes:	acme
@@ -100,7 +100,7 @@ GNOME вашей системы (такие вещи как фон рабочего стола и темы,
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.16.0
+Requires:	libgnomeui >= 2.16.1
 
 %description libs
 This package contains gnome-window-settings library.
