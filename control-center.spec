@@ -2,16 +2,16 @@ Summary:	GNOME Control Center
 Summary(es):	El centro de controle del GNOME
 Summary(pl):	Centrum Kontroli GNOME
 Summary(pt_BR):	O Centro de Controle do GNOME
-Summary(uk):	Центр керування GNOME
 Summary(ru):	Центр управления GNOME
+Summary(uk):	Центр керування GNOME
 Name:		control-center
-Version:	2.16.2
+Version:	2.16.3
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	fc6e2f5de89f4482758395d941ec6ae1
+# Source0-md5:	75ec00d864a69684abc561546fb762bb
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -22,7 +22,7 @@ Patch6:		%{name}-Makefile.patch
 Patch7:		%{name}-compiz-support.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.16.0
-BuildRequires:	ORBit2-devel >= 1:2.14.3
+BuildRequires:	ORBit2-devel >= 1:2.14.4
 BuildRequires:	alsa-lib-devel >= 1.0.12
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
@@ -30,31 +30,31 @@ BuildRequires:	automake >= 1.9.0
 BuildRequires:	bison
 BuildRequires:	dbus-glib-devel >= 0.71-2
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.8.1
+BuildRequires:	evolution-data-server-devel >= 1.8.3
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.16.2
+BuildRequires:	gnome-desktop-devel >= 2.16.3
 BuildRequires:	gnome-doc-utils >= 0.8.0
 BuildRequires:	gnome-menus-devel >= 2.16.1
 BuildRequires:	gnome-vfs2-devel >= 2.16.3
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeui-devel >= 2.16.1
-BuildRequires:	libxml2-devel >= 1:2.6.27
-BuildRequires:	libxklavier-devel >= 3.0
 BuildRequires:	libtool
+BuildRequires:	libxklavier-devel >= 3.0
+BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	metacity-devel >= 2:2.16.3
 BuildRequires:	nautilus-devel >= 2.16.1
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-BuildRequires:	xorg-lib-libxkbfile-devel
 BuildRequires:	xorg-lib-libXxf86misc-devel
-Requires(post,preun):	GConf2 >= 2.16.0
+BuildRequires:	xorg-lib-libxkbfile-devel
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2:2.10.6
+Requires(post,postun):	gtk+2 >= 2:2.10.9
 Requires(post,postun):	scrollkeeper
+Requires(post,preun):	GConf2 >= 2.16.0
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
 Requires:	gnome-vfs2 >= 2.16.3
@@ -236,16 +236,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libgnome-window-settings.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libgnome-window-settings.so
+%{_libdir}/libgnome-window-settings.la
 %{_includedir}/gnome-window-settings-2.0
 %{_includedir}/gnome-settings-daemon-2.0
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/gnome-window-settings-2.0.pc
+%{_pkgconfigdir}/gnome-settings-daemon.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libgnome-window-settings.a
