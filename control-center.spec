@@ -1,9 +1,9 @@
 Summary:	GNOME Control Center
-Summary(es):	El centro de controle del GNOME
-Summary(pl):	Centrum Kontroli GNOME
-Summary(pt_BR):	O Centro de Controle do GNOME
-Summary(ru):	ãÅÎÔÒ ÕÐÒÁ×ÌÅÎÉÑ GNOME
-Summary(uk):	ãÅÎÔÒ ËÅÒÕ×ÁÎÎÑ GNOME
+Summary(es.UTF-8):   El centro de controle del GNOME
+Summary(pl.UTF-8):   Centrum Kontroli GNOME
+Summary(pt_BR.UTF-8):   O Centro de Controle do GNOME
+Summary(ru.UTF-8):   Ð¦ÐµÐ½Ñ‚Ñ€ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ GNOME
+Summary(uk.UTF-8):   Ð¦ÐµÐ½Ñ‚Ñ€ ÐºÐµÑ€ÑƒÐ²Ð°Ð½Ð½Ñ GNOME
 Name:		control-center
 Version:	2.16.3
 Release:	1
@@ -69,48 +69,48 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A Configuration tool for easily setting up your GNOME environment.
 
-%description -l es
-El control-center es una herramienta para una configuración facilitada
+%description -l es.UTF-8
+El control-center es una herramienta para una configuraciÃ³n facilitada
 el entorno GNOME.
 
-%description -l pl
-Narzêdzie do ³atwej konfiguracji ¶rodowiska GNOME.
+%description -l pl.UTF-8
+NarzÄ™dzie do Å‚atwej konfiguracji Å›rodowiska GNOME.
 
-%description -l pt_BR
-O Control Center é uma ferramenta para facilmente configurar seu
+%description -l pt_BR.UTF-8
+O Control Center Ã© uma ferramenta para facilmente configurar seu
 ambiente GNOME.
 
-%description -l ru
-ðÁËÅÔ Control Center ÓÏÄÅÒÖÉÔ ÕÔÉÌÉÔÙ, ÐÏÚ×ÏÌÑÀÝÉÅ ÎÁÓÔÒÁÉ×ÁÔØ ÓÒÅÄÕ
-GNOME ×ÁÛÅÊ ÓÉÓÔÅÍÙ (ÔÁËÉÅ ×ÅÝÉ ËÁË ÆÏÎ ÒÁÂÏÞÅÇÏ ÓÔÏÌÁ É ÔÅÍÙ,
-ÐÒÏÇÒÁÍÍÁ ÓÏÈÒÁÎÅÎÉÑ ÜËÒÁÎÁ, ÏËÏÎÎÙÊ ÍÅÎÅÄÖÅÒ, ÓÉÓÔÅÍÎÙÅ Ú×ÕËÉ,
-ÐÏ×ÅÄÅÎÉÅ ÍÙÛÉ É ÄÒ.)
+%description -l ru.UTF-8
+ÐŸÐ°ÐºÐµÑ‚ Control Center ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ ÑƒÑ‚Ð¸Ð»Ð¸Ñ‚Ñ‹, Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÑŽÑ‰Ð¸Ðµ Ð½Ð°ÑÑ‚Ñ€Ð°Ð¸Ð²Ð°Ñ‚ÑŒ ÑÑ€ÐµÐ´Ñƒ
+GNOME Ð²Ð°ÑˆÐµÐ¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹ (Ñ‚Ð°ÐºÐ¸Ðµ Ð²ÐµÑ‰Ð¸ ÐºÐ°Ðº Ñ„Ð¾Ð½ Ñ€Ð°Ð±Ð¾Ñ‡ÐµÐ³Ð¾ ÑÑ‚Ð¾Ð»Ð° Ð¸ Ñ‚ÐµÐ¼Ñ‹,
+Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ ÑÐºÑ€Ð°Ð½Ð°, Ð¾ÐºÐ¾Ð½Ð½Ñ‹Ð¹ Ð¼ÐµÐ½ÐµÐ´Ð¶ÐµÑ€, ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ñ‹Ðµ Ð·Ð²ÑƒÐºÐ¸,
+Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¼Ñ‹ÑˆÐ¸ Ð¸ Ð´Ñ€.)
 
-üÔÏÔ ÐÁËÅÔ ÎÕÖÅÎ, ÅÓÌÉ ×Ù ÕÓÔÁÎÁ×ÌÉ×ÁÅÔÅ ÓÒÅÄÕ GNOME.
+Ð­Ñ‚Ð¾Ñ‚ Ð¿Ð°ÐºÐµÑ‚ Ð½ÑƒÐ¶ÐµÐ½, ÐµÑÐ»Ð¸ Ð²Ñ‹ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚Ðµ ÑÑ€ÐµÐ´Ñƒ GNOME.
 
-%description -l uk
-ðÁËÅÔ Control Center Í¦ÓÔÉÔØ ÕÔÉÌ¦ÔÉ, ÑË¦ ÄÏÚ×ÏÌÑÀÔØ ÎÁÓÔÒÏÀ×ÁÔÉ
-ÓÅÒÅÄÏ×ÉÝÅ GNOME ×ÁÛÏ§ ÓÉÓÔÅÍÉ (ÔÁË¦ ÒÅÞ¦ ÑË ÆÏÎ ÒÏÂÏÞÏÇÏ ÓÔÏÌÕ ÔÁ
-ÔÅÍÉ, ÐÒÏÇÒÁÍÁ ÚÂÅÒÅÖÅÎÎÑ ÅËÒÁÎÕ, ×¦ËÏÎÎÉÊ ÍÅÎÅÄÖÅÒ, ÓÉÓÔÅÍÎ¦ Ú×ÕËÉ,
-ÐÏ×ÅÄ¦ÎËÁ ÍÉÛ¦ ÔÁ ¦Î.)
+%description -l uk.UTF-8
+ÐŸÐ°ÐºÐµÑ‚ Control Center Ð¼Ñ–ÑÑ‚Ð¸Ñ‚ÑŒ ÑƒÑ‚Ð¸Ð»Ñ–Ñ‚Ð¸, ÑÐºÑ– Ð´Ð¾Ð·Ð²Ð¾Ð»ÑÑŽÑ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾ÑŽÐ²Ð°Ñ‚Ð¸
+ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ðµ GNOME Ð²Ð°ÑˆÐ¾Ñ— ÑÐ¸ÑÑ‚ÐµÐ¼Ð¸ (Ñ‚Ð°ÐºÑ– Ñ€ÐµÑ‡Ñ– ÑÐº Ñ„Ð¾Ð½ Ñ€Ð¾Ð±Ð¾Ñ‡Ð¾Ð³Ð¾ ÑÑ‚Ð¾Ð»Ñƒ Ñ‚Ð°
+Ñ‚ÐµÐ¼Ð¸, Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð° Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½Ñ ÐµÐºÑ€Ð°Ð½Ñƒ, Ð²Ñ–ÐºÐ¾Ð½Ð½Ð¸Ð¹ Ð¼ÐµÐ½ÐµÐ´Ð¶ÐµÑ€, ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ñ– Ð·Ð²ÑƒÐºÐ¸,
+Ð¿Ð¾Ð²ÐµÐ´Ñ–Ð½ÐºÐ° Ð¼Ð¸ÑˆÑ– Ñ‚Ð° Ñ–Ð½.)
 
-ãÅÊ ÐÁËÅÔ ÐÏÔÒ¦ÂÎÉÊ, ÑËÝÏ ×É ×ÓÔÁÎÏ×ÌÀ¤ÔÅ ÓÅÒÅÄÏ×ÉÝÅ GNOME.
+Ð¦ÐµÐ¹ Ð¿Ð°ÐºÐµÑ‚ Ð¿Ð¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¸Ð¹, ÑÐºÑ‰Ð¾ Ð²Ð¸ Ð²ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑ”Ñ‚Ðµ ÑÐµÑ€ÐµÐ´Ð¾Ð²Ð¸Ñ‰Ðµ GNOME.
 
 %package libs
 Summary:	GNOME Control Center gnome-window-settings library
-Summary(pl):	Biblioteka Control Center gnome-window-settings
+Summary(pl.UTF-8):   Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
 Requires:	libgnomeui >= 2.16.1
 
 %description libs
 This package contains gnome-window-settings library.
 
-%description libs -l pl
-Pakiet ten zawiera bibliotekê gnome-window-settings.
+%description libs -l pl.UTF-8
+Pakiet ten zawiera bibliotekÄ™ gnome-window-settings.
 
 %package devel
 Summary:	GNOME Control Center header files
-Summary(pl):	Pliki nag³ówkowe bibliotek GNOME Control Center
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe bibliotek GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	fam-devel
@@ -118,19 +118,19 @@ Requires:	fam-devel
 %description devel
 GNOME Control-Center header files.
 
-%description devel -l pl
-Pliki nag³ówkowe bibliotek GNOME Control Center.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe bibliotek GNOME Control Center.
 
 %package static
 Summary:	GNOME Control Center static libraries
-Summary(pl):	Statyczne biblioteki GNOME Control Center
+Summary(pl.UTF-8):   Statyczne biblioteki GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 GNOME Control Center static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki GNOME Control Center.
 
 %prep
