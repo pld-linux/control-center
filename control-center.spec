@@ -1,9 +1,9 @@
 Summary:	GNOME Control Center
-Summary(es.UTF-8):   El centro de controle del GNOME
-Summary(pl.UTF-8):   Centrum Kontroli GNOME
-Summary(pt_BR.UTF-8):   O Centro de Controle do GNOME
-Summary(ru.UTF-8):   Центр управления GNOME
-Summary(uk.UTF-8):   Центр керування GNOME
+Summary(es.UTF-8):	El centro de controle del GNOME
+Summary(pl.UTF-8):	Centrum Kontroli GNOME
+Summary(pt_BR.UTF-8):	O Centro de Controle do GNOME
+Summary(ru.UTF-8):	Центр управления GNOME
+Summary(uk.UTF-8):	Центр керування GNOME
 Name:		control-center
 Version:	2.16.3
 Release:	1
@@ -98,7 +98,7 @@ GNOME вашей системы (такие вещи как фон рабоче�
 
 %package libs
 Summary:	GNOME Control Center gnome-window-settings library
-Summary(pl.UTF-8):   Biblioteka Control Center gnome-window-settings
+Summary(pl.UTF-8):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
 Requires:	libgnomeui >= 2.16.1
 
@@ -110,7 +110,7 @@ Pakiet ten zawiera bibliotekę gnome-window-settings.
 
 %package devel
 Summary:	GNOME Control Center header files
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek GNOME Control Center
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	fam-devel
@@ -123,7 +123,7 @@ Pliki nagłówkowe bibliotek GNOME Control Center.
 
 %package static
 Summary:	GNOME Control Center static libraries
-Summary(pl.UTF-8):   Statyczne biblioteki GNOME Control Center
+Summary(pl.UTF-8):	Statyczne biblioteki GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
