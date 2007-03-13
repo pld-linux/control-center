@@ -5,61 +5,63 @@ Summary(pt_BR.UTF-8):	O Centro de Controle do GNOME
 Summary(ru.UTF-8):	Центр управления GNOME
 Summary(uk.UTF-8):	Центр керування GNOME
 Name:		control-center
-Version:	2.16.3
+Version:	2.18.0
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	75ec00d864a69684abc561546fb762bb
+Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	e5251c30c45577b78770beb2df59df5d
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
 Patch3:		%{name}-default_apps.patch
 Patch4:		%{name}-capplet.patch
-Patch5:		%{name}-desktop.patch
-Patch6:		%{name}-Makefile.patch
-Patch7:		%{name}-compiz-support.patch
+Patch5:		%{name}-Makefile.patch
+Patch6:		%{name}-compiz-support.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.16.0
-BuildRequires:	ORBit2-devel >= 1:2.14.4
+BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	alsa-lib-devel >= 1.0.12
 BuildRequires:	audiofile >= 1:0.2.6
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1.9.0
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
-BuildRequires:	dbus-glib-devel >= 0.71-2
+BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.8.3
+BuildRequires:	evolution-data-server-devel >= 1.9.92
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-desktop-devel >= 2.16.3
-BuildRequires:	gnome-doc-utils >= 0.8.0
-BuildRequires:	gnome-menus-devel >= 2.16.1
-BuildRequires:	gnome-vfs2-devel >= 2.16.3
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-desktop-devel >= 2.18.0
+BuildRequires:	gnome-doc-utils >= 0.10.0
+BuildRequires:	gnome-menus-devel >= 2.17.92
+BuildRequires:	gnome-panel-devel >= 2.18.0
+BuildRequires:	gnome-vfs2-devel >= 2.18.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.10.9
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	libgnomekbd-devel >= 2.18.0
+BuildRequires:	libgnomeui-devel >= 2.18.0
+BuildRequires:	librsvg-devel >= 2.16.1
 BuildRequires:	libtool
-BuildRequires:	libxklavier-devel >= 3.0
 BuildRequires:	libxml2-devel >= 1:2.6.27
-BuildRequires:	metacity-devel >= 2:2.16.3
-BuildRequires:	nautilus-devel >= 2.16.1
+BuildRequires:	metacity-devel >= 2:2.18.0
+BuildRequires:	nautilus-devel >= 2.18.0.1
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 BuildRequires:	xorg-lib-libXxf86misc-devel
 BuildRequires:	xorg-lib-libxkbfile-devel
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2 >= 2:2.10.9
+Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
-Requires(post,preun):	GConf2 >= 2.16.0
+Requires(post,postun):	shared-mime-info
+Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.16.3
+Requires:	gnome-vfs2 >= 2.18.0
 Requires:	gstreamer-audio-effects-base >= 0.10.10
-Requires:	libxklavier >= 3.0
 Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
@@ -100,7 +102,7 @@ GNOME вашей системы (такие вещи как фон рабоче�
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl.UTF-8):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.16.1
+Requires:	libgnomeui >= 2.18.0
 
 %description libs
 This package contains gnome-window-settings library.
@@ -113,7 +115,13 @@ Summary:	GNOME Control Center header files
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek GNOME Control Center
 Group:		X11/Development/Libraries
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
+Requires:	dbus-glib-devel >= 0.73
 Requires:	fam-devel
+Requires:	gnome-desktop-devel >= 2.18.0
+Requires:	gnome-menus-devel >= 2.17.92
+Requires:	gtk+2-devel >= 2:2.10.10
+Requires:	libgnomeui-devel >= 2.18.0
+Requires:	librsvg-devel >= 2.16.1
 
 %description devel
 GNOME Control-Center header files.
@@ -142,7 +150,6 @@ Statyczne biblioteki GNOME Control Center.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-%patch7 -p1
 
 %build
 %{__gnome_doc_prepare}
@@ -156,6 +163,7 @@ Statyczne biblioteki GNOME Control Center.
 %{__automake}
 %configure \
 	--disable-schemas-install \
+	--disable-update-mimedb \
 	--enable-gstreamer=0.10 \
 	--enable-aboutme \
 	X_EXTRA_LIBS="-lXext"
@@ -181,11 +189,12 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install apps_gnome_settings_daemon_default_editor.schemas
 %gconf_schema_install apps_gnome_settings_daemon_keybindings.schemas
 %gconf_schema_install apps_gnome_settings_daemon_screensaver.schemas
+%gconf_schema_install control-center.schemas
 %gconf_schema_install desktop_gnome_font_rendering.schemas
-%gconf_schema_install desktop_gnome_peripherals_keyboard_xkb.schemas
 %gconf_schema_install fontilus.schemas
 %gconf_schema_install themus.schemas
 %scrollkeeper_update_post
+%update_mime_database
 %update_desktop_database_post
 %update_icon_cache hicolor
 
@@ -193,13 +202,14 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_uninstall apps_gnome_settings_daemon_default_editor.schemas
 %gconf_schema_uninstall apps_gnome_settings_daemon_keybindings.schemas
 %gconf_schema_uninstall apps_gnome_settings_daemon_screensaver.schemas
+%gconf_schema_uninstall	control-center.schemas
 %gconf_schema_uninstall desktop_gnome_font_rendering.schemas
-%gconf_schema_uninstall desktop_gnome_peripherals_keyboard_xkb.schemas
 %gconf_schema_uninstall fontilus.schemas
 %gconf_schema_uninstall themus.schemas
 
 %postun
 %scrollkeeper_update_postun
+%update_mime_database
 %update_desktop_database_postun
 %update_icon_cache hicolor
 
@@ -208,28 +218,28 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_default_editor.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_keybindings.schemas
 %{_sysconfdir}/gconf/schemas/apps_gnome_settings_daemon_screensaver.schemas
+%{_sysconfdir}/gconf/schemas/control-center.schemas
 %{_sysconfdir}/gconf/schemas/desktop_gnome_font_rendering.schemas
-%{_sysconfdir}/gconf/schemas/desktop_gnome_peripherals_keyboard_xkb.schemas
 %{_sysconfdir}/gconf/schemas/fontilus.schemas
 %{_sysconfdir}/gconf/schemas/themus.schemas
 %{_sysconfdir}/gnome-vfs-2.0/modules/*
+%{_sysconfdir}/xdg/menus/gnomecc.menu
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-settings-daemon
 %attr(755,root,root) %{_libdir}/nautilus/extensions*/*.so
 %attr(755,root,root) %{_libdir}/gnome-vfs-2.0/modules/lib*.so
 %attr(755,root,root) %{_libdir}/window-manager-settings/*.so
 %dir %{_libdir}/window-manager-settings
-%{_datadir}/control-center-2.0
+%{_datadir}/control-center
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/gnome/cursor-fonts
-%{_datadir}/gnome-default-applications
-%{_datadir}/idl/*
-%{_iconsdir}/*/*/*/gnome-control-center.png
+%{_datadir}/mime/packages/gnome-theme-package.xml
+%{_iconsdir}/hicolor/*/*/typing-monitor.*
 %{_omf_dest_dir}/control-center
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
@@ -237,16 +247,22 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-window-settings.so.*.*.*
+%attr(755,root,root) %{_libdir}/libslab.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-window-settings.so
+%attr(755,root,root) %{_libdir}/libslab.so
 %{_libdir}/libgnome-window-settings.la
+%{_libdir}/libslab.la
 %{_includedir}/gnome-window-settings-2.0
 %{_includedir}/gnome-settings-daemon-2.0
+%{_includedir}/slab
+%{_pkgconfigdir}/libslab.pc
 %{_pkgconfigdir}/gnome-window-settings-2.0.pc
 %{_pkgconfigdir}/gnome-settings-daemon.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgnome-window-settings.a
+%{_libdir}/libslab.a
