@@ -5,8 +5,8 @@ diff -aurN control-center-2.13.90.orig/capplets/about-me/gnome-about-me.desktop.
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-PersonalSettings;
++Categories=GTK;GNOME;Settings;X-GNOME-PersonalSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
@@ -17,8 +17,8 @@ diff -aurN control-center-2.13.90.orig/capplets/accessibility/at-properties/at-p
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;Accessibility;
-+Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-PersonalSettings;Accessibility;
++Categories=GTK;GNOME;Settings;X-GNOME-PersonalSettings;Accessibility;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
@@ -29,8 +29,8 @@ diff -aurN control-center-2.13.90.orig/capplets/accessibility/keyboard/accessibi
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;Accessibility;
-+Categories=GTK;GNOME;Settings;Accessibility;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-PersonalSettings;Accessibility;
++Categories=GTK;GNOME;Settings;X-GNOME-PersonalSettings;Accessibility;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
@@ -53,8 +53,8 @@ diff -aurN control-center-2.13.90.orig/capplets/default-applications/default-app
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-PersonalSettings;
++Categories=GTK;GNOME;Settings;X-GNOME-PersonalSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
@@ -89,8 +89,8 @@ diff -aurN control-center-2.13.90.orig/capplets/keybindings/keybinding.desktop.i
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-PersonalSettings;
++Categories=GTK;GNOME;Settings;X-GNOME-PersonalSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
@@ -125,8 +125,8 @@ diff -aurN control-center-2.13.90.orig/capplets/network/gnome-network-preference
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GNOME;GTK;Settings;
-+Categories=GTK;GNOME;Settings;X-Capplet;
+-Categories=GNOME;GTK;Settings;X-GNOME-NetworkSettings;
++Categories=GTK;GNOME;Settings;X-GNOME-NetworkSettings;X-Capplet;
  OnlyShowIn=GNOME;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=control-center
