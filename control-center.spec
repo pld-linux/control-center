@@ -5,13 +5,13 @@ Summary(pt_BR.UTF-8):	O Centro de Controle do GNOME
 Summary(ru.UTF-8):	Центр управления GNOME
 Summary(uk.UTF-8):	Центр керування GNOME
 Name:		control-center
-Version:	2.18.0
+Version:	2.18.1
 Release:	1
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/control-center/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	e5251c30c45577b78770beb2df59df5d
+# Source0-md5:	bae0fd0f9e32f374bd7236d98788b13f
 Patch0:		%{name}-randr.patch
 Patch1:		%{name}-wm_properties-dir.patch
 Patch2:		%{name}-additional-metacity-keybinding.patch
@@ -28,26 +28,26 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	esound-devel
-BuildRequires:	evolution-data-server-devel >= 1.9.92
+BuildRequires:	evolution-data-server-devel >= 1.10.1
 BuildRequires:	flex
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-common >= 2.18.0
 BuildRequires:	gnome-desktop-devel >= 2.18.0
-BuildRequires:	gnome-doc-utils >= 0.10.0
-BuildRequires:	gnome-menus-devel >= 2.17.92
+BuildRequires:	gnome-doc-utils >= 0.10.3
+BuildRequires:	gnome-menus-devel >= 2.18.0
 BuildRequires:	gnome-panel-devel >= 2.18.0
-BuildRequires:	gnome-vfs2-devel >= 2.18.0
+BuildRequires:	gnome-vfs2-devel >= 2.18.1
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
 BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomekbd-devel >= 2.18.0
-BuildRequires:	libgnomeui-devel >= 2.18.0
+BuildRequires:	libgnomekbd-devel >= 2.18.1
+BuildRequires:	libgnomeui-devel >= 2.18.1
 BuildRequires:	librsvg-devel >= 2.16.1
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
-BuildRequires:	metacity-devel >= 2:2.18.0
-BuildRequires:	nautilus-devel >= 2.18.0.1
+BuildRequires:	metacity-devel >= 2:2.18.2
+BuildRequires:	nautilus-devel >= 2.18.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
@@ -60,7 +60,7 @@ Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	desktop-file-utils
-Requires:	gnome-vfs2 >= 2.18.0
+Requires:	gnome-vfs2 >= 2.18.1
 Requires:	gstreamer-audio-effects-base >= 0.10.10
 Obsoletes:	acme
 Obsoletes:	fontilus
@@ -102,7 +102,7 @@ GNOME вашей системы (такие вещи как фон рабоче�
 Summary:	GNOME Control Center gnome-window-settings library
 Summary(pl.UTF-8):	Biblioteka Control Center gnome-window-settings
 Group:		Development/Libraries
-Requires:	libgnomeui >= 2.18.0
+Requires:	libgnomeui >= 2.18.1
 
 %description libs
 This package contains gnome-window-settings library.
@@ -118,9 +118,9 @@ Requires:	%{name}-libs = %{epoch}:%{version}-%{release}
 Requires:	dbus-glib-devel >= 0.73
 Requires:	fam-devel
 Requires:	gnome-desktop-devel >= 2.18.0
-Requires:	gnome-menus-devel >= 2.17.92
+Requires:	gnome-menus-devel >= 2.18.0
 Requires:	gtk+2-devel >= 2:2.10.10
-Requires:	libgnomeui-devel >= 2.18.0
+Requires:	libgnomeui-devel >= 2.18.1
 Requires:	librsvg-devel >= 2.16.1
 
 %description devel
@@ -247,22 +247,16 @@ rm -rf $RPM_BUILD_ROOT
 %files libs
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-window-settings.so.*.*.*
-%attr(755,root,root) %{_libdir}/libslab.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome-window-settings.so
-%attr(755,root,root) %{_libdir}/libslab.so
 %{_libdir}/libgnome-window-settings.la
-%{_libdir}/libslab.la
 %{_includedir}/gnome-window-settings-2.0
 %{_includedir}/gnome-settings-daemon-2.0
-%{_includedir}/slab
-%{_pkgconfigdir}/libslab.pc
 %{_pkgconfigdir}/gnome-window-settings-2.0.pc
 %{_pkgconfigdir}/gnome-settings-daemon.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgnome-window-settings.a
-%{_libdir}/libslab.a
