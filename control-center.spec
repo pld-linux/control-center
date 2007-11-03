@@ -6,7 +6,7 @@ Summary(ru.UTF-8):	Центр управления GNOME
 Summary(uk.UTF-8):	Центр керування GNOME
 Name:		control-center
 Version:	2.18.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+
 Group:		X11/Applications
@@ -66,6 +66,8 @@ Obsoletes:	acme
 Obsoletes:	fontilus
 Obsoletes:	gnome
 Obsoletes:	themus
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -180,6 +182,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/window-manager-settings/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions*/*.{a,la}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gnome-vfs-2.0/modules/*.{a,la}
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --with-gnome --all-name
 
 %clean
